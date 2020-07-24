@@ -50,7 +50,7 @@ public class Calculadora extends JFrame {
 	private JComboBox<String> cbNivel, cbNPC, cbGrupo;
 	private JToggleButton tbtnGrupo, tbtnRenegado, tbtnPVP, tbtnRPG, tbtnExpX2, tbtnOroX2;
 	private JButton btnCalcular;
-	// pijaaaa
+
 	private Integer[][] datosPJ = { { 1, 150 }, { 2, 200 }, { 3, 250 }, { 4, 300 }, { 5, 350 }, { 6, 450 }, { 7, 550 }, { 8, 650 }, { 9, 750 },
 			{ 10, 1000 }, { 11, 1250 }, { 12, 1500 }, { 13, 1750 }, { 14, 2000 }, { 15, 2300 }, { 16, 2600 }, { 17, 2900 }, { 18, 3200 },
 			{ 19, 3500 }, { 20, 4000 }, { 21, 4500 }, { 22, 5000 }, { 23, 5900 }, { 24, 7350 }, { 25, 9150 }, { 26, 11400 }, { 27, 14250 },
