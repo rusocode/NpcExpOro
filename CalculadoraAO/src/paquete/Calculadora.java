@@ -52,7 +52,7 @@ public class Calculadora extends JFrame {
 	private JLabel lblNivel, lblExpPJ, lblNPC, lblExpNPC, lblVidaNPC, lblOroNPC, lblGrupo, lblPorcentajeExp, lblTotNpcMatar, lblTotOro;
 	private JTextField txtExpPJ, txtExpNPC, txtVidaNPC, txtOroNPC, txtPorcentajeExp, txtTotalNPC, txtTotalOro;
 	private JComboBox<String> cbNivel, cbNPC, cbGrupo;
-	private JToggleButton tbtnGrupo, tbtnRenegado, tbtnPVP, tbtnRPG, tbtnExpX2, tbtnOroX2;
+	private JToggleButton tbtnPVP, tbtnRPG, tbtnGrupo, tbtnRenegado, tbtnExpX2, tbtnOroX2, tbtn50, tbtn100, tbtn200;
 	private JButton btnCalcular, btnActualizar, btnAcerca;
 	private ButtonGroup grupo;
 	private JRadioButton mayor, menor, relacion, abc;
@@ -157,11 +157,11 @@ public class Calculadora extends JFrame {
 		JPanel panelServidor = new JPanel();
 		panelServidor.setLayout(new MigLayout("fill, insets 0"));
 
-		tbtnPVP = new JToggleButton("PVP [exp x5 - oro x3]");
+		tbtnPVP = new JToggleButton("PVP");
 		tbtnPVP.addActionListener(new Oyente());
 		tbtnPVP.setFocusable(false);
 
-		tbtnRPG = new JToggleButton("RPG [exp x1 - oro x1]");
+		tbtnRPG = new JToggleButton("RPG");
 		tbtnRPG.addActionListener(new Oyente());
 		tbtnRPG.setFocusable(false);
 
@@ -184,6 +184,9 @@ public class Calculadora extends JFrame {
 		cbGrupo.setFocusable(false);
 		cbGrupo.setEnabled(false);
 
+		JPanel panelBotonesExp = new JPanel();
+		panelBotonesExp.setLayout(new MigLayout("fill, insets 0"));
+
 		tbtnExpX2 = new JToggleButton("exp x2");
 		tbtnExpX2.addActionListener(new Oyente());
 		tbtnExpX2.setFocusable(false);
@@ -192,13 +195,30 @@ public class Calculadora extends JFrame {
 		tbtnOroX2.addActionListener(new Oyente());
 		tbtnOroX2.setFocusable(false);
 
+		tbtn50 = new JToggleButton("+50%");
+		tbtn50.addActionListener(new Oyente());
+		tbtn50.setFocusable(false);
+
+		tbtn100 = new JToggleButton("+100%");
+		tbtn100.addActionListener(new Oyente());
+		tbtn100.setFocusable(false);
+
+		tbtn200 = new JToggleButton("+200%");
+		tbtn200.addActionListener(new Oyente());
+		tbtn200.setFocusable(false);
+
+		panelBotonesExp.add(tbtnExpX2, "sg 2");
+		panelBotonesExp.add(tbtnOroX2, "sg 2");
+		panelBotonesExp.add(tbtn50, "sg 2");
+		panelBotonesExp.add(tbtn100, "sg 2");
+		panelBotonesExp.add(tbtn200, "sg 2, growx");
+
 		panel.add(panelServidor, "spanx, growx");
 		panel.add(tbtnGrupo, "sg 1");
 		panel.add(tbtnRenegado, "sg 1");
 		panel.add(lblGrupo);
 		panel.add(cbGrupo, "growx, wrap");
-		panel.add(tbtnExpX2, "sg 1");
-		panel.add(tbtnOroX2, "sg 1");
+		panel.add(panelBotonesExp, "spanx, growx");
 
 		return panel;
 	}
@@ -309,7 +329,7 @@ public class Calculadora extends JFrame {
 		panel.add(txtTotalNPC);
 		panel.add(lblTotOro);
 		panel.add(txtTotalOro);
-		panel.add(btnCalcular, "span, growx");
+		panel.add(btnCalcular, "spanx, growx");
 
 		return panel;
 	}
@@ -366,6 +386,7 @@ public class Calculadora extends JFrame {
 		return nombre;
 	}
 
+	// FIXME Crear una clase aparte para la clase interna
 	private class Oyente implements ActionListener {
 
 		@Override
@@ -373,13 +394,16 @@ public class Calculadora extends JFrame {
 
 			if (evt.getSource() == tbtnPVP) accion1();
 			if (evt.getSource() == tbtnRPG) accion2();
+			if (evt.getSource() == tbtnGrupo) habilitarComponentes();
+			if (evt.getSource() == tbtn50) accion3();
+			if (evt.getSource() == tbtn100) accion4();
+			if (evt.getSource() == tbtn200) accion5();
 			if (evt.getSource() == cbNivel) getExpPJ();
 			if (evt.getSource() == cbNPC) getDatosNPC();
 			if (evt.getSource() == mayor) sortDesc();
 			if (evt.getSource() == menor) sortAsc();
 			if (evt.getSource() == relacion) sortRelacion();
 			if (evt.getSource() == abc) sortABC();
-			if (evt.getSource() == tbtnGrupo) habilitarComponentes();
 			if (evt.getSource() == btnCalcular) calcularTotal();
 
 			/* Habilita el boton btnCalcular si se selecciono un servidor y si alguno los dos combos (PJ y NPC) tienen seleccionado
@@ -391,6 +415,35 @@ public class Calculadora extends JFrame {
 				else btnCalcular.setEnabled(false);
 			}
 
+		}
+
+		private void accion1() {
+			if (tbtnRPG.isSelected()) tbtnRPG.setSelected(false);
+		}
+
+		private void accion2() {
+			if (tbtnPVP.isSelected()) tbtnPVP.setSelected(false);
+		}
+
+		private void accion3() {
+			if (tbtn100.isSelected() || tbtn200.isSelected()) {
+				tbtn100.setSelected(false);
+				tbtn200.setSelected(false);
+			}
+		}
+
+		private void accion4() {
+			if (tbtn50.isSelected() || tbtn200.isSelected()) {
+				tbtn50.setSelected(false);
+				tbtn200.setSelected(false);
+			}
+		}
+
+		private void accion5() {
+			if (tbtn50.isSelected() || tbtn100.isSelected()) {
+				tbtn50.setSelected(false);
+				tbtn100.setSelected(false);
+			}
 		}
 
 		private void getExpPJ() {
@@ -418,6 +471,7 @@ public class Calculadora extends JFrame {
 			}
 		}
 
+		// Ordena los NPCs de mayor a menor exp
 		private void sortDesc() {
 			String auxNombre;
 			int auxVida, auxExp, auxOro;
@@ -453,6 +507,7 @@ public class Calculadora extends JFrame {
 
 		}
 
+		// Ordena los NPCs de menor a mayor exp
 		private void sortAsc() {
 			String auxNombre;
 			int auxVida, auxExp, auxOro;
@@ -540,6 +595,7 @@ public class Calculadora extends JFrame {
 
 		}
 
+		// Ordena los NPCs alfabeticamente
 		private void sortABC() {
 			ArrayList<String> nombres = new ArrayList<String>();
 
@@ -557,14 +613,6 @@ public class Calculadora extends JFrame {
 			for (int i = 0; i < nombres.size(); i++)
 				cbNPC.addItem(nombres.get(i));
 
-		}
-
-		private void accion1() {
-			if (tbtnRPG.isSelected()) tbtnRPG.setSelected(false);
-		}
-
-		private void accion2() {
-			if (tbtnPVP.isSelected()) tbtnPVP.setSelected(false);
 		}
 
 		private void habilitarComponentes() {
