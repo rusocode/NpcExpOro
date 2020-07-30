@@ -64,6 +64,11 @@ public class Calculadora extends JFrame {
 			{ 37, 97250 }, { 38, 109500 }, { 39, 134500 }, { 40, 200000 }, { 41, 275000 }, { 42, 400000 }, { 43, 525000 }, { 44, 650000 },
 			{ 45, 765000 }, { 46, 955000 }, { 47, 1200000 }, { 48, 1500000 }, { 49, 2000000 } };
 
+	// 108 filas y 4 columnas
+	/* Cada fila indica el NPC por asi decirlo. La primera columna indica el nombre del NPC, la segunda la vida, la tercera
+	 * la exp y la cuarta el oro.
+	 * 
+	 * Lo que fue llenar esto a mano una madrugada re loco.. */
 	private Object[][] datosNPC = { { "Gallina salvaje", 20, 26, 10 }, { "Gallo salvaje", 20, 26, 10 }, { "Conejo", 25, 30, 11 },
 			{ "Serpiente", 25, 30, 11 }, { "Rana Venenosa", 30, 33, 14 }, { "Cuervo", 30, 33, 14 }, { "Murciélago", 30, 33, 14 },
 			{ "Escorpión", 35, 39, 16 }, { "Escorpión Oscuro", 35, 39, 16 }, { "Sertlac", 100, 70, 25 }, { "Rata Gigante", 115, 81, 29 },
@@ -145,6 +150,8 @@ public class Calculadora extends JFrame {
 		add(getCalculadoraPanel(), "spanx, growx");
 		add(getBotonesPanel(), "spanx, growx");
 
+		/* Comprime la ventana al tamaño del componente mas grande, garantizando que el marco tenga el tamaño minimo para
+		 * mostrar los componentes que contiene. */
 		pack();
 		setLocationRelativeTo(null);
 
@@ -152,7 +159,7 @@ public class Calculadora extends JFrame {
 
 	private JPanel getAjustesPanel() {
 		JPanel panel = getPanel("Ajustes");
-		panel.setLayout(new MigLayout("fill"));
+		panel.setLayout(new MigLayout("fill")); // Reclama todo el espacio libre en el panel
 
 		JPanel panelServidor = new JPanel();
 		panelServidor.setLayout(new MigLayout("fill, insets 0"));
@@ -236,6 +243,7 @@ public class Calculadora extends JFrame {
 
 		lblExpPJ = new JLabel("Experiencia:");
 
+		// Obviamente si le indico el tamaño al campo de texto, entonces la ventana no tiene que ser redimensionable
 		txtExpPJ = new JTextField(6);
 		txtExpPJ.setEditable(false);
 
@@ -289,7 +297,7 @@ public class Calculadora extends JFrame {
 		lblVidaNPC = new JLabel("Vida:");
 		txtVidaNPC = new JTextField();
 		txtVidaNPC.setEditable(false);
-		lblExpNPC = new JLabel("Exp:"); // FIXME Exp ?
+		lblExpNPC = new JLabel("Exp:");
 		txtExpNPC = new JTextField();
 		txtExpNPC.setEditable(false);
 		lblOroNPC = new JLabel("Oro:");
@@ -405,16 +413,17 @@ public class Calculadora extends JFrame {
 			if (evt.getSource() == relacion) sortRelacion();
 			if (evt.getSource() == abc) sortABC();
 			if (evt.getSource() == btnCalcular) calcularTotal();
+			if (evt.getSource() == tbtnPVP || evt.getSource() == tbtnRPG || evt.getSource() == cbNivel || evt.getSource() == cbNPC) accion0();
 
-			/* Habilita el boton btnCalcular si se selecciono un servidor y si alguno los dos combos (PJ y NPC) tienen seleccionado
-			 * un item. */
-			if (evt.getSource() == tbtnPVP || evt.getSource() == tbtnRPG || evt.getSource() == cbNivel || evt.getSource() == cbNPC) {
-				if ((cbNivel.getSelectedItem() != null && cbNPC.getSelectedItem() != null)
-						&& (tbtnPVP.isSelected() == true || tbtnRPG.isSelected() == true))
-					btnCalcular.setEnabled(true);
-				else btnCalcular.setEnabled(false);
-			}
+		}
 
+		/* Habilita el boton btnCalcular si se selecciono un servidor, y si los dos combos PJ y NPC tienen seleccionado un
+		 * item. */
+		private void accion0() {
+			if ((tbtnPVP.isSelected() == true || tbtnRPG.isSelected() == true)
+					&& (cbNivel.getSelectedItem() != null && cbNPC.getSelectedItem() != null))
+				btnCalcular.setEnabled(true);
+			else btnCalcular.setEnabled(false);
 		}
 
 		private void accion1() {
@@ -633,21 +642,48 @@ public class Calculadora extends JFrame {
 			int exp = Integer.parseInt(txtExpNPC.getText()), oro = Integer.parseInt(txtOroNPC.getText());
 			double npc, npc_r, tot_exp, tot_exp_r;
 
+			// Si es un server PVP
 			if (tbtnPVP.isSelected()) {
 				exp *= 5;
 				oro *= 3;
 			}
 
+			// Si hay evento de exp x2
 			if (tbtnExpX2.isSelected()) exp *= 2;
+			// Si hay evento de oro x2
 			if (tbtnOroX2.isSelected()) oro *= 2;
 
+			// if(tbtn50.isSelected()) exp =
+
+			// Cantidad de NPCs a matar
 			npc = Double.parseDouble(txtExpPJ.getText()) / exp;
+			// Porcentaje de experiencia que otorga el NPC
 			tot_exp = 100 / npc;
 
+			// Cantidad de NPCs a matar para los grupos de renegados
+			/* 0.9
+			 * 
+			 * Multiplicar la cantidad de exp que otorga el NPCs por 0.9 es un atajo para sacar la perdida del 10% del total de esa
+			 * exp, sin hacer muchos calculos (20 exp * 10% / 100 - el total). Es decir que reducimos la cantidad de exp para que la
+			 * perdida tambien se vea reflejada (ademas del % que otorge) en el total de npcs a matar. Es obvio que vamos a tener
+			 * que matar mas npcs estando en grupo, y mas si hablamos de renegados. Por eso, al reducir la cantidad de exp en el
+			 * npc, mas npcs van a necesitarce para llegar al 100%, menos exp mas npcs a matar. Es logico, no podemos tener una
+			 * reduccion de % sobre la exp y matar un npc con un % sin reduccion, ya que estariamos pasando el limite de 100
+			 * (calculando la cantidad de npcs * el %).
+			 * 
+			 * Una vez reducida la exp del npc, dividimos la exp del pj por la exp del npc, y obtenemos la cantidad de npcs a matar.
+			 * En otras palabras, esa cantidad serian los "pedazitos (npcs)" de la exp del pj en la que se "dividen" por x partes, y
+			 * cada parte va a contener un % del total de la exp del npc.
+			 * 
+			 * Para calcular el % de cada parte es necesario dividir 100 por el total, ej: el % de 4,75 es de 20%, ya que sumando
+			 * 20% a cada parte de 4.75 llegamos a 100. Para calcular el % de 4,75 se tiene que dividir 100 por 4,75 = 21,05%. */
 			npc_r = Double.parseDouble(txtExpPJ.getText()) / (exp * 0.9);
-			tot_exp_r = 100 / npc_r;
+			// Porcentaje de experiencia que otorga el NPC para los grupos de renegados
+			tot_exp_r = 100 / npc_r; // tot_exp_r = tot_exp * 0.9;
 
+			// Si el PJ esta en grupo, entonces...
 			if (tbtnGrupo.isSelected()) {
+				// Si el PJ es renegado, entonces...
 				if (tbtnRenegado.isSelected()) {
 					if (cbGrupo.getSelectedIndex() != -1) {
 						if (cbGrupo.getSelectedIndex() == 0) setValores(npc_r * 2, tot_exp_r / 2);
@@ -666,6 +702,7 @@ public class Calculadora extends JFrame {
 
 			} else setValores(npc, tot_exp);
 
+			// Oro y oro para los renes
 			int npc_redo = (int) Math.ceil(npc);
 			int npc_redo_r = (int) Math.ceil(npc_r);
 
@@ -686,6 +723,8 @@ public class Calculadora extends JFrame {
 				oroTotalR /= 5;
 			}
 
+			/* La ventaja de los renegados, es que van a conseguir menos exp pero mas oro, debido a la mayor cantidad de NPCs que
+			 * tienen que matar. */
 			if (tbtnRenegado.isSelected()) txtTotalOro.setText("" + oroTotalR);
 			else txtTotalOro.setText("" + oroTotal);
 
@@ -708,6 +747,7 @@ public class Calculadora extends JFrame {
 
 	public static void main(String[] args) {
 		setLAF();
+		// La ventana debe hacerse visible en ultimo lugar, para evitar parpadeos, movimientos y cambios de tamaño
 		new Calculadora().setVisible(true);
 	}
 
