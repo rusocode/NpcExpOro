@@ -351,6 +351,7 @@ public class Calculadora extends JFrame {
 
 		btnActualizar = new JButton("Actualizar");
 		btnActualizar.setFocusable(false);
+		btnActualizar.setEnabled(false);
 		btnActualizar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent evt) {
@@ -359,7 +360,6 @@ public class Calculadora extends JFrame {
 				}
 			}
 		});
-		panel.add(btnActualizar, "split 2");
 
 		btnAcerca = new JButton("Acerca de...");
 		btnAcerca.setFocusable(false);
@@ -369,6 +369,8 @@ public class Calculadora extends JFrame {
 				if (evt.getSource() == btnAcerca) Acerca.getInstance().setVisible(true);
 			}
 		});
+
+		panel.add(btnActualizar, "split 2");
 		panel.add(btnAcerca);
 
 		return panel;
@@ -653,7 +655,10 @@ public class Calculadora extends JFrame {
 			// Si hay evento de oro x2
 			if (tbtnOroX2.isSelected()) oro *= 2;
 
-			// if(tbtn50.isSelected()) exp =
+			// Calcula el bonus adicional del 50%, 100% y 200% de la experiencia ganada
+			if (tbtn50.isSelected()) exp += calcular50(exp);
+			if (tbtn100.isSelected()) exp += calcular100(exp);
+			if (tbtn200.isSelected()) exp += calcular200(exp);
 
 			// Cantidad de NPCs a matar
 			npc = Double.parseDouble(txtExpPJ.getText()) / exp;
@@ -728,6 +733,18 @@ public class Calculadora extends JFrame {
 			if (tbtnRenegado.isSelected()) txtTotalOro.setText("" + oroTotalR);
 			else txtTotalOro.setText("" + oroTotal);
 
+		}
+
+		private int calcular50(int exp) {
+			return exp * 50 / 100;
+		}
+
+		private int calcular100(int exp) {
+			return exp * 100 / 100;
+		}
+
+		private int calcular200(int exp) {
+			return exp * 200 / 100;
 		}
 
 		private void setValores(double cantidad, double exp) {
