@@ -16,13 +16,17 @@
 
 package paquete;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -30,11 +34,14 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.UIManager;
 
 import net.miginfocom.swing.MigLayout;
+
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
  * @author Ru$o
@@ -49,7 +56,9 @@ public class Calculadora extends JFrame {
 	private JTextField txtExpPJ, txtExpNPC, txtVidaNPC, txtOroNPC, txtPorcentajeExp, txtTotalNPC, txtTotalOro;
 	private JComboBox<String> cbNivel, cbNPC, cbGrupo;
 	private JToggleButton tbtnGrupo, tbtnRenegado, tbtnPVP, tbtnRPG, tbtnExpX2, tbtnOroX2;
-	private JButton btnCalcular;
+	private JButton btnCalcular, btnActualizar, btnAcerca;
+	private ButtonGroup grupo;
+	private JRadioButton mayor, menor, relacion, abc;
 
 	private Integer[][] datosPJ = { { 1, 150 }, { 2, 200 }, { 3, 250 }, { 4, 300 }, { 5, 350 }, { 6, 450 }, { 7, 550 }, { 8, 650 }, { 9, 750 },
 			{ 10, 1000 }, { 11, 1250 }, { 12, 1500 }, { 13, 1750 }, { 14, 2000 }, { 15, 2300 }, { 16, 2600 }, { 17, 2900 }, { 18, 3200 },
@@ -110,11 +119,11 @@ public class Calculadora extends JFrame {
 
 	private Calculadora() {
 
-		super("CalculadoraAO v0.5");
+		super("CalculadoraAO v1.0");
 
 		setResizable(false);
 		setIconImage((new ImageIcon(getClass().getClassLoader().getResource("logo.png"))).getImage());
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		formatoPorcentaje = new DecimalFormat("##.##");
@@ -137,7 +146,7 @@ public class Calculadora extends JFrame {
 		add(getPJPanel(), "growy");
 		add(getNPCPanel());
 		add(getCalculadoraPanel(), "spanx, growx");
-		add(new JLabel("by Ru$o"));
+		add(getBotonesPanel(), "spanx, growx");
 
 		pack();
 		setLocationRelativeTo(null);
@@ -148,8 +157,8 @@ public class Calculadora extends JFrame {
 		JPanel panel = getPanel("Ajustes");
 		panel.setLayout(new MigLayout("fill"));
 
-		JPanel panelServidores = new JPanel();
-		panelServidores.setLayout(new MigLayout("fill, insets 0"));
+		JPanel panelServidor = new JPanel();
+		panelServidor.setLayout(new MigLayout("fill, insets 0"));
 
 		tbtnPVP = new JToggleButton("PVP [exp x5 - oro x3]");
 		tbtnPVP.addActionListener(new Oyente());
@@ -159,8 +168,8 @@ public class Calculadora extends JFrame {
 		tbtnRPG.addActionListener(new Oyente());
 		tbtnRPG.setFocusable(false);
 
-		panelServidores.add(tbtnPVP, "growx");
-		panelServidores.add(tbtnRPG, "growx");
+		panelServidor.add(tbtnPVP, "growx");
+		panelServidor.add(tbtnRPG, "growx");
 
 		tbtnGrupo = new JToggleButton("¿Estás en grupo?");
 		tbtnGrupo.addActionListener(new Oyente());
@@ -173,8 +182,7 @@ public class Calculadora extends JFrame {
 
 		lblGrupo = new JLabel("¿Cuántos son?");
 
-		cbGrupo = new JComboBox<String>();
-		cbGrupo.setModel(new DefaultComboBoxModel<String>(new String[] { "2", "3", "4", "5" }));
+		cbGrupo = new JComboBox<String>(new String[] { "2", "3", "4", "5" });
 		cbGrupo.setSelectedIndex(-1);
 		cbGrupo.setFocusable(false);
 		cbGrupo.setEnabled(false);
@@ -187,7 +195,7 @@ public class Calculadora extends JFrame {
 		tbtnOroX2.addActionListener(new Oyente());
 		tbtnOroX2.setFocusable(false);
 
-		panel.add(panelServidores, "spanx, growx");
+		panel.add(panelServidor, "spanx, growx");
 		panel.add(tbtnGrupo, "sg 1");
 		panel.add(tbtnRenegado, "sg 1");
 		panel.add(lblGrupo);
@@ -204,8 +212,7 @@ public class Calculadora extends JFrame {
 
 		lblNivel = new JLabel("Nivel:");
 
-		cbNivel = new JComboBox<String>();
-		cbNivel.setModel(new DefaultComboBoxModel<String>(getNivel()));
+		cbNivel = new JComboBox<String>(getNiveles());
 		cbNivel.addActionListener(new Oyente());
 		cbNivel.setSelectedItem(null);
 		cbNivel.setFocusable(false);
@@ -227,29 +234,57 @@ public class Calculadora extends JFrame {
 		JPanel panel = getPanel("NPC");
 		panel.setLayout(new MigLayout("wrap 2", "[right][fill]"));
 
+		JPanel panelRadio = new JPanel();
+		panelRadio.setLayout(new MigLayout("insets 0"));
+		grupo = new ButtonGroup();
+		mayor = new JRadioButton("+exp");
+		mayor.addActionListener(new Oyente());
+		mayor.setFont(new Font("Consolas", Font.PLAIN, 11));
+		mayor.setFocusable(false);
+		menor = new JRadioButton("-exp");
+		menor.addActionListener(new Oyente());
+		menor.setFont(new Font("Consolas", Font.PLAIN, 11));
+		menor.setFocusable(false);
+		relacion = new JRadioButton("vida/oro");
+		relacion.addActionListener(new Oyente());
+		relacion.setFont(new Font("Consolas", Font.PLAIN, 11));
+		relacion.setFocusable(false);
+		abc = new JRadioButton("abc");
+		abc.addActionListener(new Oyente());
+		abc.setFont(new Font("Consolas", Font.PLAIN, 11));
+		abc.setFocusable(false);
+		grupo.add(mayor);
+		grupo.add(menor);
+		grupo.add(relacion);
+		grupo.add(abc);
+		panelRadio.add(mayor);
+		panelRadio.add(menor);
+		panelRadio.add(relacion);
+		panelRadio.add(abc);
+		panel.add(panelRadio, "spanx, wrap");
+
 		lblNPC = new JLabel("Nombre:");
-		cbNPC = new JComboBox<String>();
-		cbNPC.setModel(new DefaultComboBoxModel<String>(getNombresOrdenados()));
+		cbNPC = new JComboBox<String>(getNombres());
+		AutoCompleteDecorator.decorate(cbNPC);
 		cbNPC.addActionListener(new Oyente());
 		cbNPC.setSelectedItem(null);
-		cbNPC.setFocusable(false);
 
-		lblExpNPC = new JLabel("Experiencia:");
-		txtExpNPC = new JTextField();
-		txtExpNPC.setEditable(false);
 		lblVidaNPC = new JLabel("Vida:");
 		txtVidaNPC = new JTextField();
 		txtVidaNPC.setEditable(false);
+		lblExpNPC = new JLabel("Experiencia:"); // FIXME Exp ?
+		txtExpNPC = new JTextField();
+		txtExpNPC.setEditable(false);
 		lblOroNPC = new JLabel("Oro:");
 		txtOroNPC = new JTextField();
 		txtOroNPC.setEditable(false);
 
 		panel.add(lblNPC);
 		panel.add(cbNPC);
-		panel.add(lblExpNPC);
-		panel.add(txtExpNPC);
 		panel.add(lblVidaNPC);
 		panel.add(txtVidaNPC);
+		panel.add(lblExpNPC);
+		panel.add(txtExpNPC);
 		panel.add(lblOroNPC);
 		panel.add(txtOroNPC);
 
@@ -282,32 +317,56 @@ public class Calculadora extends JFrame {
 		return panel;
 	}
 
+	private JPanel getBotonesPanel() {
+		JPanel panel = new JPanel();
+
+		panel.setLayout(new MigLayout("insets 0", "[][grow, right]"));
+
+		panel.add(new JLabel("by Ru$o"));
+
+		btnActualizar = new JButton("Actualizar");
+		btnActualizar.setFocusable(false);
+		btnActualizar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				if (evt.getSource() == btnActualizar) {
+					// actualizar por medios de comandos en git bash
+				}
+			}
+		});
+		panel.add(btnActualizar, "split 2");
+
+		btnAcerca = new JButton("Acerca de...");
+		btnAcerca.setFocusable(false);
+		btnAcerca.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				if (evt.getSource() == btnAcerca) Acerca.getInstance().setVisible(true);
+			}
+		});
+		panel.add(btnAcerca);
+
+		return panel;
+	}
+
 	private JPanel getPanel(String title) {
 		JPanel panel = new JPanel();
 		panel.setBorder(BorderFactory.createTitledBorder(title));
 		return panel;
 	}
 
-	private String[] getNivel() {
+	private String[] getNiveles() {
 		String[] nivel = new String[datosPJ.length];
 		for (int i = 0; i < datosPJ.length; i++)
 			nivel[i] = "" + datosPJ[i][0];
-
 		return nivel;
-
 	}
 
-	private String[] getNombresOrdenados() {
-
-		ArrayList<String> nombres = new ArrayList<String>();
-
+	private String[] getNombres() {
+		String[] nombre = new String[datosNPC.length];
 		for (int i = 0; i < datosNPC.length; i++)
-			nombres.add((String) datosNPC[i][0]);
-
-		Collections.sort(nombres);
-
-		return nombres.toArray(new String[0]);
-
+			nombre[i] = "" + datosNPC[i][0];
+		return nombre;
 	}
 
 	private class Oyente implements ActionListener {
@@ -319,6 +378,9 @@ public class Calculadora extends JFrame {
 			if (evt.getSource() == tbtnRPG) accion2();
 			if (evt.getSource() == cbNivel) getExpPJ();
 			if (evt.getSource() == cbNPC) getDatosNPC();
+			if (evt.getSource() == mayor) sortDesc();
+			if (evt.getSource() == menor) sortAsc();
+			if (evt.getSource() == abc) sortABC();
 			if (evt.getSource() == tbtnGrupo) habilitarComponentes();
 			if (evt.getSource() == btnCalcular) calcularTotal();
 
@@ -345,6 +407,7 @@ public class Calculadora extends JFrame {
 		}
 
 		private void getDatosNPC() {
+
 			if (cbNPC.getSelectedIndex() != -1) {
 				for (int i = 0; i < datosNPC.length; i++) {
 					if (cbNPC.getSelectedItem().equals(datosNPC[i][0])) {
@@ -355,6 +418,99 @@ public class Calculadora extends JFrame {
 					}
 				}
 			}
+		}
+
+		private void sortDesc() {
+			String auxNombre;
+			int auxVida, auxExp, auxOro;
+
+			cbNPC.removeAllItems();
+
+			for (int i = 0; i < datosNPC.length - 1; i++) {
+				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
+
+					if ((int) datosNPC[j][1] < (int) datosNPC[j + 1][1]) {
+						auxNombre = "" + datosNPC[j + 1][0];
+						datosNPC[j + 1][0] = datosNPC[j][0];
+						datosNPC[j][0] = auxNombre;
+
+						auxVida = (int) datosNPC[j + 1][1];
+						datosNPC[j + 1][1] = datosNPC[j][1];
+						datosNPC[j][1] = auxVida;
+
+						auxExp = (int) datosNPC[j + 1][2];
+						datosNPC[j + 1][2] = datosNPC[j][2];
+						datosNPC[j][2] = auxExp;
+
+						auxOro = (int) datosNPC[j + 1][3];
+						datosNPC[j + 1][3] = datosNPC[j][3];
+						datosNPC[j][3] = auxOro;
+					}
+
+				}
+			}
+
+			for (int i = 0; i < datosNPC.length; i++)
+				cbNPC.addItem("" + datosNPC[i][0]);
+
+		}
+
+		private void sortAsc() {
+			String auxNombre;
+			int auxVida, auxExp, auxOro;
+
+			cbNPC.removeAllItems();
+
+			// El primer for controlada cada item y el segundo el intercambio
+			for (int i = 0; i < datosNPC.length - 1; i++) {
+				/* Se le resta - 1 al tamaño del array ya que el limite se llega en la suma de j + 1, evitando asi tambien un
+				 * ArrayIndexOutOfBoundsException. */
+				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
+
+					// Si la exp de X es mayor a la exp de Y, entonces se intercambia el nombre, la vida, la exp y el oro
+					if ((int) datosNPC[j][1] > (int) datosNPC[j + 1][1]) {
+						auxNombre = "" + datosNPC[j + 1][0];
+						datosNPC[j + 1][0] = datosNPC[j][0];
+						datosNPC[j][0] = auxNombre;
+
+						auxVida = (int) datosNPC[j + 1][1];
+						datosNPC[j + 1][1] = datosNPC[j][1];
+						datosNPC[j][1] = auxVida;
+
+						auxExp = (int) datosNPC[j + 1][2];
+						datosNPC[j + 1][2] = datosNPC[j][2];
+						datosNPC[j][2] = auxExp;
+
+						auxOro = (int) datosNPC[j + 1][3];
+						datosNPC[j + 1][3] = datosNPC[j][3];
+						datosNPC[j][3] = auxOro;
+					}
+
+				}
+			}
+
+			for (int i = 0; i < datosNPC.length; i++)
+				cbNPC.addItem("" + datosNPC[i][0]);
+
+		}
+
+		private void sortABC() {
+			ArrayList<String> nombres = new ArrayList<String>();
+
+			// Agrega los nombres del Array de objetos al ArrayList
+			for (int i = 0; i < datosNPC.length; i++)
+				nombres.add("" + datosNPC[i][0]);
+
+			// Ordena los nombres alfabeticamente
+			Collections.sort(nombres);
+
+			// Limpia el JComboBox viejo
+			cbNPC.removeAllItems();
+
+			// Agrega los nombres ordenados al ArrayList
+			for (int i = 0; i < nombres.size(); i++)
+				cbNPC.addItem(nombres.get(i));
+
 		}
 
 		private void accion1() {
@@ -448,16 +604,17 @@ public class Calculadora extends JFrame {
 
 	}
 
-	public static void main(String[] args) {
-
+	private static void setLAF() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("Error al establecer el LookAndFeel: " + e.getMessage());
 		}
+	}
 
+	public static void main(String[] args) {
+		setLAF();
 		new Calculadora().setVisible(true);
-
 	}
 
 }
