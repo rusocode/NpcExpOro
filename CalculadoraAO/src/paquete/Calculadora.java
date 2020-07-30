@@ -19,15 +19,12 @@ package paquete;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -245,7 +242,7 @@ public class Calculadora extends JFrame {
 		menor.addActionListener(new Oyente());
 		menor.setFont(new Font("Consolas", Font.PLAIN, 11));
 		menor.setFocusable(false);
-		relacion = new JRadioButton("vida/oro");
+		relacion = new JRadioButton("vida/exp");
 		relacion.addActionListener(new Oyente());
 		relacion.setFont(new Font("Consolas", Font.PLAIN, 11));
 		relacion.setFocusable(false);
@@ -272,7 +269,7 @@ public class Calculadora extends JFrame {
 		lblVidaNPC = new JLabel("Vida:");
 		txtVidaNPC = new JTextField();
 		txtVidaNPC.setEditable(false);
-		lblExpNPC = new JLabel("Experiencia:"); // FIXME Exp ?
+		lblExpNPC = new JLabel("Exp:"); // FIXME Exp ?
 		txtExpNPC = new JTextField();
 		txtExpNPC.setEditable(false);
 		lblOroNPC = new JLabel("Oro:");
@@ -380,6 +377,7 @@ public class Calculadora extends JFrame {
 			if (evt.getSource() == cbNPC) getDatosNPC();
 			if (evt.getSource() == mayor) sortDesc();
 			if (evt.getSource() == menor) sortAsc();
+			if (evt.getSource() == relacion) sortRelacion();
 			if (evt.getSource() == abc) sortABC();
 			if (evt.getSource() == tbtnGrupo) habilitarComponentes();
 			if (evt.getSource() == btnCalcular) calcularTotal();
@@ -429,7 +427,7 @@ public class Calculadora extends JFrame {
 			for (int i = 0; i < datosNPC.length - 1; i++) {
 				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
 
-					if ((int) datosNPC[j][1] < (int) datosNPC[j + 1][1]) {
+					if ((int) datosNPC[j][2] < (int) datosNPC[j + 1][2]) {
 						auxNombre = "" + datosNPC[j + 1][0];
 						datosNPC[j + 1][0] = datosNPC[j][0];
 						datosNPC[j][0] = auxNombre;
@@ -468,7 +466,55 @@ public class Calculadora extends JFrame {
 				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
 
 					// Si la exp de X es mayor a la exp de Y, entonces se intercambia el nombre, la vida, la exp y el oro
-					if ((int) datosNPC[j][1] > (int) datosNPC[j + 1][1]) {
+					if ((int) datosNPC[j][2] > (int) datosNPC[j + 1][2]) {
+						auxNombre = "" + datosNPC[j + 1][0];
+						datosNPC[j + 1][0] = datosNPC[j][0];
+						datosNPC[j][0] = auxNombre;
+
+						auxVida = (int) datosNPC[j + 1][1];
+						datosNPC[j + 1][1] = datosNPC[j][1];
+						datosNPC[j][1] = auxVida;
+
+						auxExp = (int) datosNPC[j + 1][2];
+						datosNPC[j + 1][2] = datosNPC[j][2];
+						datosNPC[j][2] = auxExp;
+
+						auxOro = (int) datosNPC[j + 1][3];
+						datosNPC[j + 1][3] = datosNPC[j][3];
+						datosNPC[j][3] = auxOro;
+					}
+
+				}
+			}
+
+			for (int i = 0; i < datosNPC.length; i++)
+				cbNPC.addItem("" + datosNPC[i][0]);
+
+		}
+
+		// Ordena los NPCs que mejor rinden en cuanto a la relacion que tienen entre vida y exp
+		private void sortRelacion() {
+			String auxNombre;
+			int auxVida, auxExp, auxOro;
+			double relacionX, relacionY;
+
+			cbNPC.removeAllItems();
+
+			for (int i = 0; i < datosNPC.length - 1; i++) {
+				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
+
+					int vidaX = (int) datosNPC[j][1];
+					int expX = (int) datosNPC[j][2];
+					int vidaY = (int) datosNPC[j + 1][1];
+					int expY = (int) datosNPC[j + 1][2];
+
+					// Calcula la relacion del npc X y del npc Y, con respecto a la vida y exp de cada uno
+					relacionX = (double) vidaX / expX;
+					relacionY = (double) vidaY / expY;
+
+					/* Compara ambas relaciones, y si X tiene una peor (mucha diferencia entre vida y exp) relacion con respecto a Y,
+					 * entonces se intercambian los items del array. */
+					if (relacionX > relacionY) {
 						auxNombre = "" + datosNPC[j + 1][0];
 						datosNPC[j + 1][0] = datosNPC[j][0];
 						datosNPC[j][0] = auxNombre;

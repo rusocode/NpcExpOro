@@ -26,7 +26,7 @@ public class JHyperlink extends JLabel {
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		// Le agrega un escuchador al JLabel de tipo MouseListener para hacerlo clickable
-		addMouseListener(new OyenteMouse());
+		addMouseListener(new Oyente());
 
 	}
 
@@ -34,7 +34,7 @@ public class JHyperlink extends JLabel {
 		this.url = url;
 	}
 
-	private class OyenteMouse extends MouseAdapter {
+	private class Oyente extends MouseAdapter {
 		public void mouseClicked(MouseEvent evt) {
 			/* Comprueba si esta clase es compatible con la plataforma actual. Si es compatible, usa getDesktop() para recuperar una
 			 * instancia. */
