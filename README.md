@@ -4,7 +4,7 @@ La idea original no es mía, yo solo hice algunas modificaciones, optimizando ba
 
 ![](screenshot-1.0.png)
 
-[![Download CalculadoraAO](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/calculadoraao/files/latest/download)
+[![Download CalculadoraAO](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/calculadoraao/files/)
 
 ## Características
 - Nivel máximo: 50.
