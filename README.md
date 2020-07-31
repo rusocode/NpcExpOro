@@ -16,12 +16,12 @@ La idea original no es mía, yo solo hice algunas modificaciones, optimizando ba
 - Sistema de ajustes:
 	- Servidor [PVP] (exp x5 y oro x3).
 	- Servidor [RPG] (exp x1 y oro x1).
+	- Grupos **Los renegados pierden un 10% de la experiencia total al formar grupos*.
 	- Evento de experiencia x2.
 	- Evento de oro x2.
 	- Bonus adicional de +50%.
 	- Bonus adicional de +100%.
 	- Bonus adicional de +200%.
-	- Grupos **Los renegados pierden un 10% de la experiencia total al formar grupos*.
 - Búsqueda personalizable de NPCs:
 	- `+exp` muestra los NPCs de mayor a menor exp.
 	- `-exp` muestra los NPCs de menor a mayor exp.
