@@ -1,4 +1,4 @@
-# CalculadoraAO [![Download CalculadoraAO](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/calculadoraao/files/latest/download)
+# CalculadoraAO [![Download CalculadoraAO](https://sourceforge.net/sflogo.php?type=13&group_id=3243176)](https://sourceforge.net/p/calculadoraao/)
 *Calculadora multiplataforma basada en ImperiumAO que calcula el porcentaje de experiencia que otorga el NPC, la cantidad de NPCs a matar para pasar de nivel y el oro total. 
 La idea original no es mía, yo solo hice algunas modificaciones, optimizando bastante el código original y agregando algunas funciones.*
 
