@@ -17,8 +17,12 @@ La idea original no es mía, yo solo hice algunas modificaciones, optimizando ba
 	- Servidor [RPG] (exp x1 y oro x1).
 	- Evento de experiencia x2.
 	- Evento de oro x2.
+	- Bonus adicional de +50%.
+	- Bonus adicional de +100%.
+	- Bonus adicional de +200%.
 	- Grupos **Los renegados pierden un 10% de la experiencia total al formar grupos*.
-- Interfaz gráfica de usuario administrada por la librería [MigLayout](http://www.miglayout.com/). 
+- Búsqueda personalizable de NPCs.
+- Interfaz gráfica de usuario administrada por la librería [MigLayout](http://www.miglayout.com/).
 - Es gratis y puede usarse con fines comerciales.
 
 ## Requerimientos
@@ -53,7 +57,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ```
 
 ## Créditos
-CalculadoraAO, es (C) 2020 Juan Debenedetti
+CalculadoraAO Copyright (C) 2020 Juan Debenedetti
 
 ### Contacto
 juandebenedetti94@gmail.com
