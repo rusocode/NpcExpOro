@@ -119,7 +119,7 @@ public class Calculadora extends JFrame {
 
 	private DecimalFormat formatoPorcentaje;
 
-	private Calculadora() {
+	public Calculadora() {
 
 		super("CalculadoraAO v1.0");
 
@@ -167,7 +167,6 @@ public class Calculadora extends JFrame {
 		tbtnPVP = new JToggleButton("PVP");
 		tbtnPVP.addActionListener(new Oyente());
 		tbtnPVP.setFocusable(false);
-
 		tbtnRPG = new JToggleButton("RPG");
 		tbtnRPG.addActionListener(new Oyente());
 		tbtnRPG.setFocusable(false);
@@ -469,7 +468,6 @@ public class Calculadora extends JFrame {
 		}
 
 		private void getDatosNPC() {
-
 			if (cbNPC.getSelectedIndex() != -1) {
 				for (int i = 0; i < datosNPC.length; i++) {
 					if (cbNPC.getSelectedItem().equals(datosNPC[i][0])) {
