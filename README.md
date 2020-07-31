@@ -22,11 +22,11 @@ La idea original no es mía, yo solo hice algunas modificaciones, optimizando ba
 	- Bonus adicional de +100%.
 	- Bonus adicional de +200%.
 	- Grupos **Los renegados pierden un 10% de la experiencia total al formar grupos*.
-- Búsqueda personalizable de NPCs.
-	- "+exp" muestra los NPCs de mayor a menor exp
-	- "-exp" muestra los NPCs de menor a mayor exp
-	- "vida/exp" muestra los NPCs que mejor rinden en cuanto a la relación que tienen entre vida y exp
-	- "abc" ordena los nombres de los NPCs alfabéticamente
+- Búsqueda personalizable de NPCs:
+	- `+exp` muestra los NPCs de mayor a menor exp.
+	- `-exp` muestra los NPCs de menor a mayor exp.
+	- `vida/exp` muestra los NPCs que mejor rinden en cuanto a la relación que tienen entre vida y exp.
+	- `abc` ordena los nombres de los NPCs alfabéticamente.
 - Interfaz gráfica de usuario administrada por la librería [MigLayout](http://www.miglayout.com/).
 - Es gratis y puede usarse con fines comerciales.
 
