@@ -25,7 +25,7 @@ public class JHyperlink extends JLabel {
 		setForeground(Color.BLUE.darker());
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		// Le agrega un escuchador al JLabel de tipo MouseListener para hacerlo clickable
+		// Le agrega un escuchador al JLabel de tipo MouseListener para hacerlo clickable A
 		addMouseListener(new Oyente());
 
 	}
