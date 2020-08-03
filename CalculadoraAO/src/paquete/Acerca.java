@@ -1,5 +1,5 @@
 package paquete;
-
+// 
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
@@ -50,8 +50,8 @@ public class Acerca extends JDialog {
 		txtArea.setBackground(SystemColor.menu);
 		txtArea.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		String str = "Calculadora multiplataforma basada en ImperiumAO que calcula el porcentaje"
-				+ "\nde experiencia que otorga el NPC, la cantidad de NPCs a matar para pasar de" + "\nnivel y el oro total. " + "\n\nVersión: 1.0"
-				+ "\nCopyright © 2020 Juan Debenedetti" + "\nAll rights reserved.";
+				+ "\nde experiencia que otorga el NPC, la cantidad de NPCs a matar para pasar de" + "\nnivel y el oro total. " + "\n\nVersiÃ³n: 1.0"
+				+ "\nCopyright Â© 2020 Juan Debenedetti" + "\nAll rights reserved.";
 		txtArea.append(str);
 		add(txtArea, "wrap");
 
