@@ -31,11 +31,11 @@ La idea original no es mía, yo solo hice algunas modificaciones, optimizando ba
 - Es gratis y puede usarse con fines comerciales.
 
 ## Requerimientos
-#### Para compilar:
-- **[JDK 8u251](https://workupload.com/file/sf3RVkNuTXJ)**
-   
 #### Para ejecutar:
 - **[JRE 8u251](https://www.java.com/es/download/)**
+#### Para el desarrollo, sugerimos:
+- Eclipse o IntellIJ IDEA
+- JDK 8
 
 ## Licencia
 "CalculadoraAO" es SOFTWARE LIBRE que está bajo licencia GPL versión 3 o posterior.
