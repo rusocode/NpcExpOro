@@ -19,7 +19,7 @@ public class JHyperlink extends JLabel {
 	private String url;
 
 	public JHyperlink(String txt) {
-		// Le pasa el texto (nombre) al constructor de la clase JLabel 처oooo처처처ooo처
+		// Le pasa el texto (nombre) al constructor de la clase JLabel �
 		super(txt);
 
 		setForeground(Color.BLUE.darker());
