@@ -1,2 +1,6 @@
 ## Eclipse ##
+.metadata
 bin/
+.classpath
+.project
+.settings/
