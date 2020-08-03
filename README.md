@@ -1,4 +1,4 @@
-# CalculadoraAO [![Download CalculadoraAO](https://sourceforge.net/sflogo.php?type=10&group_id=3243176)](https://sourceforge.net/p/calculadoraao/files/)
+## CalculadoraAO [![Download CalculadoraAO](https://sourceforge.net/sflogo.php?type=10&group_id=3243176)](https://sourceforge.net/p/calculadoraao/files/)
 *Calculadora multiplataforma basada en ImperiumAO que calcula el porcentaje de experiencia que otorga el NPC, la cantidad de NPCs a matar para pasar de nivel y el oro total. 
 La idea original no es mía, yo solo hice algunas modificaciones, optimizando bastante el código original y agregando algunas funciones.*
 
@@ -6,7 +6,7 @@ La idea original no es mía, yo solo hice algunas modificaciones, optimizando ba
 
 [![Download CalculadoraAO](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/calculadoraao/files/latest/download)
 
-## Características
+### Características
 - Nivel máximo: 50.
 - Tabla de niveles (ver [aquí](https://wiki.imperiumao.com.ar/niveles)).
 - Tabla de NPCs (ver [aquí](https://wiki.imperiumao.com.ar/criaturas_hostiles)).
@@ -30,14 +30,14 @@ La idea original no es mía, yo solo hice algunas modificaciones, optimizando ba
 - Interfaz gráfica de usuario administrada por la librería [MigLayout](http://www.miglayout.com/).
 - Es gratis y puede usarse con fines comerciales.
 
-## Requerimientos
+### Requerimientos
 #### Para ejecutar:
 - **[JRE 8u251](https://www.java.com/es/download/)**
 #### Para el desarrollo, sugerimos:
 - Eclipse o IntellIJ IDEA
 - JDK 8
 
-## Licencia
+### Licencia
 "CalculadoraAO" es SOFTWARE LIBRE que está bajo licencia GPL versión 3 o posterior.
 Esto significa que puedes usarlo, modificarlo, y hasta venderlo, pero siempre debes
 DISTRIBUIR EL CÓDIGO FUENTE COMPLETO si haces cualquier modificación al mismo.
@@ -61,7 +61,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 ```
 
-## Créditos
+### Créditos
 CalculadoraAO Copyright (C) 2020 Juan Debenedetti
 
 ### Contacto
