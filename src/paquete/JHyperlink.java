@@ -19,7 +19,7 @@ public class JHyperlink extends JLabel {
 	private String url;
 
 	public JHyperlink(String txt) {
-		// Le pasa el texto (nombre) al constructor de la clase JLabel
+		// Le pasa el texto (nombre) al constructor de la clase JLabel 贸oooo贸贸贸ooo贸
 		super(txt);
 
 		setForeground(Color.BLUE.darker());
@@ -46,7 +46,7 @@ public class JHyperlink extends JLabel {
 				} catch (URISyntaxException
 						/* Si la cadena dada viola RFC 2396, como se incrementa por las desviaciones anteriores. */ | NullPointerException
 						/* Si la cadena es nula. */ | IOException e) {
-					JOptionPane.showMessageDialog(JHyperlink.this, "No se pudo abrir el hiperv韓culo. Error: " + e.getMessage(), "Error",
+					JOptionPane.showMessageDialog(JHyperlink.this, "No se pudo abrir el hiperv铆nculo. Error: " + e.getMessage(), "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
 			}
