@@ -1,4 +1,4 @@
-package paquete;
+package com.silentsoft;
 
 import java.awt.Font;
 import java.awt.SystemColor;

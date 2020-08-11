@@ -1,4 +1,4 @@
-package paquete;
+package com.silentsoft;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -46,7 +46,7 @@ public class JHyperlink extends JLabel {
 				} catch (URISyntaxException
 						/* Si la cadena dada viola RFC 2396, como se incrementa por las desviaciones anteriores. */ | NullPointerException
 						/* Si la cadena es nula. */ | IOException e) {
-					JOptionPane.showMessageDialog(JHyperlink.this, "No se pudo abrir el hipervÃ­nculo. Error: " + e.getMessage(), "Error",
+					JOptionPane.showMessageDialog(JHyperlink.this, "No se pudo abrir el hipervínculo. Error: " + e.getMessage(), "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
 			}

@@ -14,7 +14,7 @@
  * 
  */
 
-package paquete;
+package com.silentsoft;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -37,7 +37,6 @@ import javax.swing.JToggleButton;
 import javax.swing.UIManager;
 
 import net.miginfocom.swing.MigLayout;
-
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
@@ -70,44 +69,44 @@ public class Calculadora extends JFrame {
 	 * 
 	 * Lo que fue llenar esto a mano una madrugada re loco.. */
 	private Object[][] datosNPC = { { "Gallina salvaje", 20, 26, 10 }, { "Gallo salvaje", 20, 26, 10 }, { "Conejo", 25, 30, 11 },
-			{ "Serpiente", 25, 30, 11 }, { "Rana Venenosa", 30, 33, 14 }, { "Cuervo", 30, 33, 14 }, { "Murciélago", 30, 33, 14 },
-			{ "Escorpión", 35, 39, 16 }, { "Escorpión Oscuro", 35, 39, 16 }, { "Sertlac", 100, 70, 25 }, { "Rata Gigante", 115, 81, 29 },
-			{ "Mano poseída", 130, 91, 33 }, { "Señor de las Sombras", 150, 105, 38 }, { "Tortuga Gigante", 180, 126, 45 },
-			{ "Esqueleto", 200, 140, 50 }, { "Esqueleto Guardián", 300, 180, 60 }, { "Asesino", 350, 210, 70 }, { "Bandido", 360, 216, 72 },
-			{ "Mercenario", 375, 225, 75 }, { "Jabalí Salvaje", 450, 225, 90 }, { "Zorro Rojo", 500, 250, 100 }, { "Zorro Gris", 500, 250, 100 },
-			{ "Lobo", 600, 300, 120 }, { "Tigre", 600, 300, 120 }, { "Oso Pardo", 750, 450, 113 }, { "Araña Gigante", 1000, 600, 150 },
+			{ "Serpiente", 25, 30, 11 }, { "Rana Venenosa", 30, 33, 14 }, { "Cuervo", 30, 33, 14 }, { "Murcielago", 30, 33, 14 },
+			{ "Escorpion", 35, 39, 16 }, { "Escorpion Oscuro", 35, 39, 16 }, { "Sertlac", 100, 70, 25 }, { "Rata Gigante", 115, 81, 29 },
+			{ "Mano poseida", 130, 91, 33 }, { "SeÃ±or de las Sombras", 150, 105, 38 }, { "Tortuga Gigante", 180, 126, 45 },
+			{ "Esqueleto", 200, 140, 50 }, { "Esqueleto Guardian", 300, 180, 60 }, { "Asesino", 350, 210, 70 }, { "Bandido", 360, 216, 72 },
+			{ "Mercenario", 375, 225, 75 }, { "Jabali Salvaje", 450, 225, 90 }, { "Zorro Rojo", 500, 250, 100 }, { "Zorro Gris", 500, 250, 100 },
+			{ "Lobo", 600, 300, 120 }, { "Tigre", 600, 300, 120 }, { "Oso Pardo", 750, 450, 113 }, { "AraÃ±a Gigante", 1000, 600, 150 },
 			{ "Orco", 1000, 600, 150 }, { "Orco Brujo", 1250, 750, 188 }, { "Jefe Orco", 2000, 1400, 500 }, { "Orco del Bosque", 1250, 750, 188 },
-			{ "Ent", 3000, 2100, 450 }, { "Cíclope", 3250, 2275, 488 }, { "Fango", 3500, 2450, 525 }, { "Basilisco", 3000, 2100, 450 },
-			{ "Aparición", 4000, 3600, 1200 }, { "Ogro", 4500, 4050, 1350 }, { "Ogro Guerrero", 4750, 4275, 1425 },
-			{ "Ogro Líder", 7500, 7500, 2250 }, { "Arquero Pirata", 4000, 3600, 1200 }, { "Guerrero Pirata", 4500, 4050, 1350 },
+			{ "Ent", 3000, 2100, 450 }, { "Ciclope", 3250, 2275, 488 }, { "Fango", 3500, 2450, 525 }, { "Basilisco", 3000, 2100, 450 },
+			{ "Aparicion", 4000, 3600, 1200 }, { "Ogro", 4500, 4050, 1350 }, { "Ogro Guerrero", 4750, 4275, 1425 },
+			{ "Ogro Lider", 7500, 7500, 2250 }, { "Arquero Pirata", 4000, 3600, 1200 }, { "Guerrero Pirata", 4500, 4050, 1350 },
 			{ "Jefe Pirata", 5000, 5000, 1500 }, { "Saqueador de Minas", 4250, 3825, 1275 }, { "Sirena", 5000, 5000, 1500 },
-			{ "Zombie Aullador", 560, 616, 196 }, { "Zombie Desquiciado", 555, 611, 194 }, { "Zombie Pútrido", 550, 605, 193 },
+			{ "Zombie Aullador", 560, 616, 196 }, { "Zombie Desquiciado", 555, 611, 194 }, { "Zombie Putrido", 550, 605, 193 },
 			{ "Zombie Mordedor", 575, 633, 201 }, { "Zombie Cenagoso", 595, 655, 208 }, { "Linche", 6500, 5850, 975 },
 			{ "Lord Orco", 6750, 6075, 1013 }, { "Yuan Ti", 7000, 6300, 1050 }, { "Hombre Lagarto", 7000, 6300, 1050 },
-			{ "Medusa", 8500, 8500, 1360 }, { "Medusa Matriarca", 10000, 10000, 1700 }, { "Gólem de Piedra", 20000, 16000, 2600 },
-			{ "Cría de Dragón Verde", 25000, 10000, 3500 }, { "Cría de Dragón Rojo", 27500, 11000, 3850 }, { "Conjuradora", 12500, 12500, 2125 },
-			{ "Gólem de Bronce", 25000, 21250, 3500 }, { "Demonio", 15000, 7500, 3000 }, { "Demonio Abisal", 22500, 11250, 3150 },
-			{ "Gólem de Plata", 40000, 36000, 5600 }, { "Neishtar", 12500, 12500, 2125 }, { "Tolkvar", 25000, 27500, 4500 },
+			{ "Medusa", 8500, 8500, 1360 }, { "Medusa Matriarca", 10000, 10000, 1700 }, { "Golem de piedra", 20000, 16000, 2600 },
+			{ "Cria de Dragon Verde", 25000, 10000, 3500 }, { "Cria de Dragon Rojo", 27500, 11000, 3850 }, { "Conjuradora", 12500, 12500, 2125 },
+			{ "Golem de Bronce", 25000, 21250, 3500 }, { "Demonio", 15000, 7500, 3000 }, { "Demonio Abisal", 22500, 11250, 3150 },
+			{ "Golem de Plata", 40000, 36000, 5600 }, { "Neishtar", 12500, 12500, 2125 }, { "Tolkvar", 25000, 27500, 4500 },
 			{ "Oso Polar", 1050, 1155, 315 }, { "Huargo de Nieve", 1125, 1238, 338 }, { "Lobo Invernal", 975, 1073, 293 },
-			{ "Chamán Ártico", 12500, 13750, 2500 }, { "Yeti", 50000, 65000, 10000 }, { "Gólem de Hielo", 75000, 67500, 15000 },
-			{ "Cría de Rey Dragón", 35000, 17500, 7000 }, { "Corruptor", 995, 1095, 299 }, { "Turbador Sombrío", 1045, 1150, 314 },
+			{ "Chaman ï¿½rtico", 12500, 13750, 2500 }, { "Yeti", 50000, 65000, 10000 }, { "Golem de Hielo", 75000, 67500, 15000 },
+			{ "Cria de Rey Dragan", 35000, 17500, 7000 }, { "Corruptor", 995, 1095, 299 }, { "Turbador Sombrio", 1045, 1150, 314 },
 			{ "Lacayo del Mal", 1025, 1128, 308 }, { "Sanguijuela Gigante", 975, 1073, 293 }, { "Adosador de la Muerte", 12500, 13750, 2125 },
 			{ "Vampiro", 12500, 13750, 2125 }, { "Vampiresa", 12500, 13750, 2125 }, { "Vampiro Transformado", 95000, 109250, 19000 },
 			{ "Hechicero de Agua", 25000, 32500, 5000 }, { "Hechicero de Aire", 25000, 32500, 5000 }, { "Hechicero de Tierra", 25000, 32500, 5000 },
-			{ "Hechicero de Fuego", 25000, 32500, 5000 }, { "Profeta Arcano", 30000, 42000, 6000 }, { "Guardián", 30000, 42000, 6000 },
-			{ "Gran Hechicero Garveloth", 100000, 145000, 20000 }, { "Kraken", 12500, 15000, 4375 }, { "Gólem de Oro", 60000, 60000, 9000 },
-			{ "Castigador", 17500, 17500, 2800 }, { "Conjuradora de Farzhe", 12500, 11250, 1875 }, { "Cría de Dragón Legendario", 20000, 9205, 7429 },
-			{ "Bruja", 1450, 547, 700 }, { "Mago Protector", 1400, 532, 678 }, { "Cría Arácnida", 645, 677, 226 }, { "Archne", 11500, 10305, 1840 },
-			{ "Desertor de las Tinieblas", 7500, 7500, 1275 }, { "Gólem Infernal", 72000, 72000, 12240 }, { "F. Elemental Marrón", 750, 825, 225 },
+			{ "Hechicero de Fuego", 25000, 32500, 5000 }, { "Profeta Arcano", 30000, 42000, 6000 }, { "Guardian", 30000, 42000, 6000 },
+			{ "Gran Hechicero Garveloth", 100000, 145000, 20000 }, { "Kraken", 12500, 15000, 4375 }, { "Golem de Oro", 60000, 60000, 9000 },
+			{ "Castigador", 17500, 17500, 2800 }, { "Conjuradora de Farzhe", 12500, 11250, 1875 }, { "Cria de Dragon Legendario", 20000, 9205, 7429 },
+			{ "Bruja", 1450, 547, 700 }, { "Mago Protector", 1400, 532, 678 }, { "Cria Aracnida", 645, 677, 226 }, { "Archne", 11500, 10305, 1840 },
+			{ "Desertor de las Tinieblas", 7500, 7500, 1275 }, { "Golem Infernal", 72000, 72000, 12240 }, { "F. Elemental Marron", 750, 825, 225 },
 			{ "F. Elemental V. Oscuro", 730, 803, 219 }, { "F. Elemental Fucsia", 710, 781, 213 }, { "F. Elemental Verde", 690, 759, 207 },
 			{ "F. Elemental Azul", 670, 737, 201 }, { "F. Elemental Gris", 650, 715, 195 }, { "F. Elemental Amarillo", 610, 671, 183 },
-			{ "Gran Dragón Verde", 175000, 113750, 52500 }, { "Gran Dragón Rojo", 190000, 123500, 57000 },
-			{ "Gran Dragón Azul", 225000, 146250, 67500 }, { "Gran Dragón Negro", 450000, 337500, 135000 },
-			{ "Dragón Legendario", 650000, 520000, 195000 }, { "Gran Dragón de Hielo", 750000, 600000, 225000 },
+			{ "Gran Dragon Verde", 175000, 113750, 52500 }, { "Gran Dragon Rojo", 190000, 123500, 57000 },
+			{ "Gran Dragon Azul", 225000, 146250, 67500 }, { "Gran Dragon Negro", 450000, 337500, 135000 },
+			{ "Dragon Legendario", 650000, 520000, 195000 }, { "Gran Dragon de Hielo", 750000, 600000, 225000 },
 			{ "Guarda del Pantano", 150000, 120000, 45000 }, { "Archimago Abisal", 175000, 210000, 52500 }, { "Gorgona", 125000, 150000, 37500 },
-			{ "Kern Ghard", 200000, 240000, 60000 }, { "Rey Dragón", 1000000, 1000000, 300000 }, { "Agnus el Oscuro", 3225, 3870, 645 },
+			{ "Kern Ghard", 200000, 240000, 60000 }, { "Rey Dragon", 1000000, 1000000, 300000 }, { "Agnus el Oscuro", 3225, 3870, 645 },
 			{ "Momia enfurecida", 3750, 3350, 1200 }, { "Fantasma", 5300, 5565, 1060 }, { "Hombre Lobo", 6500, 7020, 1300 },
-			{ "Zombie Lóbrego", 5000, 6000, 1000 }, { "Alma Cautiva", 16500, 18150, 3300 }, { "Ermitaño de Neiran", 12500, 16000, 2750 },
+			{ "Zombie Lobrego", 5000, 6000, 1000 }, { "Alma Cautiva", 16500, 18150, 3300 }, { "ErmitaÃ±o de Neiran", 12500, 16000, 2750 },
 			{ "Sacerdote de Neiran", 13050, 16704, 2871 }, { "Sabio de Neiran", 14275, 18272, 3141 }, { "Comandante de Neiran", 15750, 20475, 3465 },
 			{ "Sicario de Neiran", 25000, 33750, 5500 }, { "Cazador de Neiran", 27000, 36450, 5940 }, { "Archimago de Neiran", 30000, 43500, 6600 },
 			{ "Caballero de Neiran", 35000, 50750, 7700 }, { "Abigor", 25000, 38750, 6250 }, { "Belfegor", 34500, 54855, 8625 },
@@ -118,6 +117,10 @@ public class Calculadora extends JFrame {
 	};
 
 	private DecimalFormat formatoPorcentaje;
+
+	private static final int BONUS_50 = 50;
+	private static final int BONUS_100 = 100;
+	private static final int BONUS_200 = 200;
 
 	public Calculadora() {
 
@@ -150,7 +153,7 @@ public class Calculadora extends JFrame {
 		add(getCalculadoraPanel(), "spanx, growx");
 		add(getBotonesPanel(), "spanx, growx");
 
-		/* Comprime la ventana al tamaño del componente mas grande, garantizando que el marco tenga el tamaño minimo para
+		/* Comprime la ventana al tamaÃ±o del componente mas grande, garantizando que el marco tenga el tamaÃ±o minimo para
 		 * mostrar los componentes que contiene. */
 		pack();
 		setLocationRelativeTo(null);
@@ -174,16 +177,16 @@ public class Calculadora extends JFrame {
 		panelServidor.add(tbtnPVP, "growx");
 		panelServidor.add(tbtnRPG, "growx");
 
-		tbtnGrupo = new JToggleButton("¿Estás en grupo?");
+		tbtnGrupo = new JToggleButton("Â¿EstÃ¡s en grupo?");
 		tbtnGrupo.addActionListener(new Oyente());
 		tbtnGrupo.setFocusable(false);
 
-		tbtnRenegado = new JToggleButton("¿Sos renegado?");
+		tbtnRenegado = new JToggleButton("Â¿Sos renegado?");
 		tbtnRenegado.setToolTipText("*Los renegados pierden un 10% de la experiencia total al formar grupos.");
 		tbtnRenegado.setFocusable(false);
 		tbtnRenegado.setEnabled(false);
 
-		lblGrupo = new JLabel("¿Cuántos son?");
+		lblGrupo = new JLabel("Â¿CuÃ¡ntos son?");
 
 		cbGrupo = new JComboBox<String>(new String[] { "2", "3", "4", "5" });
 		cbGrupo.setSelectedIndex(-1);
@@ -237,12 +240,12 @@ public class Calculadora extends JFrame {
 
 		cbNivel = new JComboBox<String>(getNiveles());
 		cbNivel.addActionListener(new Oyente());
-		cbNivel.setSelectedItem(null);
 		cbNivel.setFocusable(false);
+		cbNivel.setSelectedItem(null);
 
 		lblExpPJ = new JLabel("Experiencia:");
 
-		// Obviamente si le indico el tamaño al campo de texto, entonces la ventana no tiene que ser redimensionable
+		// Obviamente si le indico el tamaï¿½o al campo de texto, entonces la ventana no tiene que ser redimensionable
 		txtExpPJ = new JTextField(6);
 		txtExpPJ.setEditable(false);
 
@@ -401,12 +404,13 @@ public class Calculadora extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent evt) {
 
+			if (evt.getSource() == tbtnPVP || evt.getSource() == tbtnRPG || evt.getSource() == cbNivel || evt.getSource() == cbNPC) accion0();
 			if (evt.getSource() == tbtnPVP) accion1();
 			if (evt.getSource() == tbtnRPG) accion2();
-			if (evt.getSource() == tbtnGrupo) habilitarComponentes();
-			if (evt.getSource() == tbtn50) accion3();
-			if (evt.getSource() == tbtn100) accion4();
-			if (evt.getSource() == tbtn200) accion5();
+			if (evt.getSource() == tbtnGrupo) accion3();
+			if (evt.getSource() == tbtn50) accion4();
+			if (evt.getSource() == tbtn100) accion5();
+			if (evt.getSource() == tbtn200) accion6();
 			if (evt.getSource() == cbNivel) getExpPJ();
 			if (evt.getSource() == cbNPC) getDatosNPC();
 			if (evt.getSource() == mayor) sortDesc();
@@ -414,7 +418,6 @@ public class Calculadora extends JFrame {
 			if (evt.getSource() == relacion) sortRelacion();
 			if (evt.getSource() == abc) sortABC();
 			if (evt.getSource() == btnCalcular) calcularTotal();
-			if (evt.getSource() == tbtnPVP || evt.getSource() == tbtnRPG || evt.getSource() == cbNivel || evt.getSource() == cbNPC) accion0();
 
 		}
 
@@ -436,20 +439,33 @@ public class Calculadora extends JFrame {
 		}
 
 		private void accion3() {
+			if (tbtnGrupo.isSelected()) {
+				tbtnRenegado.setEnabled(true);
+				cbGrupo.setEnabled(true);
+				cbGrupo.setSelectedIndex(0);
+			} else {
+				if (tbtnRenegado.isSelected()) tbtnRenegado.setSelected(false);
+				tbtnRenegado.setEnabled(false);
+				cbGrupo.setEnabled(false);
+				cbGrupo.setSelectedIndex(-1);
+			}
+		}
+
+		private void accion4() {
 			if (tbtn100.isSelected() || tbtn200.isSelected()) {
 				tbtn100.setSelected(false);
 				tbtn200.setSelected(false);
 			}
 		}
 
-		private void accion4() {
+		private void accion5() {
 			if (tbtn50.isSelected() || tbtn200.isSelected()) {
 				tbtn50.setSelected(false);
 				tbtn200.setSelected(false);
 			}
 		}
 
-		private void accion5() {
+		private void accion6() {
 			if (tbtn50.isSelected() || tbtn100.isSelected()) {
 				tbtn50.setSelected(false);
 				tbtn100.setSelected(false);
@@ -490,7 +506,10 @@ public class Calculadora extends JFrame {
 			for (int i = 0; i < datosNPC.length - 1; i++) {
 				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
 
-					if ((int) datosNPC[j][2] < (int) datosNPC[j + 1][2]) {
+					int expX = (int) datosNPC[j][2];
+					int expY = (int) datosNPC[j + 1][2];
+
+					if (expX < expY) {
 						auxNombre = "" + datosNPC[j + 1][0];
 						datosNPC[j + 1][0] = datosNPC[j][0];
 						datosNPC[j][0] = auxNombre;
@@ -525,12 +544,15 @@ public class Calculadora extends JFrame {
 
 			// El primer for controlada cada item y el segundo el intercambio
 			for (int i = 0; i < datosNPC.length - 1; i++) {
-				/* Se le resta - 1 al tamaño del array ya que el limite se llega en la suma de j + 1, evitando asi tambien un
+				/* Se le resta - 1 al tamaï¿½o del array ya que el limite se llega en la suma de j + 1, evitando asi tambien un
 				 * ArrayIndexOutOfBoundsException. */
 				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
 
+					int expX = (int) datosNPC[j][2];
+					int expY = (int) datosNPC[j + 1][2];
+
 					// Si la exp de X es mayor a la exp de Y, entonces se intercambia el nombre, la vida, la exp y el oro
-					if ((int) datosNPC[j][2] > (int) datosNPC[j + 1][2]) {
+					if (expX > expY) {
 						auxNombre = "" + datosNPC[j + 1][0];
 						datosNPC[j + 1][0] = datosNPC[j][0];
 						datosNPC[j][0] = auxNombre;
@@ -608,7 +630,7 @@ public class Calculadora extends JFrame {
 		private void sortABC() {
 			ArrayList<String> nombres = new ArrayList<String>();
 
-			// Agrega los nombres del Array de objetos al ArrayList
+			// Agrega los nombres del array de objetos al array de strings
 			for (int i = 0; i < datosNPC.length; i++)
 				nombres.add("" + datosNPC[i][0]);
 
@@ -622,19 +644,6 @@ public class Calculadora extends JFrame {
 			for (int i = 0; i < nombres.size(); i++)
 				cbNPC.addItem(nombres.get(i));
 
-		}
-
-		private void habilitarComponentes() {
-			if (tbtnGrupo.isSelected()) {
-				tbtnRenegado.setEnabled(true);
-				cbGrupo.setEnabled(true);
-				cbGrupo.setSelectedIndex(0);
-			} else {
-				if (tbtnRenegado.isSelected()) tbtnRenegado.setSelected(false);
-				tbtnRenegado.setEnabled(false);
-				cbGrupo.setEnabled(false);
-				cbGrupo.setSelectedIndex(-1);
-			}
 		}
 
 		private void calcularTotal() {
@@ -653,7 +662,7 @@ public class Calculadora extends JFrame {
 			// Si hay evento de oro x2
 			if (tbtnOroX2.isSelected()) oro *= 2;
 
-			// Calcula el bonus adicional del 50%, 100% y 200% de la experiencia ganada
+			// Calcula el bonus adicional del +50%, +100% y +200% de la experiencia ganada
 			if (tbtn50.isSelected()) exp += calcular50(exp);
 			if (tbtn100.isSelected()) exp += calcular100(exp);
 			if (tbtn200.isSelected()) exp += calcular200(exp);
@@ -734,15 +743,15 @@ public class Calculadora extends JFrame {
 		}
 
 		private int calcular50(int exp) {
-			return exp * 50 / 100;
+			return exp * BONUS_50 / 100;
 		}
 
 		private int calcular100(int exp) {
-			return exp * 100 / 100;
+			return exp * BONUS_100 / 100;
 		}
 
 		private int calcular200(int exp) {
-			return exp * 200 / 100;
+			return exp * BONUS_200 / 100;
 		}
 
 		private void setValores(double cantidad, double exp) {
@@ -762,7 +771,7 @@ public class Calculadora extends JFrame {
 
 	public static void main(String[] args) {
 		setLAF();
-		// La ventana debe hacerse visible en ultimo lugar, para evitar parpadeos, movimientos y cambios de tamaño
+		// La ventana debe hacerse visible en ultimo lugar, para evitar parpadeos, movimientos y cambios de tamaï¿½o
 		new Calculadora().setVisible(true);
 	}
 

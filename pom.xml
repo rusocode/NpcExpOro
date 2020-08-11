@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- Definicion del artefacto -->
+	<groupId>com.silentsoft</groupId>
+	<artifactId>CalculadoraAO</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>CalculadoraAO</name>
+	<description>Calculadora basada en ImperiumAO</description>
+	<url>https://github.com/rusocode/CalculadoraAO</url>
+
+	<!-- Propiedades del compilador -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<licenses>
+		<license>
+			<name>GNU GPL v3.0</name>
+			<url>https://www.gnu.org/licenses/</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>Ru$o</id>
+			<name>Juan Debenedetti</name>
+			<email>juandebenedetti94@gmail.com</email>
+			<roles>
+				<role>owner</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<dependencies>
+		<!-- https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar -->
+		<dependency>
+			<groupId>com.miglayout</groupId>
+			<artifactId>miglayout</artifactId>
+			<version>3.7.4</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar -->
+		<dependency>
+			<groupId>org.swinglabs.swingx</groupId>
+			<artifactId>swingx-autocomplete</artifactId>
+			<version>1.6.5-1</version>
+		</dependency>
+	</dependencies>
+
+	<!-- Configura maven-compiler-plugin para usar la misma codificacion de 
+		caracteres en la que estan codificados los archivos fuente. -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>
