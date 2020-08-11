@@ -1,7 +1,10 @@
-## Eclipse ##
+# Eclipse
 .metadata
+.settings/
+target/
 bin/
 .classpath
 .project
-.settings/
-target/
+
+# Otros 
+screenshot.png
