@@ -4,4 +4,4 @@ bin/
 .classpath
 .project
 .settings/
-/target/
+target/
