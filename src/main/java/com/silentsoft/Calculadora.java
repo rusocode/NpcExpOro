@@ -20,7 +20,6 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.InputStream;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
