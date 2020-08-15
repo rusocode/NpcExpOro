@@ -17,8 +17,11 @@
 package com.silentsoft;
 
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,7 +37,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
-import javax.swing.UIManager;
 
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -88,7 +90,7 @@ public class Calculadora extends JFrame {
 			{ "Golem de Bronce", 25000, 21250, 3500 }, { "Demonio", 15000, 7500, 3000 }, { "Demonio Abisal", 22500, 11250, 3150 },
 			{ "Golem de Plata", 40000, 36000, 5600 }, { "Neishtar", 12500, 12500, 2125 }, { "Tolkvar", 25000, 27500, 4500 },
 			{ "Oso Polar", 1050, 1155, 315 }, { "Huargo de Nieve", 1125, 1238, 338 }, { "Lobo Invernal", 975, 1073, 293 },
-			{ "Chaman �rtico", 12500, 13750, 2500 }, { "Yeti", 50000, 65000, 10000 }, { "Golem de Hielo", 75000, 67500, 15000 },
+			{ "Chaman Artico", 12500, 13750, 2500 }, { "Yeti", 50000, 65000, 10000 }, { "Golem de Hielo", 75000, 67500, 15000 },
 			{ "Cria de Rey Dragan", 35000, 17500, 7000 }, { "Corruptor", 995, 1095, 299 }, { "Turbador Sombrio", 1045, 1150, 314 },
 			{ "Lacayo del Mal", 1025, 1128, 308 }, { "Sanguijuela Gigante", 975, 1073, 293 }, { "Adosador de la Muerte", 12500, 13750, 2125 },
 			{ "Vampiro", 12500, 13750, 2125 }, { "Vampiresa", 12500, 13750, 2125 }, { "Vampiro Transformado", 95000, 109250, 19000 },
@@ -127,7 +129,8 @@ public class Calculadora extends JFrame {
 		super("CalculadoraAO v1.0");
 
 		setResizable(false);
-		setIconImage((new ImageIcon(getClass().getClassLoader().getResource("logo.png"))).getImage());
+
+		setIconImage(getImagen("logo.png"));
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -135,6 +138,28 @@ public class Calculadora extends JFrame {
 
 		initialize();
 
+	}
+
+	/* Comprueba si la ruta de la imagen existe. En caso de que no la encuentre, la aplicacion sigue con su ejecucion y no
+	 * se detiene. */
+	private Image getImagen(String path) {
+		
+		// Ruta absoluta
+		ClassLoader classLoader = this.getClass().getClassLoader();
+		Image image = null;
+		ImageIcon imageIcon;
+
+		// Almacena el recurso obtenido en una variable de tipo URL
+		URL url = classLoader.getResource(path);
+
+		// Evita un NullPointerException en caso de que la ruta de la imagen no se ecuentre
+		if (url != null) {
+			System.out.println("Se encontro la imagen!");
+			imageIcon = new ImageIcon(url);
+			image = imageIcon.getImage();
+		}
+
+		return image;
 	}
 
 	private void initialize() {
@@ -759,20 +784,6 @@ public class Calculadora extends JFrame {
 			txtPorcentajeExp.setText(formatoPorcentaje.format(exp) + "%");
 		}
 
-	}
-
-	private static void setLAF() {
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (Exception e) {
-			System.err.println("Error al establecer el LookAndFeel: " + e.getMessage());
-		}
-	}
-
-	public static void main(String[] args) {
-		setLAF();
-		// La ventana debe hacerse visible en ultimo lugar, para evitar parpadeos, movimientos y cambios de tama�o
-		new Calculadora().setVisible(true);
 	}
 
 }
