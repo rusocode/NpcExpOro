@@ -1,5 +1,14 @@
 ## Change Log
 
+#### Version: 1.0.1 - 16-08-2020
+
+- **Implementacion de Maven.**
+- Se redujo el tamaño de la aplicacion a **1399 KBs menos!**
+  - Dependencia MigLayout -> https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar
+  - Dependencia swingx-autocomplete -> https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar
+- Se eliminaron los acentos en los nombres de los NPCs para facilitar la busqueda en el JComboBox.
+- Nueva clase Launcher que ejecuta la aplicacion.
+  
 #### Version: 1.0 - 31-07-2020 
 
 - JComboBox de NPCs autocompletable (libreria swingx-all-1.6.5.jar).
