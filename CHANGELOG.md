@@ -1,15 +1,15 @@
-## Change Log
+## Change Log ([semantic versioning](https://semver.org/))
 
-#### Version: 1.0.1 - 16-08-2020
+#### Version: 1.1.0 - 16-08-2020
 
-- **Implementacion de Maven.**
-- *1399 KB menos!*
-  - Dependencia MigLayout -> https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar
-  - Dependencia swingx-autocomplete -> https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar
-- Se eliminaron los acentos en los nombres de los NPCs para facilitar la busqueda del JComboBox.
-- Nueva clase Launcher que ejecuta la aplicacion.
-  
-#### Version: 1.0 - 31-07-2020 
+- Integracion de Maven.
+- **1399 KB menos!**
+  - Dependencia [miglayout](https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar).
+  - Dependencia [swingx-autocomplete](https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar).
+- Clase principal `Launcher` agregada.
+- **FIX**: Eliminacion de los acentos sobre los nombres de NCPs que evitaban su busqueda en el JComboBox.
+
+#### Version: 1.0.0 - 31-07-2020 
 
 - JComboBox de NPCs autocompletable (libreria swingx-all-1.6.5.jar).
 - Nuevas funciones de busqueda sobre el JComboBox del NPC:
@@ -23,4 +23,3 @@
   - Link al repositorio en GitHub.
 - Se agregaron los scrolls de +50%, +100% y +200% que otorgan un bonus adicional sobre la exp recibida.
 - Se agregaron comentarios al codigo.
-- Bugfixed.

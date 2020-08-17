@@ -22,47 +22,23 @@ La idea original no es mía, yo solo hice algunas modificaciones, optimizando ba
 	- Bonus adicional de +50%.
 	- Bonus adicional de +100%.
 	- Bonus adicional de +200%.
-- Búsqueda personalizable de NPCs:
-	- `+exp` muestra los NPCs de mayor a menor exp.
-	- `-exp` muestra los NPCs de menor a mayor exp.
-	- `vida/exp` muestra los NPCs que mejor rinden en cuanto a la relación que tienen entre vida y exp.
-	- `abc` ordena los nombres de los NPCs alfabéticamente.
 - Interfaz gráfica de usuario administrada por la librería [MigLayout](http://www.miglayout.com/).
 - Es gratis y puede usarse con fines comerciales.
 
-### Requerimientos
-#### Para ejecutar:
-- **[JRE 8u251](https://www.java.com/es/download/)**
-#### Para el desarrollo, sugerimos:
+_Consulte [CHANGELOG.md](https://github.com/rusocode/CalculadoraAO/blob/master/CHANGELOG.md) para mas detalles_
+
+### Getting started
+
+Para el desarrollo sugerimos:
 - Eclipse o IntellIJ IDEA
 - JDK 8
 
-### Licencia
-"CalculadoraAO" es SOFTWARE LIBRE que está bajo licencia GPL versión 3 o posterior.
-Esto significa que puedes usarlo, modificarlo, y hasta venderlo, pero siempre debes
-DISTRIBUIR EL CÓDIGO FUENTE COMPLETO si haces cualquier modificación al mismo.
-De esta forma, la comunidad podrá aprovechar tu aporte, del mismo modo que tú lo haces. 
-Evitamos reinventar la rueda, y el trabajo queda protegido. Aquí FREE significa LIBRE.
-Cualquier duda, revisa los términos de la GNU General Public License, en 
-http://www.fsf.org y http://www.gnu.org. A continuación incluyo un resumen legal:
+Para ejecutar:
+- **[JRE 8](https://www.java.com/es/download/)**
 
-```
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
-```
-
-### Créditos
-CalculadoraAO Copyright (C) 2020 Juan Debenedetti
+#### Maven
+1. Clonar el repositorio en local
+2. Importar como proyecto existente maven
 
 ### Contacto
 juandebenedetti94@gmail.com
