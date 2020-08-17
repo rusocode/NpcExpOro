@@ -1,6 +1,6 @@
 ## Change Log ([semantic versioning](https://semver.org/))
 
-#### Version: 1.0.1 - 16-08-2020
+#### Version: 1.1.0 - 16-08-2020
 
 - Integracion de Maven.
 - **1399 KB menos!**
@@ -9,7 +9,7 @@
 - Clase principal `Launcher` agregada.
 - **FIX**: Eliminacion de los acentos sobre los nombres de NCPs que evitaban su busqueda en el JComboBox.
 
-#### Version: 1.0 - 31-07-2020 
+#### Version: 1.0.0 - 31-07-2020 
 
 - JComboBox de NPCs autocompletable (libreria swingx-all-1.6.5.jar).
 - Nuevas funciones de busqueda sobre el JComboBox del NPC:
