@@ -62,7 +62,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ```
 
 ### Créditos
-CalculadoraAO Copyright (C) 2020 Juan Debenedetti
+CalculadoraAO Copyright © 2020 Juan Debenedetti
 
 ### Contacto
 juandebenedetti94@gmail.com
