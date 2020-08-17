@@ -1,4 +1,4 @@
-## Change Log
+## Change Log ([semantic versioning](https://semver.org/))
 
 #### Version: 1.0.1 - 16-08-2020
 
