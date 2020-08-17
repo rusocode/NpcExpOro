@@ -2,8 +2,8 @@
 
 #### Version: 1.0.1 - 16-08-2020
 
-- **Implementacion de Maven al proyecto.**
-- *1399 KB menos!*
+- **Implementacion de Maven!**
+- 1399 KB menos:
   - Dependencia MigLayout -> https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar
   - Dependencia swingx-autocomplete -> https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar
 - Nueva clase Launcher que ejecuta la aplicacion.
