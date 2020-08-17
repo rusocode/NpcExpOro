@@ -142,8 +142,7 @@ public class Calculadora extends JFrame {
 	/* Comprueba si la ruta de la imagen existe. En caso de que no la encuentre, la aplicacion sigue con su ejecucion y no
 	 * se detiene. */
 	private Image getImagen(String path) {
-		
-		// Ruta absoluta
+
 		ClassLoader classLoader = this.getClass().getClassLoader();
 		Image image = null;
 		ImageIcon imageIcon;
@@ -153,10 +152,9 @@ public class Calculadora extends JFrame {
 
 		// Evita un NullPointerException en caso de que la ruta de la imagen no se ecuentre
 		if (url != null) {
-			System.out.println("Se encontro la imagen!");
 			imageIcon = new ImageIcon(url);
 			image = imageIcon.getImage();
-		}
+		} else System.err.println("No se pudo encontrar la imagen [" + path + "] en \"" + System.getProperty("user.dir") + "\"");
 
 		return image;
 	}
