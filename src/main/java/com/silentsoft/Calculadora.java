@@ -125,7 +125,7 @@ public class Calculadora extends JFrame {
 
 	public Calculadora() {
 
-		super("CalculadoraAO v1.0.1");
+		super("CalculadoraAO v1.1.0");
 
 		setResizable(false);
 
