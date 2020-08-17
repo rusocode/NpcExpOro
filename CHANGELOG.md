@@ -23,4 +23,3 @@
   - Link al repositorio en GitHub.
 - Se agregaron los scrolls de +50%, +100% y +200% que otorgan un bonus adicional sobre la exp recibida.
 - Se agregaron comentarios al codigo.
-- Bugfixed.
