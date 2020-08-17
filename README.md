@@ -61,8 +61,5 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 ```
 
-### Créditos
-CalculadoraAO Copyright © 2020 Juan Debenedetti
-
 ### Contacto
 juandebenedetti94@gmail.com
