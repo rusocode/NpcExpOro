@@ -27,12 +27,15 @@ La idea original no es mía, yo solo hice algunas modificaciones, optimizando ba
 
 _Consulte [CHANGELOG.md](https://github.com/rusocode/CalculadoraAO/blob/master/CHANGELOG.md) para mas detalles_
 
-### Requerimientos
+### Getting started
 #### Para ejecutar:
 - **[JRE 8u251](https://www.java.com/es/download/)**
 #### Para el desarrollo, sugerimos:
 - Eclipse o IntellIJ IDEA
 - JDK 8
+#### Maven (Eclipse):
+- Clonar el repositorio en local
+- Importar como proyecto existente maven
 
 ### Licencia
 "CalculadoraAO" es SOFTWARE LIBRE que está bajo licencia GPL versión 3 o posterior.
