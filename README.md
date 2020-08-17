@@ -28,12 +28,12 @@ La idea original no es mía, yo solo hice algunas modificaciones, optimizando ba
 _Consulte [CHANGELOG.md](https://github.com/rusocode/CalculadoraAO/blob/master/CHANGELOG.md) para mas detalles_
 
 ### Getting started
-#### Maven (Eclipse):
+#### Maven
 1. Clonar el repositorio en local
 2. Importar como proyecto existente maven
-#### Para ejecutar:
+#### Para ejecutar
 - **[JRE 8u251](https://www.java.com/es/download/)**
-#### Para el desarrollo, sugerimos:
+#### Para el desarrollo, sugerimos
 - Eclipse o IntellIJ IDEA
 - JDK 8
 
