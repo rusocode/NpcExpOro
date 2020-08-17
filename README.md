@@ -32,7 +32,7 @@ _Consulte [CHANGELOG.md](https://github.com/rusocode/CalculadoraAO/blob/master/C
 1. Clonar el repositorio en local
 2. Importar como proyecto existente maven
 #### Para ejecutar
-- **[JRE 8u251](https://www.java.com/es/download/)**
+- **[JRE 8](https://www.java.com/es/download/)**
 #### Para el desarrollo, sugerimos
 - Eclipse o IntellIJ IDEA
 - JDK 8
