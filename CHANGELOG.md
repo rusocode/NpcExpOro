@@ -6,7 +6,7 @@
 - *1399 KB menos!*
   - Dependencia MigLayout -> https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar
   - Dependencia swingx-autocomplete -> https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar
-- Se eliminaron los acentos en los nombres de los NPCs para facilitar la busqueda en el JComboBox.
+- Se eliminaron los acentos en los nombres de los NPCs para facilitar la busqueda del JComboBox.
 - Nueva clase Launcher que ejecuta la aplicacion.
   
 #### Version: 1.0 - 31-07-2020 
