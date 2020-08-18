@@ -575,7 +575,7 @@ public class Calculadora extends JFrame {
 
 			// El primer for controlada cada item y el segundo el intercambio
 			for (int i = 0; i < datosNPC.length - 1; i++) {
-				/* Se le resta - 1 al tama�o del array ya que el limite se llega en la suma de j + 1, evitando asi tambien un
+				/* Se le resta - 1 al tamaño del array ya que el limite se llega en la suma de j + 1, evitando asi tambien un
 				 * ArrayIndexOutOfBoundsException. */
 				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
 
