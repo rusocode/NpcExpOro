@@ -671,7 +671,7 @@ public class Calculadora extends JFrame {
 			// Limpia el JComboBox viejo
 			cbNPC.removeAllItems();
 
-			// Agrega los nombres ordenados al ArrayList
+			// Agrega los nombres ordenados al JComboBox
 			for (int i = 0; i < nombres.size(); i++)
 				cbNPC.addItem(nombres.get(i));
 
