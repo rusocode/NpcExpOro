@@ -677,6 +677,8 @@ public class Calculadora extends JFrame {
 
 		}
 
+		/* Aca dejo todo los creditos a los creadores originales de este metodo, una funcion que por mala suerte vino sin
+		 * comentarios. */
 		private void calcularTotal() {
 
 			int exp = Integer.parseInt(txtExpNPC.getText()), oro = Integer.parseInt(txtOroNPC.getText());
