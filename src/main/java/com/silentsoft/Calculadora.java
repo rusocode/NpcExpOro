@@ -151,11 +151,12 @@ public class Calculadora extends JFrame {
 	 * En conclusion, con esta funcion se evita que no se ejecute la aplicacion. */
 	private Image getImagen(String path) {
 
+		// Crea un cargador de clases para esta clase
 		ClassLoader classLoader = this.getClass().getClassLoader();
 		Image image = null;
 		ImageIcon imageIcon;
 
-		// Almacena el recurso obtenido en una variable de tipo URL
+		// El cargador de clases carga la ruta de la imagen y la almacena en una variable de tipo URL
 		URL url = classLoader.getResource(path);
 
 		// Evita un NullPointerException en caso de que la ruta de la imagen no se ecuentre
