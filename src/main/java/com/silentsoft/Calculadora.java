@@ -142,13 +142,13 @@ public class Calculadora extends JFrame {
 	/* Comprueba si la ruta de la imagen existe. En caso de que no la encuentre, la aplicacion sigue con su ejecucion y no
 	 * se detiene.
 	 * 
-	 * La razon de este metodo, se debe que al generar el .jar ejecutable DESDE Eclipse (en este caso), podria llegar a
+	 * La razon de este metodo, se debe a que al generar el .jar ejecutable DESDE Eclipse (en mi caso), podria llegar a
 	 * generar un error en la ruta de clases de la imagen, ya que estamos implementando maven para la estructura de carpetas
 	 * y por convenio es recomendable crear el .jar desde la consola con un "mvn clean compile assembly:single". Este
 	 * comando, crea el ejecutable incluyendo las dependencias especificadas en el archivo pom.xml y lo alamacena dentro de
 	 * la carpeta target.
 	 * 
-	 * En conclusion, con esta funcion se evita que no se ejecute la aplicacion. */
+	 * En conclusion, con esta funcion se evita un NullPointerException. */
 	private Image getImagen(String path) {
 
 		// Crea un cargador de clases para esta clase

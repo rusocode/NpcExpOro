@@ -18,6 +18,7 @@ package com.silentsoft;
 
 import javax.swing.UIManager;
 
+/* La legibilidad y la longitud del codigo son menos importantes que la experiencia facil y rapida del usuario final. */
 public class Launcher {
 
 	private static void setLAF() {
