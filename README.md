@@ -60,7 +60,7 @@ _**IMPORTANTE:** Generar el JAR Ejecutable desde [**Maven**](https://maven.apach
 	</configuration>
 </plugin>
 ```
-2. Ejecutar `mvn clean compile assembly:single` en consola. Dentro de la carpeta target se genera el .jar.
+2. Ejecutar `mvn clean compile assembly:single` en consola para generar el .jar dentro de la carpeta target.
 
 ### Contacto
 juandebenedetti94@gmail.com
