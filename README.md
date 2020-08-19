@@ -40,5 +40,26 @@ Para ejecutar:
 1. Clonar el repositorio en local
 2. Importar como proyecto existente maven
 
+_**IMPORTANTE:** Generar el JAR Ejecutable desde [**Maven**](https://maven.apache.org/download.cgi) y **no** desde el IDE_
+
+1.
+```xml
+<!-- Plugin para generar el .jar con las dependencias includidas -->
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-assembly-plugin</artifactId>
+	<version>3.3.0</version>
+	<configuration>
+		<archive>
+			<manifest>
+				<mainClass>com.silentsoft.Launcher</mainClass> <!-- Indica la clase con el metodo main -->
+			</manifest>
+		</archive>
+		<descriptorRefs>
+			<descriptorRef>jar-with-dependencies</descriptorRef>
+		</descriptorRefs>
+	</configuration>
+</plugin>
+```
 ### Contacto
 juandebenedetti94@gmail.com
