@@ -40,7 +40,7 @@ Para ejecutar:
 1. Clonar el repositorio en local
 2. Importar como proyecto existente maven
 
-_**IMPORTANTE!** Generar el JAR Ejecutable desde [Maven](https://maven.apache.org/download.cgi) y **NO** desde el IDE (solucionado en [Stack Overflow](https://stackoverflow.com/questions/40024242/how-to-load-resources-from-src-main-resources-in-a-way-that-will-work-both-dire))._
+_**IMPORTANTE!** Generar el JAR Ejecutable desde [Maven](https://maven.apache.org/download.cgi) y **NO** desde el IDE (solución en [Stack Overflow](https://stackoverflow.com/questions/40024242/how-to-load-resources-from-src-main-resources-in-a-way-that-will-work-both-dire))._
 1. Copiar el plugin dentro del archivo pom.xml.
 ```xml
 <!-- Plugin para generar el .jar con las dependencias includidas -->
