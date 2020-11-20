@@ -41,15 +41,17 @@ Para ejecutar:
 #### Maven
 1. Clonar el repositorio en local.
 2. Importar como proyecto existente maven.
+
+_**pom.xml**_
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<!-- Definicion del artefacto -->
-	<groupId>com.silentsoft</groupId>
+	<groupId>com.silentsoft.calculadoraao</groupId>
 	<artifactId>CalculadoraAO</artifactId>
-	<version>1.1.0</version>
+	<version></version> 
 	<packaging>jar</packaging>
 	<name>CalculadoraAO</name>
 	<description>Calculadora basada en ImperiumAO</description>
@@ -120,7 +122,7 @@ Para ejecutar:
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.silentsoft.Launcher</mainClass> <!-- Indica la clase con el metodo main -->
+							<mainClass>com.silentsoft.calculadoraao.Main</mainClass> <!-- Indica la clase con el metodo main -->
 						</manifest>
 					</archive>
 					<descriptorRefs>
