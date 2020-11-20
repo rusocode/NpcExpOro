@@ -37,12 +37,12 @@ Para ejecutar:
 - **[JRE 8](https://www.java.com/es/download/)**
 
 #### Gradle
+1. Clonar el repositorio.
+2. Dentro de Eclipse: File > Import > Gradle > Existing Gradle Project.
+3. Buscan el proyecto en el sistema y finalizan.
 
 #### Maven
-1. Clonar el repositorio en local.
-2. Importar como proyecto existente maven.
-
-_**pom.xml**_
+Si quieren construir el proyecto con Maven aca les dejo el archivo _**pom.xml**_ para su construccion:
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
