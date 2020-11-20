@@ -14,7 +14,7 @@
  * 
  */
 
-package com.silentsoft;
+package com.silentsoft.calculadoraao;
 
 import java.awt.Font;
 import java.awt.Image;
@@ -40,6 +40,8 @@ import javax.swing.JToggleButton;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
+import com.silentsoft.calculadoraao.util.IniFile;
+
 /**
  * @author Ru$o
  * 
@@ -56,6 +58,17 @@ public class Calculadora extends JFrame {
 	private JButton btnCalcular, btnActualizar, btnAcerca;
 	private ButtonGroup grupo;
 	private JRadioButton mayor, menor, relacion, abc;
+
+	private DecimalFormat formatoPorcentaje;
+
+	private IniFile ini; // FIXME static?
+
+	private static final String SEPARADOR = java.io.File.separator;
+
+	// PJs
+	private String[] nivel, expPJ;
+	// NPCs
+	private String[] npc, vida, expNPC, oro;
 
 	private Integer[][] datosPJ = { { 1, 150 }, { 2, 200 }, { 3, 250 }, { 4, 300 }, { 5, 350 }, { 6, 450 }, { 7, 550 }, { 8, 650 }, { 9, 750 },
 			{ 10, 1000 }, { 11, 1250 }, { 12, 1500 }, { 13, 1750 }, { 14, 2000 }, { 15, 2300 }, { 16, 2600 }, { 17, 2900 }, { 18, 3200 },
@@ -117,15 +130,13 @@ public class Calculadora extends JFrame {
 
 	};
 
-	private DecimalFormat formatoPorcentaje;
-
 	private static final int BONUS_50 = 50;
 	private static final int BONUS_100 = 100;
 	private static final int BONUS_200 = 200;
 
 	public Calculadora() {
 
-		super("CalculadoraAO v1.1.0");
+		super("CalculadoraAO");
 
 		setResizable(false);
 
@@ -135,7 +146,32 @@ public class Calculadora extends JFrame {
 
 		formatoPorcentaje = new DecimalFormat("##.##");
 
+		loadPJs();
+		loadNPCs();
+
 		initialize();
+
+	}
+
+	private void loadPJs() {
+		ini = new IniFile();
+		// Carga el dat de PJs
+		ini.load("dat" + SEPARADOR + "PJs.dat");
+
+		// Almacena los valores de las claves especificadas dentro de un array de String
+		nivel = ini.getValues("Nivel");
+		expPJ = ini.getValues("Exp");
+
+	}
+
+	private void loadNPCs() {
+		ini = new IniFile();
+		ini.load("dat" + SEPARADOR + "NPCs.dat");
+
+		npc = ini.getValues("Nombre");
+		vida = ini.getValues("Vida");
+		expNPC = ini.getValues("Exp");
+		oro = ini.getValues("Oro");
 
 	}
 
@@ -269,7 +305,7 @@ public class Calculadora extends JFrame {
 
 		lblNivel = new JLabel("Nivel:");
 
-		cbNivel = new JComboBox<String>(getNiveles());
+		cbNivel = new JComboBox<String>(nivel);
 		cbNivel.addActionListener(new Oyente());
 		cbNivel.setFocusable(false);
 		cbNivel.setSelectedItem(null);
@@ -322,7 +358,7 @@ public class Calculadora extends JFrame {
 		panel.add(panelRadio, "spanx, wrap");
 
 		lblNPC = new JLabel("Nombre:");
-		cbNPC = new JComboBox<String>(getNombres());
+		cbNPC = new JComboBox<String>(npc);
 		AutoCompleteDecorator.decorate(cbNPC);
 		cbNPC.addActionListener(new Oyente());
 		cbNPC.setSelectedItem(null);
@@ -415,20 +451,6 @@ public class Calculadora extends JFrame {
 		return panel;
 	}
 
-	private String[] getNiveles() {
-		String[] nivel = new String[datosPJ.length];
-		for (int i = 0; i < datosPJ.length; i++)
-			nivel[i] = "" + datosPJ[i][0];
-		return nivel;
-	}
-
-	private String[] getNombres() {
-		String[] nombre = new String[datosNPC.length];
-		for (int i = 0; i < datosNPC.length; i++)
-			nombre[i] = "" + datosNPC[i][0];
-		return nombre;
-	}
-
 	// FIXME Crear una clase aparte para la clase interna
 	private class Oyente implements ActionListener {
 
@@ -506,8 +528,8 @@ public class Calculadora extends JFrame {
 		private void getExpPJ() {
 			if (cbNivel.getSelectedIndex() != -1) {
 				for (int i = 0; i < datosPJ.length; i++) {
-					if (cbNivel.getSelectedItem().equals("" + datosPJ[i][0])) {
-						txtExpPJ.setText("" + datosPJ[i][1]);
+					if (cbNivel.getSelectedItem().equals(nivel[i])) {
+						txtExpPJ.setText("" + expPJ[i]);
 						break;
 					}
 				}
@@ -517,10 +539,10 @@ public class Calculadora extends JFrame {
 		private void getDatosNPC() {
 			if (cbNPC.getSelectedIndex() != -1) {
 				for (int i = 0; i < datosNPC.length; i++) {
-					if (cbNPC.getSelectedItem().equals(datosNPC[i][0])) {
-						txtVidaNPC.setText("" + datosNPC[i][1]);
-						txtExpNPC.setText("" + datosNPC[i][2]);
-						txtOroNPC.setText("" + datosNPC[i][3]);
+					if (cbNPC.getSelectedItem().equals(npc[i])) {
+						txtVidaNPC.setText("" + vida[i]);
+						txtExpNPC.setText("" + expNPC[i]);
+						txtOroNPC.setText("" + oro[i]);
 						break;
 					}
 				}
@@ -534,35 +556,35 @@ public class Calculadora extends JFrame {
 
 			cbNPC.removeAllItems();
 
-			for (int i = 0; i < datosNPC.length - 1; i++) {
-				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
+			for (int i = 0; i < npc.length - 1; i++) {
+				for (int j = 0; j < npc.length - 1 - i; j++) {
 
-					int expX = (int) datosNPC[j][2];
-					int expY = (int) datosNPC[j + 1][2];
+					int expX = Integer.parseInt(expNPC[j]);
+					int expY = Integer.parseInt(expNPC[j + 1]);
 
 					if (expX < expY) {
-						auxNombre = "" + datosNPC[j + 1][0];
-						datosNPC[j + 1][0] = datosNPC[j][0];
-						datosNPC[j][0] = auxNombre;
+						auxNombre = npc[j + 1];
+						npc[j + 1] = npc[j];
+						npc[j] = auxNombre;
 
-						auxVida = (int) datosNPC[j + 1][1];
-						datosNPC[j + 1][1] = datosNPC[j][1];
-						datosNPC[j][1] = auxVida;
+						auxVida = Integer.parseInt(vida[j + 1]);
+						vida[j + 1] = vida[j];
+						vida[j] = "" + auxVida;
 
-						auxExp = (int) datosNPC[j + 1][2];
-						datosNPC[j + 1][2] = datosNPC[j][2];
-						datosNPC[j][2] = auxExp;
+						auxExp = Integer.parseInt(expNPC[j + 1]);
+						expNPC[j + 1] = expNPC[j];
+						expNPC[j] = "" + auxExp;
 
-						auxOro = (int) datosNPC[j + 1][3];
-						datosNPC[j + 1][3] = datosNPC[j][3];
-						datosNPC[j][3] = auxOro;
+						auxOro = Integer.parseInt(oro[j + 1]);
+						oro[j + 1] = oro[j];
+						oro[j] = "" + auxOro;
 					}
 
 				}
 			}
 
-			for (int i = 0; i < datosNPC.length; i++)
-				cbNPC.addItem("" + datosNPC[i][0]);
+			for (int i = 0; i < npc.length; i++)
+				cbNPC.addItem("" + npc[i]);
 
 		}
 
@@ -662,8 +684,8 @@ public class Calculadora extends JFrame {
 			ArrayList<String> nombres = new ArrayList<String>();
 
 			// Agrega los nombres del array de objetos al array de strings
-			for (int i = 0; i < datosNPC.length; i++)
-				nombres.add("" + datosNPC[i][0]);
+			for (int i = 0; i < npc.length; i++)
+				nombres.add("" + npc[i]);
 
 			// Ordena los nombres alfabeticamente
 			Collections.sort(nombres);

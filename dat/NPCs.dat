@@ -1,0 +1,17 @@
+[NPC1]
+Nombre=Gallina salvaje
+Vida=20
+Exp=33
+Oro=9
+
+[NPC2]
+Nombre=Gallo salvaje
+Vida=20
+Exp=33
+Oro=9
+
+[NPC3]
+Nombre=Conejo
+Vida=25
+Exp=38
+Oro=10

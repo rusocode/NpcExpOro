@@ -1,0 +1,16 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+	maven { url "https://search.maven.org/" }
+}
+
+dependencies {
+	
+	compile 'com.miglayout:miglayout:3.7.4'
+    compile 'org.swinglabs.swingx:swingx-autocomplete:1.6.5-1'
+
+}

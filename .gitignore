@@ -5,3 +5,8 @@ target/
 bin/
 .classpath
 .project
+#/.gradle/
+
+# Ignora la cache del proyecto Gradle y el directorio de salida de compilacion
+.gradle
+build
