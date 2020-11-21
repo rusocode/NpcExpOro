@@ -6,21 +6,17 @@ Calculadora multiplataforma basada en **Argentum Online** que calcula el porcent
 [![Download CalculadoraAO](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/calculadoraao/files/latest/download)
 
 ### Características
-- Nivel máximo: 50.
-- Tabla de niveles (ver [aquí](https://wiki.imperiumao.com.ar/niveles)).
-- Tabla de NPCs (ver [aquí](https://wiki.imperiumao.com.ar/criaturas_hostiles)).
+- Manipulacion de datos a traves de archivos **.dat** (niveles, npcs, oro, etc.).
 - Calcula la cantidad total de NPCs necesarios para pasar de nivel.
 - Calcula el porcentaje de experiencia que otorga cada NPC.
 - Calcula la cantidad total de oro a conseguir.
-- Sistema de ajustes:
-	- Servidor [PVP] (exp x5 y oro x3).
-	- Servidor [RPG] (exp x1 y oro x1).
+- Sistema de ajustes para [ImperiumAO](https://www.imperiumao.com.ar/):
 	- Grupos **Los renegados pierden un 10% de la experiencia total al formar grupos*.
 	- Evento de experiencia x2.
 	- Evento de oro x2.
-	- Bonus adicional de +50%.
-	- Bonus adicional de +100%.
-	- Bonus adicional de +200%.
+	- Bonus adicional de +10%.
+	- Bonus adicional de +25%.
+	- Bonificador premium (+10% de experiencia y +5% de oro).
 - Interfaz gráfica de usuario administrada por la librería [MigLayout](http://www.miglayout.com/).
 - Es gratis y puede usarse con fines comerciales.
 
