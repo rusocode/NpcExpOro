@@ -11,11 +11,11 @@ Calculadora multiplataforma basada en **Argentum Online** que calcula el porcent
 - Calcula el porcentaje de experiencia que otorga cada NPC.
 - Calcula la cantidad total de oro a conseguir.
 - Sistema de ajustes para [ImperiumAO](https://www.imperiumao.com.ar/):
-	- Grupos **Los renegados pierden un 10% de la experiencia total al formar grupos*.
+	- Grupos **Los renegados pierden un 10% de la experiencia total al formar grupos**.
 	- Evento de experiencia x2.
 	- Evento de oro x2.
-	- Bonus adicional de +10%.
-	- Bonus adicional de +25%.
+	- Scroll de experiencia +10%.
+	- Scroll de experiencia de +25%.
 	- Bonificador premium (+10% de experiencia y +5% de oro).
 - Interfaz gráfica de usuario administrada por la librería [MigLayout](http://www.miglayout.com/).
 - Es gratis y puede usarse con fines comerciales.
