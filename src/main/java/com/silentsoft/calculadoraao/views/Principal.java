@@ -14,7 +14,7 @@
  * 
  */
 
-package com.silentsoft.calculadoraao;
+package com.silentsoft.calculadoraao.views;
 
 import java.awt.Font;
 import java.awt.Image;
@@ -47,15 +47,15 @@ import com.silentsoft.calculadoraao.util.IniFile;
  * 
  */
 
-public class Calculadora extends JFrame {
+public class Principal extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -2225328319053890966L;
 
 	private JLabel lblNivel, lblExpPJ, lblNPC, lblExpNPC, lblVidaNPC, lblOroNPC, lblGrupo, lblPorcentajeExp, lblTotNpcMatar, lblTotOro;
 	private JTextField txtExpPJ, txtExpNPC, txtVidaNPC, txtOroNPC, txtPorcentajeExp, txtTotalNPC, txtTotalOro;
 	private JComboBox<String> cbNivel, cbNPC, cbGrupo;
-	private JToggleButton tbtnPVP, tbtnRPG, tbtnGrupo, tbtnRenegado, tbtnExpX2, tbtnOroX2, tbtn50, tbtn100, tbtn200;
-	private JButton btnCalcular, btnActualizar, btnAcerca;
+	private JToggleButton tbtnGrupo, tbtnRenegado, tbtnExpX2, tbtnBonificador, tbtnOroX2, tbtn10, tbtn25;
+	private JButton btnCalcular, btnAcerca;
 	private ButtonGroup grupo;
 	private JRadioButton mayor, menor, relacion, abc;
 
@@ -77,11 +77,6 @@ public class Calculadora extends JFrame {
 			{ 37, 97250 }, { 38, 109500 }, { 39, 134500 }, { 40, 200000 }, { 41, 275000 }, { 42, 400000 }, { 43, 525000 }, { 44, 650000 },
 			{ 45, 765000 }, { 46, 955000 }, { 47, 1200000 }, { 48, 1500000 }, { 49, 2000000 } };
 
-	// 108 filas y 4 columnas
-	/* Cada fila indica el NPC por asi decirlo. La primera columna indica el nombre del NPC, la segunda la vida, la tercera
-	 * la exp y la cuarta el oro.
-	 * 
-	 * Lo que fue llenar esto a mano una madrugada re loco.. */
 	private Object[][] datosNPC = { { "Gallina salvaje", 20, 26, 10 }, { "Gallo salvaje", 20, 26, 10 }, { "Conejo", 25, 30, 11 },
 			{ "Serpiente", 25, 30, 11 }, { "Rana Venenosa", 30, 33, 14 }, { "Cuervo", 30, 33, 14 }, { "Murcielago", 30, 33, 14 },
 			{ "Escorpion", 35, 39, 16 }, { "Escorpion Oscuro", 35, 39, 16 }, { "Sertlac", 100, 70, 25 }, { "Rata Gigante", 115, 81, 29 },
@@ -130,11 +125,10 @@ public class Calculadora extends JFrame {
 
 	};
 
-	private static final int BONUS_50 = 50;
-	private static final int BONUS_100 = 100;
-	private static final int BONUS_200 = 200;
+	private static final short BONUS_10 = 10;
+	private static final short BONUS_25 = 25;
 
-	public Calculadora() {
+	public Principal() {
 
 		super("CalculadoraAO");
 
@@ -231,19 +225,6 @@ public class Calculadora extends JFrame {
 		JPanel panel = getPanel("Ajustes");
 		panel.setLayout(new MigLayout("fill")); // Reclama todo el espacio libre en el panel
 
-		JPanel panelServidor = new JPanel();
-		panelServidor.setLayout(new MigLayout("fill, insets 0"));
-
-		tbtnPVP = new JToggleButton("PVP");
-		tbtnPVP.addActionListener(new Oyente());
-		tbtnPVP.setFocusable(false);
-		tbtnRPG = new JToggleButton("RPG");
-		tbtnRPG.addActionListener(new Oyente());
-		tbtnRPG.setFocusable(false);
-
-		panelServidor.add(tbtnPVP, "growx");
-		panelServidor.add(tbtnRPG, "growx");
-
 		tbtnGrupo = new JToggleButton("¿Estás en grupo?");
 		tbtnGrupo.addActionListener(new Oyente());
 		tbtnGrupo.setFocusable(false);
@@ -271,25 +252,24 @@ public class Calculadora extends JFrame {
 		tbtnOroX2.addActionListener(new Oyente());
 		tbtnOroX2.setFocusable(false);
 
-		tbtn50 = new JToggleButton("+50%");
-		tbtn50.addActionListener(new Oyente());
-		tbtn50.setFocusable(false);
+		tbtnBonificador = new JToggleButton("Bonificador");
+		tbtnBonificador.addActionListener(new Oyente());
+		tbtnBonificador.setFocusable(false);
 
-		tbtn100 = new JToggleButton("+100%");
-		tbtn100.addActionListener(new Oyente());
-		tbtn100.setFocusable(false);
+		tbtn10 = new JToggleButton("+10%");
+		tbtn10.addActionListener(new Oyente());
+		tbtn10.setFocusable(false);
 
-		tbtn200 = new JToggleButton("+200%");
-		tbtn200.addActionListener(new Oyente());
-		tbtn200.setFocusable(false);
+		tbtn25 = new JToggleButton("+25%");
+		tbtn25.addActionListener(new Oyente());
+		tbtn25.setFocusable(false);
 
 		panelBotonesExp.add(tbtnExpX2, "sg 2");
 		panelBotonesExp.add(tbtnOroX2, "sg 2");
-		panelBotonesExp.add(tbtn50, "sg 2");
-		panelBotonesExp.add(tbtn100, "sg 2");
-		panelBotonesExp.add(tbtn200, "sg 2, growx");
+		panelBotonesExp.add(tbtnBonificador);
+		panelBotonesExp.add(tbtn10, "sg 2");
+		panelBotonesExp.add(tbtn25, "sg 2");
 
-		panel.add(panelServidor, "spanx, growx");
 		panel.add(tbtnGrupo, "sg 1");
 		panel.add(tbtnRenegado, "sg 1");
 		panel.add(lblGrupo);
@@ -313,7 +293,7 @@ public class Calculadora extends JFrame {
 		lblExpPJ = new JLabel("Experiencia:");
 
 		// Obviamente si le indico el tama�o al campo de texto, entonces la ventana no tiene que ser redimensionable
-		txtExpPJ = new JTextField(6);
+		txtExpPJ = new JTextField(7);
 		txtExpPJ.setEditable(false);
 
 		panel.add(lblNivel, "right");
@@ -331,6 +311,14 @@ public class Calculadora extends JFrame {
 		JPanel panelRadio = new JPanel();
 		panelRadio.setLayout(new MigLayout("insets 0"));
 		grupo = new ButtonGroup();
+		abc = new JRadioButton("abc");
+		abc.addActionListener(new Oyente());
+		abc.setFont(new Font("Consolas", Font.PLAIN, 11));
+		abc.setFocusable(false);
+		relacion = new JRadioButton("vida/exp");
+		relacion.addActionListener(new Oyente());
+		relacion.setFont(new Font("Consolas", Font.PLAIN, 11));
+		relacion.setFocusable(false);
 		mayor = new JRadioButton("+exp");
 		mayor.addActionListener(new Oyente());
 		mayor.setFont(new Font("Consolas", Font.PLAIN, 11));
@@ -339,22 +327,17 @@ public class Calculadora extends JFrame {
 		menor.addActionListener(new Oyente());
 		menor.setFont(new Font("Consolas", Font.PLAIN, 11));
 		menor.setFocusable(false);
-		relacion = new JRadioButton("vida/exp");
-		relacion.addActionListener(new Oyente());
-		relacion.setFont(new Font("Consolas", Font.PLAIN, 11));
-		relacion.setFocusable(false);
-		abc = new JRadioButton("abc");
-		abc.addActionListener(new Oyente());
-		abc.setFont(new Font("Consolas", Font.PLAIN, 11));
-		abc.setFocusable(false);
+
+		grupo.add(abc);
+		grupo.add(relacion);
 		grupo.add(mayor);
 		grupo.add(menor);
-		grupo.add(relacion);
-		grupo.add(abc);
+
+		panelRadio.add(abc);
+		panelRadio.add(relacion);
 		panelRadio.add(mayor);
 		panelRadio.add(menor);
-		panelRadio.add(relacion);
-		panelRadio.add(abc);
+
 		panel.add(panelRadio, "spanx, wrap");
 
 		lblNPC = new JLabel("Nombre:");
@@ -418,18 +401,6 @@ public class Calculadora extends JFrame {
 
 		panel.add(new JLabel("by Ru$o"));
 
-		btnActualizar = new JButton("Actualizar");
-		btnActualizar.setFocusable(false);
-		btnActualizar.setEnabled(false);
-		btnActualizar.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				if (evt.getSource() == btnActualizar) {
-					// actualizar por medios de comandos en git bash
-				}
-			}
-		});
-
 		btnAcerca = new JButton("Acerca de...");
 		btnAcerca.setFocusable(false);
 		btnAcerca.addActionListener(new ActionListener() {
@@ -439,7 +410,6 @@ public class Calculadora extends JFrame {
 			}
 		});
 
-		panel.add(btnActualizar, "split 2");
 		panel.add(btnAcerca);
 
 		return panel;
@@ -457,13 +427,10 @@ public class Calculadora extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent evt) {
 
-			if (evt.getSource() == tbtnPVP || evt.getSource() == tbtnRPG || evt.getSource() == cbNivel || evt.getSource() == cbNPC) accion0();
-			if (evt.getSource() == tbtnPVP) accion1();
-			if (evt.getSource() == tbtnRPG) accion2();
-			if (evt.getSource() == tbtnGrupo) accion3();
-			if (evt.getSource() == tbtn50) accion4();
-			if (evt.getSource() == tbtn100) accion5();
-			if (evt.getSource() == tbtn200) accion6();
+			if (evt.getSource() == cbNivel || evt.getSource() == cbNPC) accion0();
+			if (evt.getSource() == tbtnGrupo) accion1();
+			if (evt.getSource() == tbtn10) accion2();
+			if (evt.getSource() == tbtn25) accion3();
 			if (evt.getSource() == cbNivel) getExpPJ();
 			if (evt.getSource() == cbNPC) getDatosNPC();
 			if (evt.getSource() == mayor) sortDesc();
@@ -474,24 +441,13 @@ public class Calculadora extends JFrame {
 
 		}
 
-		/* Habilita el boton btnCalcular si se selecciono un servidor, y si los dos combos PJ y NPC tienen seleccionado un
-		 * item. */
+		// Habilita el boton btnCalcular si los combos PJ y NPC tienen seleccionado un item
 		private void accion0() {
-			if ((tbtnPVP.isSelected() == true || tbtnRPG.isSelected() == true)
-					&& (cbNivel.getSelectedItem() != null && cbNPC.getSelectedItem() != null))
-				btnCalcular.setEnabled(true);
+			if (cbNivel.getSelectedItem() != null && cbNPC.getSelectedItem() != null) btnCalcular.setEnabled(true);
 			else btnCalcular.setEnabled(false);
 		}
 
 		private void accion1() {
-			if (tbtnRPG.isSelected()) tbtnRPG.setSelected(false);
-		}
-
-		private void accion2() {
-			if (tbtnPVP.isSelected()) tbtnPVP.setSelected(false);
-		}
-
-		private void accion3() {
 			if (tbtnGrupo.isSelected()) {
 				tbtnRenegado.setEnabled(true);
 				cbGrupo.setEnabled(true);
@@ -504,25 +460,12 @@ public class Calculadora extends JFrame {
 			}
 		}
 
-		private void accion4() {
-			if (tbtn100.isSelected() || tbtn200.isSelected()) {
-				tbtn100.setSelected(false);
-				tbtn200.setSelected(false);
-			}
+		private void accion2() {
+			if (tbtn25.isSelected()) tbtn25.setSelected(false);
 		}
 
-		private void accion5() {
-			if (tbtn50.isSelected() || tbtn200.isSelected()) {
-				tbtn50.setSelected(false);
-				tbtn200.setSelected(false);
-			}
-		}
-
-		private void accion6() {
-			if (tbtn50.isSelected() || tbtn100.isSelected()) {
-				tbtn50.setSelected(false);
-				tbtn100.setSelected(false);
-			}
+		private void accion3() {
+			if (tbtn10.isSelected()) tbtn10.setSelected(false);
 		}
 
 		private void getExpPJ() {
@@ -596,38 +539,38 @@ public class Calculadora extends JFrame {
 			cbNPC.removeAllItems();
 
 			// El primer for controlada cada item y el segundo el intercambio
-			for (int i = 0; i < datosNPC.length - 1; i++) {
+			for (int i = 0; i < npc.length - 1; i++) {
 				/* Se le resta - 1 al tamaño del array ya que el limite se llega en la suma de j + 1, evitando asi tambien un
 				 * ArrayIndexOutOfBoundsException. */
-				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
+				for (int j = 0; j < npc.length - 1 - i; j++) {
 
-					int expX = (int) datosNPC[j][2];
-					int expY = (int) datosNPC[j + 1][2];
+					int expX = Integer.parseInt(expNPC[j]);
+					int expY = Integer.parseInt(expNPC[j + 1]);
 
 					// Si la exp de X es mayor a la exp de Y, entonces se intercambia el nombre, la vida, la exp y el oro
 					if (expX > expY) {
-						auxNombre = "" + datosNPC[j + 1][0];
-						datosNPC[j + 1][0] = datosNPC[j][0];
-						datosNPC[j][0] = auxNombre;
+						auxNombre = npc[j + 1];
+						npc[j + 1] = npc[j];
+						npc[j] = auxNombre;
 
-						auxVida = (int) datosNPC[j + 1][1];
-						datosNPC[j + 1][1] = datosNPC[j][1];
-						datosNPC[j][1] = auxVida;
+						auxVida = Integer.parseInt(vida[j + 1]);
+						vida[j + 1] = vida[j];
+						vida[j] = "" + auxVida;
 
-						auxExp = (int) datosNPC[j + 1][2];
-						datosNPC[j + 1][2] = datosNPC[j][2];
-						datosNPC[j][2] = auxExp;
+						auxExp = Integer.parseInt(expNPC[j + 1]);
+						expNPC[j + 1] = expNPC[j];
+						expNPC[j] = "" + auxExp;
 
-						auxOro = (int) datosNPC[j + 1][3];
-						datosNPC[j + 1][3] = datosNPC[j][3];
-						datosNPC[j][3] = auxOro;
+						auxOro = Integer.parseInt(oro[j + 1]);
+						oro[j + 1] = oro[j];
+						oro[j] = "" + auxOro;
 					}
 
 				}
 			}
 
-			for (int i = 0; i < datosNPC.length; i++)
-				cbNPC.addItem("" + datosNPC[i][0]);
+			for (int i = 0; i < npc.length; i++)
+				cbNPC.addItem("" + npc[i]);
 
 		}
 
@@ -639,13 +582,13 @@ public class Calculadora extends JFrame {
 
 			cbNPC.removeAllItems();
 
-			for (int i = 0; i < datosNPC.length - 1; i++) {
-				for (int j = 0; j < datosNPC.length - 1 - i; j++) {
+			for (int i = 0; i < npc.length - 1; i++) {
+				for (int j = 0; j < npc.length - 1 - i; j++) {
 
-					int vidaX = (int) datosNPC[j][1];
-					int expX = (int) datosNPC[j][2];
-					int vidaY = (int) datosNPC[j + 1][1];
-					int expY = (int) datosNPC[j + 1][2];
+					int vidaX = Integer.parseInt(vida[j]);
+					int expX = Integer.parseInt(expNPC[j]);
+					int vidaY = Integer.parseInt(vida[j + 1]);
+					int expY = Integer.parseInt(expNPC[j + 1]);
 
 					// Calcula la relacion del npc X y del npc Y, con respecto a la vida y exp de cada uno
 					relacionX = (double) vidaX / expX;
@@ -654,28 +597,28 @@ public class Calculadora extends JFrame {
 					/* Compara ambas relaciones, y si X tiene una peor (mucha diferencia entre vida y exp) relacion con respecto a Y,
 					 * entonces se intercambian los items del array. */
 					if (relacionX > relacionY) {
-						auxNombre = "" + datosNPC[j + 1][0];
-						datosNPC[j + 1][0] = datosNPC[j][0];
-						datosNPC[j][0] = auxNombre;
+						auxNombre = npc[j + 1];
+						npc[j + 1] = npc[j];
+						npc[j] = auxNombre;
 
-						auxVida = (int) datosNPC[j + 1][1];
-						datosNPC[j + 1][1] = datosNPC[j][1];
-						datosNPC[j][1] = auxVida;
+						auxVida = Integer.parseInt(vida[j + 1]);
+						vida[j + 1] = vida[j];
+						vida[j] = "" + auxVida;
 
-						auxExp = (int) datosNPC[j + 1][2];
-						datosNPC[j + 1][2] = datosNPC[j][2];
-						datosNPC[j][2] = auxExp;
+						auxExp = Integer.parseInt(expNPC[j + 1]);
+						expNPC[j + 1] = expNPC[j];
+						expNPC[j] = "" + auxExp;
 
-						auxOro = (int) datosNPC[j + 1][3];
-						datosNPC[j + 1][3] = datosNPC[j][3];
-						datosNPC[j][3] = auxOro;
+						auxOro = Integer.parseInt(oro[j + 1]);
+						oro[j + 1] = oro[j];
+						oro[j] = "" + auxOro;
 					}
 
 				}
 			}
 
-			for (int i = 0; i < datosNPC.length; i++)
-				cbNPC.addItem("" + datosNPC[i][0]);
+			for (int i = 0; i < npc.length; i++)
+				cbNPC.addItem("" + npc[i]);
 
 		}
 
@@ -699,28 +642,19 @@ public class Calculadora extends JFrame {
 
 		}
 
-		/* Aca dejo todo los creditos a los creadores originales de este metodo, una funcion que por mala suerte vino sin
-		 * comentarios. */
 		private void calcularTotal() {
 
 			int exp = Integer.parseInt(txtExpNPC.getText()), oro = Integer.parseInt(txtOroNPC.getText());
 			double npc, npc_r, tot_exp, tot_exp_r;
-
-			// Si es un server PVP
-			if (tbtnPVP.isSelected()) {
-				exp *= 5;
-				oro *= 3;
-			}
 
 			// Si hay evento de exp x2
 			if (tbtnExpX2.isSelected()) exp *= 2;
 			// Si hay evento de oro x2
 			if (tbtnOroX2.isSelected()) oro *= 2;
 
-			// Calcula el bonus adicional del +50%, +100% y +200% de la experiencia ganada
-			if (tbtn50.isSelected()) exp += calcular50(exp);
-			if (tbtn100.isSelected()) exp += calcular100(exp);
-			if (tbtn200.isSelected()) exp += calcular200(exp);
+			// Calcula el bonus adicional del +10% o +25% de la experiencia ganada
+			if (tbtn10.isSelected()) exp += calcular10(exp);
+			if (tbtn25.isSelected()) exp += calcular25(exp);
 
 			// Cantidad de NPCs a matar
 			npc = Double.parseDouble(txtExpPJ.getText()) / exp;
@@ -797,16 +731,12 @@ public class Calculadora extends JFrame {
 
 		}
 
-		private int calcular50(int exp) {
-			return exp * BONUS_50 / 100;
+		private int calcular10(int exp) {
+			return exp * BONUS_10 / 100;
 		}
 
-		private int calcular100(int exp) {
-			return exp * BONUS_100 / 100;
-		}
-
-		private int calcular200(int exp) {
-			return exp * BONUS_200 / 100;
+		private int calcular25(int exp) {
+			return exp * BONUS_25 / 100;
 		}
 
 		private void setValores(double cantidad, double exp) {

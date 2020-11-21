@@ -14,7 +14,7 @@
  * 
  */
 
-package com.silentsoft.calculadoraao;
+package com.silentsoft.calculadoraao.util;
 
 import java.awt.Color;
 import java.awt.Cursor;

@@ -18,13 +18,15 @@ package com.silentsoft.calculadoraao;
 
 import javax.swing.UIManager;
 
+import com.silentsoft.calculadoraao.views.Principal;
+
 /* La legibilidad y la longitud del codigo son menos importantes que la experiencia facil y rapida del usuario final. */
 public class Main {
 
 	public static void main(String[] args) {
 		setLAF();
 		// La ventana debe hacerse visible en ultimo lugar, para evitar parpadeos, movimientos y cambios de tama�o
-		new Calculadora().setVisible(true);
+		new Principal().setVisible(true);
 	}
 
 	private static void setLAF() {

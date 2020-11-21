@@ -14,7 +14,7 @@
  * 
  */
 
-package com.silentsoft.calculadoraao;
+package com.silentsoft.calculadoraao.views;
 
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -25,6 +25,8 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
+import com.silentsoft.calculadoraao.util.JHyperlink;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -66,8 +68,8 @@ public class Acerca extends JDialog {
 		txtArea.setBackground(SystemColor.menu);
 		txtArea.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		String str = "Calculadora multiplataforma basada en ImperiumAO que calcula el porcentaje"
-				+ "\nde experiencia que otorga el NPC, la cantidad de NPCs a matar para pasar de" + "\nnivel y el oro total. " + "\n\nVersión: 1.1.0"
-				+ "\nCopyright © 2020 Juan Debenedetti" + "\nAll rights reserved.";
+				+ "\nde experiencia que otorga el NPC, la cantidad de NPCs a matar para pasar de" + "\nnivel y el oro total. " + "\n\nVersión: 1.5.0"
+				+ "\nCopyright © 2020 Silentsoft" + "\nAll rights reserved.";
 		txtArea.append(str);
 		add(txtArea, "wrap");
 
