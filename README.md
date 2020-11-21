@@ -18,7 +18,6 @@ Calculadora multiplataforma basada en **Argentum Online** que calcula el porcent
 	- Scroll de experiencia de +25%.
 	- Bonificador premium (+10% de experiencia y +5% de oro).
 - Interfaz gráfica de usuario administrada por la librería [MigLayout](http://www.miglayout.com/).
-- Es gratis y puede usarse con fines comerciales.
 
 _Consulte [CHANGELOG.md](https://github.com/rusocode/CalculadoraAO/blob/master/CHANGELOG.md) para mas detalles_
 
