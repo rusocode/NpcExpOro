@@ -10,7 +10,7 @@ Calculadora multiplataforma basada en **Argentum Online** que calcula el porcent
 - Calcula la cantidad total de NPCs necesarios para pasar de nivel.
 - Calcula el porcentaje de experiencia que otorga cada NPC.
 - Calcula la cantidad total de oro a conseguir.
-- Sistema de ajustes para [ImperiumAO](https://www.imperiumao.com.ar/):
+- Sistema de ajustes para [ImperiumAO](https://www.imperiumao.com.ar/)
 	- Grupos **Los renegados pierden un 10% de la experiencia total al formar grupos**.
 	- Evento de experiencia x2.
 	- Evento de oro x2.
