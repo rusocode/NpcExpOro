@@ -13,5 +13,845 @@ Oro=9
 [NPC3]
 Nombre=Conejo
 Vida=25
-Exp=400
+Exp=38
 Oro=10
+
+[NPC4]
+Nombre=Serpiente
+Vida=25
+Exp=38
+Oro=10
+
+[NPC5]
+Nombre=Rana Venenosa
+Vida=30
+Exp=41
+Oro=11
+
+[NPC6]
+Nombre=Cuervo
+Vida=30
+Exp=41
+Oro=11
+
+[NPC7]
+Nombre=Murcielago
+Vida=30
+Exp=41
+Oro=11
+
+[NPC8]
+Nombre=Escorpion
+Vida=35
+Exp=48
+Oro=13
+
+[NPC9]
+Nombre=Escorpion Oscuro
+Vida=35
+Exp=48
+Oro=13
+
+[NPC10]
+Nombre=Sertlac
+Vida=50
+Exp=44
+Oro=11
+
+[NPC11]
+Nombre=Rata Gigante
+Vida=58
+Exp=51
+Oro=12
+
+[NPC12]
+Nombre=Mano Poseida
+Vida=65
+Exp=57
+Oro=14
+
+[NPC13]
+Nombre=Señor de las Sombras
+Vida=75
+Exp=66
+Oro=16
+
+[NPC14]
+Nombre=Tortuga Gigante
+Vida=90
+Exp=78
+Oro=19
+
+[NPC15]
+Nombre=Esqueleto
+Vida=100
+Exp=88
+Oro=21
+
+[NPC16]
+Nombre=Esqueleto Guardian
+Vida=150
+Exp=113
+Oro=26
+
+[NPC17]
+Nombre=Asesino
+Vida=175
+Exp=131
+Oro=30
+
+[NPC18]
+Nombre=Bandido
+Vida=180
+Exp=135
+Oro=31
+
+[NPC19]
+Nombre=Mercenario
+Vida=190
+Exp=143
+Oro=32
+
+[NPC20]
+Nombre=Jabali Salvaje
+Vida=225
+Exp=141
+Oro=38
+
+[NPC21]
+Nombre=Zorro Rojo
+Vida=250
+Exp=156
+Oro=43
+
+[NPC22]
+Nombre=Zorro Gris
+Vida=250
+Exp=156
+Oro=43
+
+[NPC23]
+Nombre=Lobo
+Vida=275
+Exp=172
+Oro=47
+
+[NPC24]
+Nombre=Tigre
+Vida=275
+Exp=172
+Oro=47
+
+[NPC25]
+Nombre=Oso Pardo
+Vida=325
+Exp=244
+Oro=41
+
+[NPC26]
+Nombre=Araña Gigante
+Vida=450
+Exp=338
+Oro=57
+
+[NPC27]
+Nombre=Orco
+Vida=450
+Exp=338
+Oro=57
+
+[NPC28]
+Nombre=Orco Brujo
+Vida=550
+Exp=413
+Oro=70
+
+[NPC29]
+Nombre=Jefe Orco
+Vida=750
+Exp=656
+Oro=128
+
+[NPC30]
+Nombre=Orco del Bosque
+Vida=600
+Exp=450
+Oro=77
+
+[NPC31]
+Nombre=Ent
+Vida=950
+Exp=831
+Oro=121
+
+[NPC32]
+Nombre=Ciclope
+Vida=900
+Exp=778
+Oro=115
+
+[NPC33]
+Nombre=Fango
+Vida=975
+Exp=853
+Oro=124
+
+[NPC34]
+Nombre=Basilisco
+Vida=925
+Exp=809
+Oro=118
+
+[NPC35]
+Nombre=Zombie Aullador
+Vida=560
+Exp=770
+Oro=167
+
+[NPC36]
+Nombre=Zombie Desquiciado
+Vida=555
+Exp=763
+Oro=165
+
+[NPC37]
+Nombre=Zombie Putrido
+Vida=550
+Exp=756
+Oro=164
+
+[NPC38]
+Nombre=Zombie Mordedor
+Vida=575
+Exp=791
+Oro=171
+
+[NPC39]
+Nombre=Zombie Cenagoso
+Vida=595
+Exp=818
+Oro=177
+
+[NPC40]
+Nombre=Agnus el Oscuro
+Vida=3225
+Exp=4838
+Oro=548
+
+[NPC41]
+Nombre=Arquero Pirata
+Vida=1000
+Exp=1125
+Oro=255
+
+[NPC42]
+Nombre=Guerrero Pirata
+Vida=1150
+Exp=1294
+Oro=293
+
+[NPC43]
+Nombre=Jefe Pirata
+Vida=6000
+Exp=7500
+Oro=1530
+
+[NPC44]
+Nombre=Saqueador de Minas
+Vida=1250
+Exp=1406
+Oro=319
+
+[NPC45]
+Nombre=Sirena
+Vida=3000
+Exp=3750
+Oro=765
+
+[NPC46]
+Nombre=Momia
+Vida=3750
+Exp=4219
+Oro=1020
+
+[NPC47]
+Nombre=Aparicion
+Vida=1000
+Exp=1125
+Oro=255
+
+[NPC48]
+Nombre=Ogro
+Vida=1150
+Exp=1294
+Oro=293
+
+[NPC49]
+Nombre=Ogro Guerrero
+Vida=1250
+Exp=1406
+Oro=319
+
+[NPC50]
+Nombre=Ogro Lider
+Vida=6000
+Exp=7500
+Oro=1530
+
+[NPC51]
+Nombre=Liche
+Vida=1500
+Exp=1688
+Oro=191
+
+[NPC52]
+Nombre=Lord Orco
+Vida=1650
+Exp=1856
+Oro=210
+
+[NPC53]
+Nombre=Yuan Ti
+Vida=1700
+Exp=1913
+Oro=217
+
+[NPC54]
+Nombre=Hombre Lagarto
+Vida=1800
+Exp=2025
+Oro=230
+
+[NPC55]
+Nombre=Medusa
+Vida=2000
+Exp=2500
+Oro=272
+
+[NPC56]
+Nombre=Medusa Matriarca
+Vida=2500
+Exp=3125
+Oro=361
+
+[NPC57]
+Nombre=Golem de Piedra
+Vida=5000
+Exp=5000
+Oro=553
+
+[NPC58]
+Nombre=Cria de Dragon Verde
+Vida=25000
+Exp=12500
+Oro=1488
+
+[NPC59]
+Nombre=Cria de Dragon Rojo
+Vida=27500
+Exp=13750
+Oro=1636
+
+[NPC60]
+Nombre=Hechicera
+Vida=2000
+Exp=3000
+Oro=289
+
+[NPC61]
+Nombre=Golem de Bronce
+Vida=7500
+Exp=10313
+Oro=893
+
+[NPC62]
+Nombre=Demonio
+Vida=15000
+Exp=9375
+Oro=1785
+
+[NPC63]
+Nombre=Demonio Abisal
+Vida=22500
+Exp=14063
+Oro=2678
+
+[NPC64]
+Nombre=Golem de Plata
+Vida=40000
+Exp=55000
+Oro=4760
+
+[NPC65]
+Nombre=Golem Infernal
+Vida=72000
+Exp=90000
+Oro=10404
+
+[NPC66]
+Nombre=Cria de Dragon Negro
+Vida=30000
+Exp=15000
+Oro=1785
+
+[NPC67]
+Nombre=Cria Aracnida
+Vida=300
+Exp=413
+Oro=89
+
+[NPC68]
+Nombre=Archne
+Vida=2000
+Exp=3000
+Oro=272
+
+[NPC69]
+Nombre=Desertor de las Tinieblas
+Vida=2100
+Exp=2625
+Oro=303
+
+[NPC70]
+Nombre=Neishtar
+Vida=2500
+Exp=3750
+Oro=361
+
+[NPC71]
+Nombre=Tolkvar
+Vida=4500
+Exp=6188
+Oro=689
+
+[NPC72]
+Nombre=Golem de Oro
+Vida=60000
+Exp=82500
+Oro=7650
+
+[NPC73]
+Nombre=Castigador
+Vida=2500
+Exp=3750
+Oro=340
+
+[NPC74]
+Nombre=Conjuradora de Farzhe
+Vida=2000
+Exp=3000
+Oro=255
+
+[NPC75]
+Nombre=Ghoul
+Vida=1450
+Exp=1631
+Oro=185
+
+[NPC76]
+Nombre=Baskrull
+Vida=1850
+Exp=2081
+Oro=236
+
+[NPC77]
+Nombre=Oso Polar
+Vida=1050
+Exp=1444
+Oro=223
+
+[NPC78]
+Nombre=Huargo de Nieve
+Vida=1125
+Exp=1547
+Oro=239
+
+[NPC79]
+Nombre=Lobo Invernal
+Vida=975
+Exp=1341
+Oro=207
+
+[NPC80]
+Nombre=Chaman Artico
+Vida=2000
+Exp=2750
+Oro=340
+
+[NPC81]
+Nombre=Yeti
+Vida=10000
+Exp=15000
+Oro=1700
+
+[NPC82]
+Nombre=Golem de Hielo
+Vida=65000
+Exp=89375
+Oro=11050
+
+[NPC83]
+Nombre=Cria de Dragon de Hielo
+Vida=30000
+Exp=18750
+Oro=2295
+
+[NPC84]
+Nombre=Cria de Rey Dragon
+Vida=35000
+Exp=21875
+Oro=2678
+
+[NPC85]
+Nombre=Fuego Elemental Marron
+Vida=750
+Exp=1031
+Oro=159
+
+[NPC86]
+Nombre=Fuego Elemental Verde Oscuro
+Vida=730
+Exp=1004
+Oro=155
+
+[NPC87]
+Nombre=Fuego Elemental Fucsia
+Vida=710
+Exp=976
+Oro=151
+
+[NPC88]
+Nombre=Fuego Elemental Verde
+Vida=690
+Exp=949
+Oro=147
+
+[NPC89]
+Nombre=Fuego Elemental Azul
+Vida=670
+Exp=921
+Oro=142
+
+[NPC90]
+Nombre=Fuego Elemental Gris
+Vida=650
+Exp=894
+Oro=138
+
+[NPC91]
+Nombre=Fuego Elemental Amarillo
+Vida=610
+Exp=839
+Oro=130
+
+[NPC92]
+Nombre=Fantasma
+Vida=20000
+Exp=25266
+Oro=3570
+
+[NPC91]
+Nombre=Corruptor
+Vida=995
+Exp=1368
+Oro=211
+
+[NPC92]
+Nombre=Turbador Sombrio
+Vida=1045
+Exp=1437
+Oro=222
+
+[NPC93]
+Nombre=Lacayo del Mal
+Vida=1025
+Exp=1409
+Oro=218
+
+[NPC94]
+Nombre=Sanguijuela Gigante
+Vida=975
+Exp=1341
+Oro=207
+
+[NPC95]
+Nombre=Vampiro
+Vida=1900
+Exp=2613
+Oro=275
+
+[NPC96]
+Nombre=Vampiresa
+Vida=1950
+Exp=2681
+Oro=282
+
+[NPC97]
+Nombre=Vampiro Transformado
+Vida=30000
+Exp=47438
+Oro=5355
+
+[NPC98]
+Nombre=Adosador de la Muerte
+Vida=2000
+Exp=2750
+Oro=289
+
+[NPC99]
+Nombre=Hechicero de Agua
+Vida=2500
+Exp=3750
+Oro=425
+
+[NPC100]
+Nombre=Hechicero de Aire
+Vida=2150
+Exp=3225
+Oro=366
+
+[NPC101]
+Nombre=Hechicero de Tierra
+Vida=2650
+Exp=3975
+Oro=451
+
+[NPC102]
+Nombre=Hechicero de Fuego
+Vida=3000
+Exp=4500
+Oro=510
+
+[NPC103]
+Nombre=Profeta Arcano
+Vida=4500
+Exp=7031
+Oro=765
+
+[NPC104]
+Nombre=Guardian
+Vida=5000
+Exp=7813
+Oro=850
+
+[NPC105]
+Nombre=Gran Hechicero Garveloth
+Vida=100000
+Exp=162500
+Oro=17000
+
+[NPC106]
+Nombre=Fuego Fatuo
+Vida=950
+Exp=1366
+Oro=162
+
+[NPC107]
+Nombre=Elemental de Fuego
+Vida=1250
+Exp=1953
+Oro=213
+
+[NPC108]
+Nombre=Elemental de Agua
+Vida=1200
+Exp=1875
+Oro=204
+
+[NPC109]
+Nombre=Elemental de Tierra
+Vida=1050
+Exp=1575
+Oro=179
+
+[NPC110]
+Nombre=Hechicero de la Oscuridad
+Vida=3500
+Exp=5688
+Oro=744
+
+[NPC111]
+Nombre=Ermitaño de Neiran
+Vida=2000
+Exp=3125
+Oro=374
+
+[NPC112]
+Nombre=Sacerdote de Neiran
+Vida=2150
+Exp=3359
+Oro=402
+
+[NPC113]
+Nombre=Sabio de Neiran
+Vida=2500
+Exp=3906
+Oro=468
+
+[NPC114]
+Nombre=Archimago de Neiran
+Vida=3250
+Exp=5484
+Oro=608
+
+[NPC115]
+Nombre=Campeon de Neiran
+Vida=2800
+Exp=4550
+Oro=524
+
+[NPC116]
+Nombre=Cazador de Neiran
+Vida=3000
+Exp=4875
+Oro=561
+
+[NPC117]
+Nombre=Caballero de Neiran
+Vida=3500
+Exp=5906
+Oro=655
+
+[NPC118]
+Nombre=Abigor
+Vida=2500
+Exp=4375
+Oro=531
+
+[NPC119]
+Nombre=Belfegor
+Vida=3450
+Exp=6210
+Oro=733
+
+[NPC120]
+Nombre=Bali
+Vida=4275
+Exp=7695
+Oro=908
+
+[NPC121]
+Nombre=Cerbero
+Vida=15000
+Exp=28125
+Oro=3188
+
+[NPC122]
+Nombre=Djinn
+Vida=247500
+Exp=278438
+Oro=31556
+
+[NPC123]
+Nombre=Asolador de Aranhae
+Vida=2700
+Exp=3038
+Oro=344
+
+[NPC124]
+Nombre=Banshee
+Vida=2450
+Exp=2756
+Oro=344
+
+[NPC125]
+Nombre=Azael
+Vida=125000
+Exp=203125
+Oro=31875
+
+[NPC126]
+Nombre=Subdito Negro
+Vida=4750
+Exp=7422
+Oro=1211
+
+[NPC127]
+Nombre=Subdito Blanco
+Vida=4500
+Exp=7031
+Oro=1148
+
+[NPC128]
+Nombre=Angel Protector
+Vida=25250
+Exp=39453
+Oro=6439
+
+[NPC129]
+Nombre=Angel Caido
+Vida=27500
+Exp=42969
+Oro=7013
+
+[NPC130]
+Nombre=Gran Dragon Verde
+Vida=175000
+Exp=142188
+Oro=44625
+
+[NPC131]
+Nombre=Gran Dragon Rojo
+Vida=190000
+Exp=154375
+Oro=48450
+
+[NPC132]
+Nombre=Gran Dragon Azul
+Vida=225000
+Exp=182813
+Oro=57375
+
+[NPC133]
+Nombre=Gran Dragon Negro
+Vida=450000
+Exp=421875
+Oro=114750
+
+[NPC134]
+Nombre=Dragon Legendario
+Vida=650000
+Exp=650000
+Oro=165750
+
+[NPC135]
+Nombre=Gran Dragon de Hielo
+Vida=750000
+Exp=750000
+Oro=191250
+
+[NPC136]
+Nombre=Rey Dragon
+Vida=1000000
+Exp=1250000
+Oro=255000
+
+[NPC137]
+Nombre=Segador Ancestral
+Vida=225000
+Exp=225000
+Oro=57375
+
+[NPC138]
+Nombre=Archimago Abisal
+Vida=175000
+Exp=262500
+Oro=44625
+
+[NPC139]
+Nombre=Gorgona
+Vida=185000
+Exp=277500
+Oro=47175
+
+[NPC140]
+Nombre=Kern Ghard
+Vida=200000
+Exp=300000
+Oro=51000
+
+[NPC141]
+Nombre=Lilith
+Vida=255000
+Exp=262500
+Oro=44625
