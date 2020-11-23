@@ -15,7 +15,7 @@ Calculadora multiplataforma basada en **Argentum Online** que calcula el porcent
 	- Evento de experiencia x2.
 	- Evento de oro x2.
 	- Scroll de experiencia +10%.
-	- Scroll de experiencia de +25%.
+	- Scroll de experiencia +25%.
 	- Bonificador premium (+10% de experiencia y +5% de oro).
 - Interfaz gráfica de usuario administrada por la librería [MigLayout](https://github.com/mikaelgrev/miglayout).
 
@@ -30,7 +30,7 @@ Para el desarrollo sugerimos:
 Para ejecutar:
 - **[JRE 8](https://www.java.com/es/download/)**
 
-#### Gradle
+#### Gradle (Eclipse)
 1. Clonar el repositorio.
 2. Dentro de Eclipse: *File* > *Import* > *Gradle* > *Existing Gradle Project*.
 3. Buscan el proyecto en el sistema y finalizan.
