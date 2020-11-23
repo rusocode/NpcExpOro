@@ -36,7 +36,7 @@ Para ejecutar:
 3. Buscan el proyecto en el sistema y finalizan.
 
 #### Maven
-Si quieren construir el proyecto con Maven aca dejo el archivo _**pom.xml!**_
+Si quieren construir el proyecto con Maven aca dejo el archivo _**pom.xml**_
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
