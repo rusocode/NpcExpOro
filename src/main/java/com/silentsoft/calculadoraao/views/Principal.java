@@ -152,7 +152,7 @@ public class Principal extends JFrame {
 	private void loadPJs() {
 		ini = new IniFile();
 		// Carga el dat de PJs
-		ini.load("dat" + SEPARADOR + "PJs.dat");
+		ini.load("dat" + SEPARADOR + "PJss.dat");
 
 		// Almacena los valores de las claves especificadas dentro de un array de String
 		nivel = ini.getValues("Nivel");

@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
 /**
  * IniFile: Clase para leer archivos INI.
  */
@@ -36,14 +38,14 @@ public class IniFile {
 			buffer = new BufferedReader(new InputStreamReader(new FileInputStream(filename)));
 			loadFromFile(buffer);
 		} catch (FileNotFoundException e) {
-			System.err.println("No se encontro el archivo: " + e.getMessage()); // FIXME JDialog
+			JOptionPane.showMessageDialog(null, "No se encontro el archivo " + filename, "Error", JOptionPane.ERROR_MESSAGE);
 		} catch (IOException e) {
 			System.err.println("Error de I/O: " + e.getMessage());
 		} finally {
 			try {
 				if (buffer != null) buffer.close();
 			} catch (IOException e) {
-				System.err.println("Error al cerrar el flujo de datos: " + e.getMessage());
+				JOptionPane.showMessageDialog(null, "Error al cerrar el flujo de datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 
