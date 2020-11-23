@@ -127,6 +127,8 @@ public class Principal extends JFrame {
 
 	private static final short BONUS_10 = 10;
 	private static final short BONUS_25 = 25;
+	private static final short BONIFICADOR_EXP = 10;
+	private static final short BONIFICADOR_ORO = 5;
 
 	public Principal() {
 
@@ -230,7 +232,7 @@ public class Principal extends JFrame {
 		tbtnGrupo.setFocusable(false);
 
 		tbtnRenegado = new JToggleButton("¿Sos renegado?");
-		tbtnRenegado.setToolTipText("*Los renegados pierden un 10% de la experiencia total al formar grupos.");
+		tbtnRenegado.setToolTipText("Los renegados pierden un 10% de la experiencia total al formar grupos.");
 		tbtnRenegado.setFocusable(false);
 		tbtnRenegado.setEnabled(false);
 
@@ -253,6 +255,7 @@ public class Principal extends JFrame {
 		tbtnOroX2.setFocusable(false);
 
 		tbtnBonificador = new JToggleButton("Bonificador");
+		tbtnBonificador.setToolTipText("Bonus de +10% en experiencia y +5% en oro.");
 		tbtnBonificador.addActionListener(new Oyente());
 		tbtnBonificador.setFocusable(false);
 
@@ -268,7 +271,7 @@ public class Principal extends JFrame {
 		panelBotonesExp.add(tbtnOroX2, "sg 2");
 		panelBotonesExp.add(tbtnBonificador);
 		panelBotonesExp.add(tbtn10, "sg 2");
-		panelBotonesExp.add(tbtn25, "sg 2");
+		panelBotonesExp.add(tbtn25, "sg 2, growx");
 
 		panel.add(tbtnGrupo, "sg 1");
 		panel.add(tbtnRenegado, "sg 1");
@@ -470,7 +473,7 @@ public class Principal extends JFrame {
 
 		private void getExpPJ() {
 			if (cbNivel.getSelectedIndex() != -1) {
-				for (int i = 0; i < datosPJ.length; i++) {
+				for (int i = 0; i < nivel.length; i++) {
 					if (cbNivel.getSelectedItem().equals(nivel[i])) {
 						txtExpPJ.setText("" + expPJ[i]);
 						break;
@@ -481,7 +484,7 @@ public class Principal extends JFrame {
 
 		private void getDatosNPC() {
 			if (cbNPC.getSelectedIndex() != -1) {
-				for (int i = 0; i < datosNPC.length; i++) {
+				for (int i = 0; i < npc.length; i++) {
 					if (cbNPC.getSelectedItem().equals(npc[i])) {
 						txtVidaNPC.setText("" + vida[i]);
 						txtExpNPC.setText("" + expNPC[i]);
@@ -644,27 +647,29 @@ public class Principal extends JFrame {
 
 		private void calcularTotal() {
 
-			int exp = Integer.parseInt(txtExpNPC.getText()), oro = Integer.parseInt(txtOroNPC.getText());
-			double npc, npc_r, tot_exp, tot_exp_r;
+			double expPJ = Double.parseDouble(txtExpPJ.getText());
+			double expNPC = Double.parseDouble(txtExpNPC.getText()); // FIXME double o int?
+			int oroNPC = Integer.parseInt(txtOroNPC.getText());
+			double cantidad, cantidadR, expTotal, expTotalR;
 
-			// Si hay evento de exp x2
-			if (tbtnExpX2.isSelected()) exp *= 2;
-			// Si hay evento de oro x2
-			if (tbtnOroX2.isSelected()) oro *= 2;
+			/* Ajuste */
+			// Calcula el x2
+			if (tbtnExpX2.isSelected()) expNPC *= 2;
+			if (tbtnOroX2.isSelected()) oroNPC *= 2;
+			// Calcula el bonificador
+			if (tbtnBonificador.isSelected()) {
+				expNPC += (expNPC * BONIFICADOR_EXP) / 100;
+				oroNPC += (oroNPC * BONIFICADOR_ORO) / 100;
+			}
+			// Calcula el bonus adicional del +10% o +25%
+			if (tbtn10.isSelected()) expNPC += (expNPC * BONUS_10) / 100;
+			if (tbtn25.isSelected()) expNPC += (expNPC * BONUS_25) / 100;
+			/* Ajustes */
 
-			// Calcula el bonus adicional del +10% o +25% de la experiencia ganada
-			if (tbtn10.isSelected()) exp += calcular10(exp);
-			if (tbtn25.isSelected()) exp += calcular25(exp);
+			cantidad = expPJ / expNPC; // Cantidad total de NPCs a matar para pasar de nivel
+			expTotal = 100 / cantidad; // Porcentaje de experiencia que otorga el NPC
 
-			// Cantidad de NPCs a matar
-			npc = Double.parseDouble(txtExpPJ.getText()) / exp;
-			// Porcentaje de experiencia que otorga el NPC
-			tot_exp = 100 / npc;
-
-			// Cantidad de NPCs a matar para los grupos de renegados
-			/* 0.9
-			 * 
-			 * Multiplicar la cantidad de exp que otorga el NPCs por 0.9 es un atajo para sacar la perdida del 10% del total de esa
+			/* Multiplicar la cantidad de exp que otorga el NPCs por 0.9 es un atajo para sacar la perdida del 10% del total de esa
 			 * exp, sin hacer muchos calculos (20 exp * 10% / 100 - el total). Es decir que reducimos la cantidad de exp para que la
 			 * perdida tambien se vea reflejada (ademas del % que otorge) en el total de npcs a matar. Es obvio que vamos a tener
 			 * que matar mas npcs estando en grupo, y mas si hablamos de renegados. Por eso, al reducir la cantidad de exp en el
@@ -678,37 +683,33 @@ public class Principal extends JFrame {
 			 * 
 			 * Para calcular el % de cada parte es necesario dividir 100 por el total, ej: el % de 4,75 es de 20%, ya que sumando
 			 * 20% a cada parte de 4.75 llegamos a 100. Para calcular el % de 4,75 se tiene que dividir 100 por 4,75 = 21,05%. */
-			npc_r = Double.parseDouble(txtExpPJ.getText()) / (exp * 0.9);
-			// Porcentaje de experiencia que otorga el NPC para los grupos de renegados
-			tot_exp_r = 100 / npc_r; // tot_exp_r = tot_exp * 0.9;
+			cantidadR = expPJ / (expNPC * 0.9);
+			expTotalR = 100 / cantidadR; // tot_exp_r = tot_exp * 0.9;
 
 			// Si el PJ esta en grupo, entonces...
 			if (tbtnGrupo.isSelected()) {
 				// Si el PJ es renegado, entonces...
 				if (tbtnRenegado.isSelected()) {
 					if (cbGrupo.getSelectedIndex() != -1) {
-						if (cbGrupo.getSelectedIndex() == 0) setValores(npc_r * 2, tot_exp_r / 2);
-						if (cbGrupo.getSelectedIndex() == 1) setValores(npc_r * 3, tot_exp_r / 3);
-						if (cbGrupo.getSelectedIndex() == 2) setValores(npc_r * 4, tot_exp_r / 4);
-						if (cbGrupo.getSelectedIndex() == 3) setValores(npc_r * 5, tot_exp_r / 5);
+						if (cbGrupo.getSelectedIndex() == 0) setValores(cantidadR * 2, expTotalR / 2);
+						if (cbGrupo.getSelectedIndex() == 1) setValores(cantidadR * 3, expTotalR / 3);
+						if (cbGrupo.getSelectedIndex() == 2) setValores(cantidadR * 4, expTotalR / 4);
+						if (cbGrupo.getSelectedIndex() == 3) setValores(cantidadR * 5, expTotalR / 5);
 					}
 				} else {
 					if (cbGrupo.getSelectedIndex() != -1) {
-						if (cbGrupo.getSelectedIndex() == 0) setValores(npc * 2, tot_exp / 2);
-						if (cbGrupo.getSelectedIndex() == 1) setValores(npc * 3, tot_exp / 3);
-						if (cbGrupo.getSelectedIndex() == 2) setValores(npc * 4, tot_exp / 4);
-						if (cbGrupo.getSelectedIndex() == 3) setValores(npc * 5, tot_exp / 5);
+						if (cbGrupo.getSelectedIndex() == 0) setValores(cantidad * 2, expTotal / 2);
+						if (cbGrupo.getSelectedIndex() == 1) setValores(cantidad * 3, expTotal / 3);
+						if (cbGrupo.getSelectedIndex() == 2) setValores(cantidad * 4, expTotal / 4);
+						if (cbGrupo.getSelectedIndex() == 3) setValores(cantidad * 5, expTotal / 5);
 					}
 				}
 
-			} else setValores(npc, tot_exp);
+			} else setValores(cantidad, expTotal);
 
-			// Oro y oro para los renes
-			int npc_redo = (int) Math.ceil(npc);
-			int npc_redo_r = (int) Math.ceil(npc_r);
-
-			int oroTotal = npc_redo * oro;
-			int oroTotalR = npc_redo_r * oro;
+			// Redondea la cantidad antes de multiplicarla por el oro
+			int oroTotal = ((int) Math.ceil(cantidad)) * oroNPC;
+			int oroTotalR = ((int) Math.ceil(cantidadR)) * oroNPC;
 
 			if (cbGrupo.getSelectedIndex() == 0) {
 				oroTotal /= 2;
@@ -729,14 +730,6 @@ public class Principal extends JFrame {
 			if (tbtnRenegado.isSelected()) txtTotalOro.setText("" + oroTotalR);
 			else txtTotalOro.setText("" + oroTotal);
 
-		}
-
-		private int calcular10(int exp) {
-			return exp * BONUS_10 / 100;
-		}
-
-		private int calcular25(int exp) {
-			return exp * BONUS_25 / 100;
 		}
 
 		private void setValores(double cantidad, double exp) {
