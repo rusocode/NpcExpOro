@@ -30,7 +30,7 @@ Para el desarrollo sugerimos:
 Para ejecutar:
 - **[JRE 8](https://www.java.com/es/download/)**
 
-#### Gradle
+#### Gradle (Eclipse)
 1. Clonar el repositorio.
 2. Dentro de Eclipse: *File* > *Import* > *Gradle* > *Existing Gradle Project*.
 3. Buscan el proyecto en el sistema y finalizan.
