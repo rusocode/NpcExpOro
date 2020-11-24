@@ -1,16 +1,37 @@
-plugins {
-    id 'java-library'
-}
+apply plugin:'java-library'
 
+// Version del proyecto
+version = '1.5.0'
+
+sourceCompatibility = 1.8 // JRE destino para compilar
+targetCompatibility = 1.8
+
+// Le indica a gradle los repositorios donde buscara las librerias 
 repositories {
     jcenter()
     mavenCentral()
 	maven { url "https://search.maven.org/" }
 }
 
+/*	Dependencias necesarias para el funcionamiento de la aplicacion. Estas dependencias podran ser utilizadas en tiempo de 
+	ejecucion o para compilar. */
 dependencies {
-	
 	compile 'com.miglayout:miglayout:3.7.4'
     compile 'org.swinglabs.swingx:swingx-autocomplete:1.6.5-1'
+}
 
+tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+}
+
+// Crea un solo jar con todas las dependencias
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',  
+        	'Implementation-Version': version,
+        	'Main-Class': 'com.silentsoft.calculadoraao.Main'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }

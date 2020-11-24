@@ -107,7 +107,9 @@ public class Principal extends JFrame {
 
 	private void loadNPCs() {
 		ini = new IniFile();
-		ini.load("dat" + SEPARADOR + "NPCs.dat");
+		// URL url = this.getClass().getClassLoader().getResource("NPCs.dat");
+		// System.out.println(url.getFile());
+		ini.load("dat/NPCs.dat"); // "dat" + SEPARADOR + "NPCs.dat"
 
 		npc = ini.getValues("Nombre");
 		vida = ini.getValues("Vida");
