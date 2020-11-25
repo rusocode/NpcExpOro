@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -21,24 +22,24 @@ public class IniFile {
 	public IniFile() {
 	}
 
-	public IniFile(String filename) {
-		load(filename);
+	public IniFile(InputStream file) {
+		load(file);
 	}
 
 	/**
 	 * Carga y parsea un archivo INI.
 	 * 
-	 * @param filename: Nombre del archivo ini.
+	 * @param file: Archivo localizado.
 	 * @throws FileNotFoundException: Archivo no encontrado.
 	 * @throws IOException:           Error de I/O (entra y salida).
 	 */
-	public void load(String filename) {
+	public void load(InputStream file) {
 		BufferedReader buffer = null;
 		try {
-			buffer = new BufferedReader(new InputStreamReader(new FileInputStream(filename)));
+			buffer = new BufferedReader(new InputStreamReader(file));
 			loadFromFile(buffer);
 		} catch (FileNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "No se encontro el archivo " + filename, "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "No se encontro el archivo " + file, "Error", JOptionPane.ERROR_MESSAGE);
 		} catch (IOException e) {
 			System.err.println("Error de I/O: " + e.getMessage());
 		} finally {
