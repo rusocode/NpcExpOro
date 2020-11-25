@@ -240,14 +240,14 @@ public class Principal extends JFrame {
 
 		lblNivel = new JLabel("Nivel:");
 
-		cbNivel = new JComboBox<String>();
+		cbNivel = new JComboBox<String>(nivel);
 		cbNivel.addActionListener(new Oyente());
 		cbNivel.setFocusable(false);
 		cbNivel.setSelectedItem(null);
 
 		lblExpPJ = new JLabel("Experiencia:");
 
-		// Obviamente si le indico el tamaï¿½o al campo de texto, entonces la ventana no tiene que ser redimensionable
+		// Obviamente si le indico el tamaño al campo de texto, entonces la ventana no tiene que ser redimensionable
 		txtExpPJ = new JTextField(7);
 		txtExpPJ.setEditable(false);
 
