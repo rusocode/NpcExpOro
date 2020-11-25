@@ -20,6 +20,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -61,9 +62,7 @@ public class Principal extends JFrame {
 
 	private DecimalFormat formatoPorcentaje;
 
-	private IniFile ini; // FIXME static?
-
-	private static final String SEPARADOR = java.io.File.separator;
+	private IniFile ini;
 
 	// PJs
 	private String[] nivel, expPJ;
@@ -95,11 +94,13 @@ public class Principal extends JFrame {
 	}
 
 	private void loadPJs() {
-		ini = new IniFile();
-		// Carga el dat de PJs
-		ini.load("dat" + SEPARADOR + "PJs.dat");
 
-		// Almacena los valores de las claves especificadas dentro de un array de String
+		ini = new IniFile();
+
+		InputStream file = this.getClass().getClassLoader().getResourceAsStream("PJs.dat");
+
+		ini.load(file);
+
 		nivel = ini.getValues("Nivel");
 		expPJ = ini.getValues("Exp");
 
@@ -107,10 +108,14 @@ public class Principal extends JFrame {
 
 	private void loadNPCs() {
 		ini = new IniFile();
-		// URL url = this.getClass().getClassLoader().getResource("NPCs.dat");
-		// System.out.println(url.getFile());
-		ini.load("dat/NPCs.dat"); // "dat" + SEPARADOR + "NPCs.dat"
 
+		// Localiza el archivo dentro de la ruta de clases
+		InputStream file = this.getClass().getClassLoader().getResourceAsStream("NPCs.dat");
+
+		// Carga el dat de NPCs
+		ini.load(file);
+
+		// Almacena los valores de las claves especificadas dentro de un array de String
 		npc = ini.getValues("Nombre");
 		vida = ini.getValues("Vida");
 		expNPC = ini.getValues("Exp");
@@ -130,12 +135,12 @@ public class Principal extends JFrame {
 	 * En conclusion, con esta funcion se evita un NullPointerException. */
 	private Image getImagen(String path) {
 
-		// Crea un cargador de clases para esta clase
+		// Cargador de clases para este objeto
 		ClassLoader classLoader = this.getClass().getClassLoader();
 		Image image = null;
 		ImageIcon imageIcon;
 
-		// El cargador de clases carga la ruta de la imagen y la almacena en una variable de tipo URL
+		// Carga la ruta de la imagen desde la raiz del .classpath y la almacena en una variable de tipo URL
 		URL url = classLoader.getResource(path);
 
 		// Evita un NullPointerException en caso de que la ruta de la imagen no se ecuentre
@@ -174,16 +179,16 @@ public class Principal extends JFrame {
 		JPanel panel = getPanel("Ajustes");
 		panel.setLayout(new MigLayout("fill")); // Reclama todo el espacio libre en el panel
 
-		tbtnGrupo = new JToggleButton("Â¿EstÃ¡s en grupo?");
+		tbtnGrupo = new JToggleButton("¿Estás en grupo?");
 		tbtnGrupo.addActionListener(new Oyente());
 		tbtnGrupo.setFocusable(false);
 
-		tbtnRenegado = new JToggleButton("Â¿Sos renegado?");
+		tbtnRenegado = new JToggleButton("¿Sos renegado?");
 		tbtnRenegado.setToolTipText("Los renegados pierden un 10% de la experiencia total al formar grupos.");
 		tbtnRenegado.setFocusable(false);
 		tbtnRenegado.setEnabled(false);
 
-		lblGrupo = new JLabel("Â¿CuÃ¡ntos son?");
+		lblGrupo = new JLabel("¿Cuántos son?");
 
 		cbGrupo = new JComboBox<String>(new String[] { "2", "3", "4", "5" });
 		cbGrupo.setSelectedIndex(-1);
@@ -235,7 +240,7 @@ public class Principal extends JFrame {
 
 		lblNivel = new JLabel("Nivel:");
 
-		cbNivel = new JComboBox<String>(nivel);
+		cbNivel = new JComboBox<String>();
 		cbNivel.addActionListener(new Oyente());
 		cbNivel.setFocusable(false);
 		cbNivel.setSelectedItem(null);
