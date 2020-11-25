@@ -28,6 +28,11 @@ import java.net.URISyntaxException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+/**
+ * @author Ru$o
+ * 
+ */
+
 public class JHyperlink extends JLabel {
 
 	private static final long serialVersionUID = 1L;

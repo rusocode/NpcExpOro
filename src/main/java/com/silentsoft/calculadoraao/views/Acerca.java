@@ -30,6 +30,11 @@ import com.silentsoft.calculadoraao.util.JHyperlink;
 
 import net.miginfocom.swing.MigLayout;
 
+/**
+ * @author Ru$o
+ * 
+ */
+
 public class Acerca extends JDialog {
 
 	private static final long serialVersionUID = 1L;
@@ -69,7 +74,7 @@ public class Acerca extends JDialog {
 		txtArea.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		String str = "Calculadora multiplataforma basada en Argentum Online que calcula el porcentaje"
 				+ "\nde experiencia que otorga el NPC, la cantidad de NPCs a matar y el oro total. " + "\n\nVersión: 1.5.0"
-				+ "\nCopyright © 2020 Silentsoft" + "\nAll rights reserved";
+				+ "\nCopyright © 2020 SilentSoft" + "\nAll rights reserved";
 		txtArea.append(str);
 		add(txtArea, "wrap");
 

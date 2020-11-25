@@ -28,6 +28,9 @@ import javax.swing.JOptionPane;
 
 /**
  * IniFile: Clase para leer archivos INI.
+ * 
+ * @author Ru$o
+ * 
  */
 
 public class IniFile {
