@@ -29,7 +29,7 @@ public class IniFile {
 	/**
 	 * Carga y parsea un archivo INI.
 	 * 
-	 * @param file: Archivo localizado.
+	 * @param file: Nombre del archivo ini.
 	 * @throws FileNotFoundException: Archivo no encontrado.
 	 * @throws IOException:           Error de I/O (entra y salida).
 	 */
@@ -52,7 +52,6 @@ public class IniFile {
 
 	}
 
-	// FIXME static?
 	// Carga el INI a una coleccion de tipo LinkedHashMap
 	private void loadFromFile(BufferedReader buffer) throws FileNotFoundException, IOException {
 
