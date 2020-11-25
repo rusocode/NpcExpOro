@@ -1,6 +1,6 @@
 /**
  * 
- * CalculadoraAO Copyright (C) 2020 Juan Debenedetti (alias Ru$o)
+ * CalculadoraAO Copyright (C) 2020 SilentSoft
  * 
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
@@ -16,6 +16,7 @@
 
 package com.silentsoft.calculadoraao;
 
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 import com.silentsoft.calculadoraao.views.Principal;
@@ -33,7 +34,7 @@ public class Main {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
-			System.err.println("Error al establecer el LookAndFeel: " + e.getMessage());
+			JOptionPane.showMessageDialog(null, "Error al establecer el LookAndFeel: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 

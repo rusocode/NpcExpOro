@@ -1,6 +1,6 @@
 /**
  * 
- * CalculadoraAO Copyright (C) 2020 Juan Debenedetti (alias Ru$o)
+ * CalculadoraAO Copyright (C) 2020 SilentSoft
  * 
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
@@ -33,6 +33,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -147,7 +148,8 @@ public class Principal extends JFrame {
 		if (url != null) {
 			imageIcon = new ImageIcon(url);
 			image = imageIcon.getImage();
-		} else System.err.println("No se pudo encontrar la imagen [" + path + "] en \"" + System.getProperty("user.dir") + "\"");
+		} else JOptionPane.showMessageDialog(null, "No se pudo encontrar la imagen [" + path + "] en \"" + System.getProperty("user.dir") + "\"",
+				"Error", JOptionPane.ERROR_MESSAGE);
 
 		return image;
 	}
@@ -168,7 +170,7 @@ public class Principal extends JFrame {
 		add(getCalculadoraPanel(), "spanx, growx");
 		add(getBotonesPanel(), "spanx, growx");
 
-		/* Comprime la ventana al tamaÃ±o del componente mas grande, garantizando que el marco tenga el tamaÃ±o minimo para
+		/* Comprime la ventana al tamaño del componente mas grande, garantizando que el marco tenga el tamaño minimo para
 		 * mostrar los componentes que contiene. */
 		pack();
 		setLocationRelativeTo(null);
