@@ -14,7 +14,7 @@
  * 
  */
 
-package com.silentsoft.calculadoraao.util;
+package com.silentsoft.calculadoraao.utils;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

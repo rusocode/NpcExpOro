@@ -26,7 +26,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import com.silentsoft.calculadoraao.util.JHyperlink;
+import com.silentsoft.calculadoraao.utils.JHyperlink;
 
 import net.miginfocom.swing.MigLayout;
 

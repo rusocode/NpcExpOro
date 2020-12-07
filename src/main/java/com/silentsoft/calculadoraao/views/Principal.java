@@ -42,7 +42,7 @@ import javax.swing.JToggleButton;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
-import com.silentsoft.calculadoraao.util.IniFile;
+import com.silentsoft.calculadoraao.utils.IniFile;
 
 /**
  * @author Ru$o
