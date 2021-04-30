@@ -2,7 +2,7 @@
 
 #### Version: 1.5.0 - 1-12-2020
 - Migracio a Gradle.
-- Integracion de datos a travez de archivos .dat, **los datos se modifican dentro del .jar!**
+- Manipulacion de datos a travez de archivos .dat, **los datos se modifican dentro del .jar!**
 - Optimizacion de codigo.
 
 #### Version: 1.1.0 - 16-08-2020
