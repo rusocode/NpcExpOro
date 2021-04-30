@@ -59,7 +59,7 @@ public class IniFile {
 		} catch (FileNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "No se encontro el archivo " + file, "Error", JOptionPane.ERROR_MESSAGE);
 		} catch (IOException e) {
-			System.err.println("Error de I/O: " + e.getMessage());
+			JOptionPane.showMessageDialog(null, "Error de I/O: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		} finally {
 			try {
 				if (buffer != null) buffer.close();
@@ -73,17 +73,20 @@ public class IniFile {
 	// Carga el INI a una coleccion de tipo LinkedHashMap
 	private void loadFromFile(BufferedReader buffer) throws FileNotFoundException, IOException {
 
-		int corcheteCierre, separador;
-		String section = null, key = null, value = null;
-		String srt = "";
+		int corcheteCierre, separador, comentario;
+		String section = null, key, value;
+		String srt;
 
 		while ((srt = buffer.readLine()) != null) {
 			srt = srt.trim(); // Si hay espacios en blanco al principio o final de la cadena, los elimina
 			if (srt.length() > 0) { // Si no es un espacio en blanco, entonces...
 				switch (srt.charAt(0)) {
+				// Si es un comentario...
+				case ';':
+					break;
 				case '[':
 					if ((corcheteCierre = srt.indexOf(']')) != -1) {
-						// Almacena la seccion que va del indice 1 (N) al corcheteCierre (7 en este caso, pero no se incluye)
+						// Almacena la seccion que va del indice 1 al corcheteCierre sin incluir ']'
 						section = srt.substring(1, corcheteCierre).toUpperCase();
 						// Si la coleccion no contiene la seccion, entonces agrega la seccion a la coleccion
 						if (!data.containsKey(section)) data.put(section, new LinkedHashMap<String, String>());
@@ -95,6 +98,9 @@ public class IniFile {
 
 						key = srt.substring(0, separador).trim();
 						value = srt.substring(separador + 1, srt.length()).trim();
+
+						// Si hay un comentario al final de la linea, lo quita
+						if ((comentario = value.indexOf(';')) > -1) value = value.substring(0, comentario).trim();
 
 						// Recupera la seccion y agrega el par (clave, valor)
 						data.get(section).put(key, value);
@@ -115,9 +121,11 @@ public class IniFile {
 
 		int i = 0;
 
-		/* Itera la primera clave de la coleccion.
+		/*
+		 * Itera la primera clave de la coleccion.
 		 * 
-		 * Convierte la coleccion en Set para poder trabajarla como un conjuto de datos. */
+		 * Convierte la coleccion en Set para poder trabajarla como un conjuto de datos.
+		 */
 		for (Map.Entry<String, LinkedHashMap<String, String>> v : data.entrySet()) {
 
 			// Almacena las sub claves y valores
