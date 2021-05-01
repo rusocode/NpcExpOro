@@ -124,8 +124,7 @@ public class Principal extends JFrame {
 
 	}
 
-	/*
-	 * Comprueba si la ruta de la imagen existe. En caso de que no la encuentre, la aplicacion sigue con su ejecucion y no
+	/* Comprueba si la ruta de la imagen existe. En caso de que no la encuentre, la aplicacion sigue con su ejecucion y no
 	 * se detiene.
 	 * 
 	 * La razon de este metodo, se debe a que al generar el .jar ejecutable DESDE Eclipse (en mi caso), podria llegar a
@@ -134,8 +133,7 @@ public class Principal extends JFrame {
 	 * comando, crea el ejecutable incluyendo las dependencias especificadas en el archivo pom.xml y lo alamacena dentro de
 	 * la carpeta target.
 	 * 
-	 * En conclusion, con esta funcion se evita un NullPointerException.
-	 */
+	 * En conclusion, con esta funcion se evita un NullPointerException. */
 	private Image getImagen(String path) {
 
 		// Cargador de clases para este objeto
@@ -172,10 +170,8 @@ public class Principal extends JFrame {
 		add(getCalculadoraPanel(), "spanx, growx");
 		add(getBotonesPanel(), "spanx, growx");
 
-		/*
-		 * Comprime la ventana al tamaño del componente mas grande, garantizando que el marco tenga el tamaño minimo para
-		 * mostrar los componentes que contiene.
-		 */
+		/* Comprime la ventana al tamaï¿½o del componente mas grande, garantizando que el marco tenga el tamaï¿½o minimo para
+		 * mostrar los componentes que contiene. */
 		pack();
 		setLocationRelativeTo(null);
 
@@ -185,16 +181,16 @@ public class Principal extends JFrame {
 		JPanel panel = getPanel("Ajustes");
 		panel.setLayout(new MigLayout("fill")); // Reclama todo el espacio libre en el panel
 
-		tbtnGrupo = new JToggleButton("¿Estás en grupo?");
+		tbtnGrupo = new JToggleButton("ï¿½Estï¿½s en grupo?");
 		tbtnGrupo.addActionListener(new Oyente());
 		tbtnGrupo.setFocusable(false);
 
-		tbtnRenegado = new JToggleButton("¿Sos renegado?");
+		tbtnRenegado = new JToggleButton("ï¿½Sos renegado?");
 		tbtnRenegado.setToolTipText("Los renegados pierden un 10% de la experiencia total al formar grupos.");
 		tbtnRenegado.setFocusable(false);
 		tbtnRenegado.setEnabled(false);
 
-		lblGrupo = new JLabel("¿Cuántos son?");
+		lblGrupo = new JLabel("ï¿½Cuï¿½ntos son?");
 
 		cbGrupo = new JComboBox<String>(new String[] { "2", "3", "4", "5" });
 		cbGrupo.setSelectedIndex(-1);
@@ -253,7 +249,7 @@ public class Principal extends JFrame {
 
 		lblExpPJ = new JLabel("Experiencia:");
 
-		// Obviamente si le indico el tamaño al campo de texto, entonces la ventana no tiene que ser redimensionable
+		// Obviamente si le indico el tamaï¿½o al campo de texto, entonces la ventana no tiene que ser redimensionable
 		txtExpPJ = new JTextField(7);
 		txtExpPJ.setEditable(false);
 
@@ -501,10 +497,8 @@ public class Principal extends JFrame {
 
 			// El primer for controlada cada item y el segundo el intercambio
 			for (int i = 0; i < npc.length - 1; i++) {
-				/*
-				 * Se le resta - 1 al tamaÃ±o del array ya que el limite se llega en la suma de j + 1, evitando asi tambien un
-				 * ArrayIndexOutOfBoundsException.
-				 */
+				/* Se le resta - 1 al tamaÃ±o del array ya que el limite se llega en la suma de j + 1, evitando asi tambien un
+				 * ArrayIndexOutOfBoundsException. */
 				for (int j = 0; j < npc.length - 1 - i; j++) {
 
 					int expX = Integer.parseInt(expNPC[j]);
@@ -557,10 +551,8 @@ public class Principal extends JFrame {
 					relacionX = (double) vidaX / expX;
 					relacionY = (double) vidaY / expY;
 
-					/*
-					 * Compara ambas relaciones, y si X tiene una peor (mucha diferencia entre vida y exp) relacion con respecto a Y,
-					 * entonces se intercambian los items del array.
-					 */
+					/* Compara ambas relaciones, y si X tiene una peor (mucha diferencia entre vida y exp) relacion con respecto a Y,
+					 * entonces se intercambian los items del array. */
 					if (relacionX > relacionY) {
 						auxNombre = npc[j + 1];
 						npc[j + 1] = npc[j];
@@ -631,8 +623,7 @@ public class Principal extends JFrame {
 			cantidad = expPJ / expNPC; // Cantidad total de NPCs a matar para pasar de nivel
 			expTotal = 100 / cantidad; // Porcentaje de experiencia que otorga el NPC
 
-			/*
-			 * Multiplicar la cantidad de exp que otorga el NPCs por 0.9 es un atajo para sacar la perdida del 10% del total de esa
+			/* Multiplicar la cantidad de exp que otorga el NPCs por 0.9 es un atajo para sacar la perdida del 10% del total de esa
 			 * exp, sin hacer muchos calculos (20 exp * 10% / 100 - el total). Es decir que reducimos la cantidad de exp para que la
 			 * perdida tambien se vea reflejada (ademas del % que otorge) en el total de npcs a matar. Es obvio que vamos a tener
 			 * que matar mas npcs estando en grupo, y mas si hablamos de renegados. Por eso, al reducir la cantidad de exp en el
@@ -645,8 +636,7 @@ public class Principal extends JFrame {
 			 * cada parte va a contener un % del total de la exp del npc.
 			 * 
 			 * Para calcular el % de cada parte es necesario dividir 100 por el total, ej: el % de 4,75 es de 20%, ya que sumando
-			 * 20% a cada parte de 4.75 llegamos a 100. Para calcular el % de 4,75 se tiene que dividir 100 por 4,75 = 21,05%.
-			 */
+			 * 20% a cada parte de 4.75 llegamos a 100. Para calcular el % de 4,75 se tiene que dividir 100 por 4,75 = 21,05%. */
 			cantidadR = expPJ / (expNPC * 0.9);
 			expTotalR = 100 / cantidadR; // tot_exp_r = tot_exp * 0.9;
 
@@ -689,10 +679,8 @@ public class Principal extends JFrame {
 				oroTotalR /= 5;
 			}
 
-			/*
-			 * La ventaja de los renegados, es que van a conseguir menos exp pero mas oro, debido a la mayor cantidad de NPCs que
-			 * tienen que matar.
-			 */
+			/* La ventaja de los renegados, es que van a conseguir menos exp pero mas oro, debido a la mayor cantidad de NPCs que
+			 * tienen que matar. */
 			if (tbtnRenegado.isSelected()) txtTotalOro.setText("" + oroTotalR);
 			else txtTotalOro.setText("" + oroTotal);
 
