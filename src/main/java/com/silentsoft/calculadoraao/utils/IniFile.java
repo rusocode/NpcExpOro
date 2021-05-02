@@ -48,16 +48,16 @@ public class IniFile {
 	 * Carga y parsea un archivo INI.
 	 * 
 	 * @param file: Nombre del archivo ini.
-	 * @throws FileNotFoundException: Archivo no encontrado.
-	 * @throws IOException:           Error de I/O (entra y salida).
+	 * @throws NullPointerException: Archivo no encontrado.
+	 * @throws IOException:          Error de I/O (entra y salida).
 	 */
 	public void load(InputStream file) {
 		BufferedReader buffer = null;
 		try {
-			buffer = new BufferedReader(new InputStreamReader(file));
+			buffer = new BufferedReader(new InputStreamReader(file)); // FIXME le agrego el charset (UTF-8)?
 			loadFromFile(buffer);
-		} catch (FileNotFoundException e) {
-			JOptionPane.showMessageDialog(null, "No se encontro el archivo " + file, "Error", JOptionPane.ERROR_MESSAGE);
+		} catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "No se encontro el archivo especificado", "Error", JOptionPane.ERROR_MESSAGE);
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Error de I/O: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 		} finally {
@@ -81,22 +81,21 @@ public class IniFile {
 			srt = srt.trim(); // Si hay espacios en blanco al principio o final de la cadena, los elimina
 			if (srt.length() > 0) { // Si no es un espacio en blanco, entonces...
 				switch (srt.charAt(0)) {
-				// Si es un comentario...
-				case ';':
+				case ';': // COMENTARIOS
 					break;
-				case '[':
+				case '[': // SECCIONES
 					if ((corcheteCierre = srt.indexOf(']')) != -1) {
-						// Almacena la seccion que va del indice 1 al corcheteCierre sin incluir ']'
+						// Almacena la seccion que va del indice 1 al corcheteCierre sin incluirlo
 						section = srt.substring(1, corcheteCierre).toUpperCase();
 						// Si la coleccion no contiene la seccion, entonces agrega la seccion a la coleccion
 						if (!data.containsKey(section)) data.put(section, new LinkedHashMap<String, String>());
 					}
 					break;
-				default:
-					// Si esta dentro de una seccion y hay un signo = en la linea, entonces...
+				default: // PARAMETROS
+					// Si esta dentro de una seccion y hay un signo '=' en la linea, entonces...
 					if ((section != null) && (separador = srt.indexOf('=')) != -1) {
 
-						key = srt.substring(0, separador).trim();
+						key = srt.substring(0, separador).trim(); // FIXME Q funcionalidad tiene el metodo trim() en esta linea?
 						value = srt.substring(separador + 1, srt.length()).trim();
 
 						// Si hay un comentario al final de la linea, lo quita
@@ -121,11 +120,9 @@ public class IniFile {
 
 		int i = 0;
 
-		/*
-		 * Itera la primera clave de la coleccion.
+		/* Itera la primera clave de la coleccion.
 		 * 
-		 * Convierte la coleccion en Set para poder trabajarla como un conjuto de datos.
-		 */
+		 * Convierte la coleccion en Set para poder trabajarla como un conjuto de datos. */
 		for (Map.Entry<String, LinkedHashMap<String, String>> v : data.entrySet()) {
 
 			// Almacena las sub claves y valores
