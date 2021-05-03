@@ -28,6 +28,7 @@ import javax.swing.JOptionPane;
 
 /**
  * IniFile: Clase para leer archivos INI.
+ * https://es.wikipedia.org/wiki/INI_(extensi%C3%B3n_de_archivo)
  * 
  * @author Ru$o
  * 
