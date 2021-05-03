@@ -1,6 +1,6 @@
 ## Change Log ([semantic versioning](https://semver.org/))
 
-#### Version: 0.8 - 1-12-2020
+#### Version: 1.0.0-alpha - 1-12-2020
 - Migracio a Gradle.
 - Manipulacion de datos a travez de archivos .dat, **los datos se modifican dentro del .jar!**
 - Optimizacion de codigo.
