@@ -181,16 +181,16 @@ public class Principal extends JFrame {
 		JPanel panel = getPanel("Ajustes");
 		panel.setLayout(new MigLayout("fill")); // Reclama todo el espacio libre en el panel
 
-		tbtnGrupo = new JToggleButton("ï¿½Estï¿½s en grupo?");
+		tbtnGrupo = new JToggleButton("¿Estas en grupo?");
 		tbtnGrupo.addActionListener(new Oyente());
 		tbtnGrupo.setFocusable(false);
 
-		tbtnRenegado = new JToggleButton("ï¿½Sos renegado?");
+		tbtnRenegado = new JToggleButton("¿Sos renegado?");
 		tbtnRenegado.setToolTipText("Los renegados pierden un 10% de la experiencia total al formar grupos.");
 		tbtnRenegado.setFocusable(false);
 		tbtnRenegado.setEnabled(false);
 
-		lblGrupo = new JLabel("ï¿½Cuï¿½ntos son?");
+		lblGrupo = new JLabel("¿Cuantos son?");
 
 		cbGrupo = new JComboBox<String>(new String[] { "2", "3", "4", "5" });
 		cbGrupo.setSelectedIndex(-1);
