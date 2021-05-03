@@ -170,7 +170,7 @@ public class Principal extends JFrame {
 		add(getCalculadoraPanel(), "spanx, growx");
 		add(getBotonesPanel(), "spanx, growx");
 
-		/* Comprime la ventana al tamaï¿½o del componente mas grande, garantizando que el marco tenga el tamaï¿½o minimo para
+		/* Comprime la ventana al tamaño del componente mas grande, garantizando que el marco tenga el tamaño minimo para
 		 * mostrar los componentes que contiene. */
 		pack();
 		setLocationRelativeTo(null);
