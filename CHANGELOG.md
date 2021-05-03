@@ -14,7 +14,7 @@
 - Clase principal `Launcher` agregada.
 - **FIX**: Eliminacion de los acentos sobre los nombres de NCPs que evitaban su busqueda en el JComboBox.
 
-#### Version: 0.2 - 31-07-2020 
+#### Version: 0.0.2 - 31-07-2020 
 
 - JComboBox de NPCs autocompletable (libreria swingx-all-1.6.5.jar).
 - Nuevas funciones de busqueda sobre el JComboBox del NPC:
