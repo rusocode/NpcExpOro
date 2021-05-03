@@ -5,7 +5,7 @@
 - Manipulacion de datos a travez de archivos .dat, **los datos se modifican dentro del .jar!**
 - Optimizacion de codigo.
 
-#### Version: 0.2.1 - 16-08-2020
+#### Version: 0.3.0 - 16-08-2020
 
 - Integracion de Maven.
 - **1399 KB menos!**
