@@ -96,27 +96,29 @@ public class Principal extends JFrame {
 
 	private void loadPJs() {
 
+		// Crea un objeto de la clase IniFile
 		ini = new IniFile();
 
+		// Localiza el archivo dentro de la ruta de clases y lo asigna al flujo de entrada
 		InputStream file = this.getClass().getClassLoader().getResourceAsStream("PJs.dat");
 
+		// Carga el dat
 		ini.load(file);
 
+		// Almacena los valores de las claves especificadas dentro de un array de String
 		nivel = ini.getValues("Nivel");
 		expPJ = ini.getValues("Exp");
 
 	}
 
 	private void loadNPCs() {
+
 		ini = new IniFile();
 
-		// Localiza el archivo dentro de la ruta de clases
 		InputStream file = this.getClass().getClassLoader().getResourceAsStream("NPCs.dat");
 
-		// Carga el dat de NPCs
 		ini.load(file);
 
-		// Almacena los valores de las claves especificadas dentro de un array de String
 		npc = ini.getValues("Nombre");
 		vida = ini.getValues("Vida");
 		expNPC = ini.getValues("Exp");

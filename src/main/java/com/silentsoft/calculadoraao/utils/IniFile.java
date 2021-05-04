@@ -38,6 +38,7 @@ public class IniFile {
 	private LinkedHashMap<String, LinkedHashMap<String, String>> data = new LinkedHashMap<String, LinkedHashMap<String, String>>();
 
 	public IniFile() {
+
 	}
 
 	public IniFile(InputStream file) {
@@ -56,7 +57,7 @@ public class IniFile {
 		try {
 			buffer = new BufferedReader(new InputStreamReader(file)); // FIXME le agrego el charset (UTF-8)?
 			loadFromFile(buffer);
-		} catch (NullPointerException e) {
+		} catch (NullPointerException e) { // FileNotFoundException no cumplia ninguna funcionalidad
 			JOptionPane.showMessageDialog(null, "No se encontro el archivo especificado", "Error", JOptionPane.ERROR_MESSAGE);
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Error de I/O: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -74,8 +75,7 @@ public class IniFile {
 	private void loadFromFile(BufferedReader buffer) throws FileNotFoundException, IOException {
 
 		int corcheteCierre, separador, comentario;
-		String section = null, key, value;
-		String srt;
+		String srt, section = null, key, value;
 
 		while ((srt = buffer.readLine()) != null) {
 			srt = srt.trim(); // Si hay espacios en blanco al principio o final de la cadena, los elimina
@@ -99,7 +99,7 @@ public class IniFile {
 						value = srt.substring(separador + 1, srt.length()).trim();
 
 						// Si hay un comentario al final de la linea, lo quita
-						if ((comentario = value.indexOf(';')) > -1) value = value.substring(0, comentario).trim();
+						if ((comentario = value.indexOf(';')) != -1) value = value.substring(0, comentario).trim();
 
 						// Recupera la seccion y agrega el par (clave, valor)
 						data.get(section).put(key, value);
