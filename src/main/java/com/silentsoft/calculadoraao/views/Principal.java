@@ -172,7 +172,7 @@ public class Principal extends JFrame {
 		add(getCalculadoraPanel(), "spanx, growx");
 		add(getBotonesPanel(), "spanx, growx");
 
-		/* Comprime la ventana al tamaï¿½o del componente mas grande, garantizando que el marco tenga el tamaï¿½o minimo para
+		/* Comprime la ventana al tamaño del componente mas grande, garantizando que el marco tenga el tamaño minimo para
 		 * mostrar los componentes que contiene. */
 		pack();
 		setLocationRelativeTo(null);
@@ -183,16 +183,16 @@ public class Principal extends JFrame {
 		JPanel panel = getPanel("Ajustes");
 		panel.setLayout(new MigLayout("fill")); // Reclama todo el espacio libre en el panel
 
-		tbtnGrupo = new JToggleButton("ï¿½Estï¿½s en grupo?");
+		tbtnGrupo = new JToggleButton("¿Estás en grupo?");
 		tbtnGrupo.addActionListener(new Oyente());
 		tbtnGrupo.setFocusable(false);
 
-		tbtnRenegado = new JToggleButton("ï¿½Sos renegado?");
+		tbtnRenegado = new JToggleButton("¿Sos renegado?");
 		tbtnRenegado.setToolTipText("Los renegados pierden un 10% de la experiencia total al formar grupos.");
 		tbtnRenegado.setFocusable(false);
 		tbtnRenegado.setEnabled(false);
 
-		lblGrupo = new JLabel("ï¿½Cuï¿½ntos son?");
+		lblGrupo = new JLabel("¿Cuántos son?");
 
 		cbGrupo = new JComboBox<String>(new String[] { "2", "3", "4", "5" });
 		cbGrupo.setSelectedIndex(-1);
