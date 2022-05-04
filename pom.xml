@@ -1,35 +1,63 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<!-- Definicion del artefacto -->
-	<groupId>com.silent</groupId>
-	<artifactId>CalculadoraAO</artifactId>
-	<version>1.0</version>
+    <!-- Definicion del artefacto -->
+    <groupId>com.silent</groupId>
+    <artifactId>CalculadoraAO</artifactId>
+    <version>1.1</version>
+    <name>CalculadoraAO</name>
+    <description>Calculadora multiplataforma basada en Argentum Online que calcula el porcentaje de experiencia que otorga el NPC, la cantidad de NPCs
+        a matar y el oro total
+    </description>
+    <url>https://github.com/rusocode/CalculadoraAO</url>
 
-	<!-- Propiedades del compilador -->
-	<properties>
-		<maven.compiler.source>15</maven.compiler.source>
-		<maven.compiler.target>15</maven.compiler.target>
-	</properties>
+    <!-- Propiedades del compilador -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
+    </properties>
 
-	<!-- Dependencias -->
-	<dependencies>
+    <licenses>
+        <license>
+            <name>GNU GPL v3.0</name>
+            <url>https://www.gnu.org/licenses/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-		<dependency>
-			<groupId>com.miglayout</groupId>
-			<artifactId>miglayout</artifactId>
-			<version>3.7.4</version>
-			<scope>compile</scope>
-		</dependency>
+    <developers>
+        <developer>
+            <id>Ruso</id>
+            <name>Juan Debenedetti</name>
+            <email>juandebenedetti94@gmail.com</email>
+            <roles>
+                <role>owner</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
 
-		<dependency>
-			<groupId>org.swinglabs.swingx</groupId>
-			<artifactId>swingx-autocomplete</artifactId>
-			<version>1.6.5-1</version>
-		</dependency>
+    <!-- Dependencias -->
+    <dependencies>
 
-	</dependencies>
+        <!-- https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar -->
+        <dependency>
+            <groupId>com.miglayout</groupId>
+            <artifactId>miglayout</artifactId>
+            <version>3.7.4</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar -->
+        <dependency>
+            <groupId>org.swinglabs.swingx</groupId>
+            <artifactId>swingx-autocomplete</artifactId>
+            <version>1.6.5-1</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

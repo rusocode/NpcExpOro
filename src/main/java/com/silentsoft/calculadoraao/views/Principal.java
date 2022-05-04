@@ -1,17 +1,15 @@
 /**
- * 
- * CalculadoraAO Copyright (C) 2020 SilentSoft
- * 
+ * CalculadoraAO Copyright (C) Silent
+ * <p>
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
  * version.
- * 
+ * <p>
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
+ * <p>
  * You should have received a copy of the GNU General Public License along with this program. If not, see
- * <https://www.gnu.org/licenses/>.
- * 
+ * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
 package com.silentsoft.calculadoraao.views;
@@ -21,10 +19,12 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.InputStream;
+import java.io.Serial;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -45,23 +45,20 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import com.silentsoft.calculadoraao.utils.IniFile;
 
 /**
- * @author Ru$o
- * 
+ * @author Ruso
  */
 
 public class Principal extends JFrame {
 
-	private static final long serialVersionUID = -2225328319053890966L;
+	@Serial private static final long serialVersionUID = -2225328319053890966L;
 
-	private JLabel lblNivel, lblExpPJ, lblNPC, lblExpNPC, lblVidaNPC, lblOroNPC, lblGrupo, lblPorcentajeExp, lblTotNpcMatar, lblTotOro;
 	private JTextField txtExpPJ, txtExpNPC, txtVidaNPC, txtOroNPC, txtPorcentajeExp, txtTotalNPC, txtTotalOro;
 	private JComboBox<String> cbNivel, cbNPC, cbGrupo;
 	private JToggleButton tbtnGrupo, tbtnRenegado, tbtnExpX2, tbtnBonificador, tbtnOroX2, tbtn10, tbtn25;
 	private JButton btnCalcular, btnAcerca;
-	private ButtonGroup grupo;
 	private JRadioButton mayor, menor, relacion, abc;
 
-	private DecimalFormat formatoPorcentaje;
+	private final DecimalFormat formatoPorcentaje;
 
 	private IniFile ini;
 
@@ -76,22 +73,16 @@ public class Principal extends JFrame {
 	private static final short BONIFICADOR_ORO = 5;
 
 	public Principal() {
-
 		super("CalculadoraAO");
-
 		setResizable(false);
-
-		setIconImage(getImagen("logo.png"));
-
+		setIconImage(getImagen());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		formatoPorcentaje = new DecimalFormat("##.##");
 
 		loadPJs();
 		loadNPCs();
 
 		initialize();
-
 	}
 
 	private void loadPJs() {
@@ -128,15 +119,15 @@ public class Principal extends JFrame {
 
 	/* Comprueba si la ruta de la imagen existe. En caso de que no la encuentre, la aplicacion sigue con su ejecucion y no
 	 * se detiene.
-	 * 
+	 *
 	 * La razon de este metodo, se debe a que al generar el .jar ejecutable DESDE Eclipse (en mi caso), podria llegar a
 	 * generar un error en la ruta de clases de la imagen, ya que estamos implementando maven para la estructura de carpetas
 	 * y por convenio es recomendable crear el .jar desde la consola con un "mvn clean compile assembly:single". Este
 	 * comando, crea el ejecutable incluyendo las dependencias especificadas en el archivo pom.xml y lo alamacena dentro de
 	 * la carpeta target.
-	 * 
+	 *
 	 * En conclusion, con esta funcion se evita un NullPointerException. */
-	private Image getImagen(String path) {
+	private Image getImagen() {
 
 		// Cargador de clases para este objeto
 		ClassLoader classLoader = this.getClass().getClassLoader();
@@ -144,13 +135,13 @@ public class Principal extends JFrame {
 		ImageIcon imageIcon;
 
 		// Carga la ruta de la imagen desde la raiz del .classpath y la almacena en una variable de tipo URL
-		URL url = classLoader.getResource(path);
+		URL url = classLoader.getResource("logo.png");
 
 		// Evita un NullPointerException en caso de que la ruta de la imagen no se ecuentre
 		if (url != null) {
 			imageIcon = new ImageIcon(url);
 			image = imageIcon.getImage();
-		} else JOptionPane.showMessageDialog(null, "No se pudo encontrar la imagen [" + path + "] en \"" + System.getProperty("user.dir") + "\"",
+		} else JOptionPane.showMessageDialog(null, "No se pudo encontrar la imagen [" + "logo.png" + "] en \"" + System.getProperty("user.dir") + "\"",
 				"Error", JOptionPane.ERROR_MESSAGE);
 
 		return image;
@@ -172,7 +163,7 @@ public class Principal extends JFrame {
 		add(getCalculadoraPanel(), "spanx, growx");
 		add(getBotonesPanel(), "spanx, growx");
 
-		/* Comprime la ventana al tama�o del componente mas grande, garantizando que el marco tenga el tama�o minimo para
+		/* Comprime la ventana al tamaño del componente mas grande, garantizando que el marco tenga el tamaño minimo para
 		 * mostrar los componentes que contiene. */
 		pack();
 		setLocationRelativeTo(null);
@@ -192,9 +183,9 @@ public class Principal extends JFrame {
 		tbtnRenegado.setFocusable(false);
 		tbtnRenegado.setEnabled(false);
 
-		lblGrupo = new JLabel("¿Cuántos son?");
+		JLabel lblGrupo = new JLabel("¿Cuántos son?");
 
-		cbGrupo = new JComboBox<String>(new String[] { "2", "3", "4", "5" });
+		cbGrupo = new JComboBox<>(new String[] { "2", "3", "4", "5" });
 		cbGrupo.setSelectedIndex(-1);
 		cbGrupo.setFocusable(false);
 		cbGrupo.setEnabled(false);
@@ -242,14 +233,14 @@ public class Principal extends JFrame {
 		JPanel panel = getPanel("PJ");
 		panel.setLayout(new MigLayout("wrap 2"));
 
-		lblNivel = new JLabel("Nivel:");
+		JLabel lblNivel = new JLabel("Nivel:");
 
-		cbNivel = new JComboBox<String>(nivel);
+		cbNivel = new JComboBox<>(nivel);
 		cbNivel.addActionListener(new Oyente());
 		cbNivel.setFocusable(false);
 		cbNivel.setSelectedItem(null);
 
-		lblExpPJ = new JLabel("Experiencia:");
+		JLabel lblExpPJ = new JLabel("Experiencia:");
 
 		// Obviamente si le indico el tama�o al campo de texto, entonces la ventana no tiene que ser redimensionable
 		txtExpPJ = new JTextField(7);
@@ -269,7 +260,7 @@ public class Principal extends JFrame {
 
 		JPanel panelRadio = new JPanel();
 		panelRadio.setLayout(new MigLayout("insets 0"));
-		grupo = new ButtonGroup();
+		ButtonGroup grupo = new ButtonGroup();
 		abc = new JRadioButton("abc");
 		abc.addActionListener(new Oyente());
 		abc.setFont(new Font("Consolas", Font.PLAIN, 11));
@@ -299,19 +290,19 @@ public class Principal extends JFrame {
 
 		panel.add(panelRadio, "spanx, wrap");
 
-		lblNPC = new JLabel("Nombre:");
-		cbNPC = new JComboBox<String>(npc);
+		JLabel lblNPC = new JLabel("Nombre:");
+		cbNPC = new JComboBox<>(npc);
 		AutoCompleteDecorator.decorate(cbNPC);
 		cbNPC.addActionListener(new Oyente());
 		cbNPC.setSelectedItem(null);
 
-		lblVidaNPC = new JLabel("Vida:");
+		JLabel lblVidaNPC = new JLabel("Vida:");
 		txtVidaNPC = new JTextField();
 		txtVidaNPC.setEditable(false);
-		lblExpNPC = new JLabel("Exp:");
+		JLabel lblExpNPC = new JLabel("Exp:");
 		txtExpNPC = new JTextField();
 		txtExpNPC.setEditable(false);
-		lblOroNPC = new JLabel("Oro:");
+		JLabel lblOroNPC = new JLabel("Oro:");
 		txtOroNPC = new JTextField();
 		txtOroNPC.setEditable(false);
 
@@ -332,13 +323,13 @@ public class Principal extends JFrame {
 		JPanel panel = getPanel("Calculadora");
 		panel.setLayout(new MigLayout("wrap 2, fill", "[grow 0, right][fill]"));
 
-		lblPorcentajeExp = new JLabel("Porcentaje de experiencia que otorga el NPC:");
+		JLabel lblPorcentajeExp = new JLabel("Porcentaje de experiencia que otorga el NPC:");
 		txtPorcentajeExp = new JTextField();
 		txtPorcentajeExp.setEditable(false);
-		lblTotNpcMatar = new JLabel("Total de NPCs a matar para subir de nivel:");
+		JLabel lblTotNpcMatar = new JLabel("Total de NPCs a matar para subir de nivel:");
 		txtTotalNPC = new JTextField();
 		txtTotalNPC.setEditable(false);
-		lblTotOro = new JLabel("Total de oro a conseguir:");
+		JLabel lblTotOro = new JLabel("Total de oro a conseguir:");
 		txtTotalOro = new JTextField();
 		txtTotalOro.setEditable(false);
 
@@ -358,15 +349,12 @@ public class Principal extends JFrame {
 
 		panel.setLayout(new MigLayout("insets 0", "[][grow, right]"));
 
-		panel.add(new JLabel("by Ru$o"));
+		panel.add(new JLabel("by Ruso"));
 
 		btnAcerca = new JButton("Acerca de...");
 		btnAcerca.setFocusable(false);
-		btnAcerca.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				if (evt.getSource() == btnAcerca) Acerca.getInstance().setVisible(true);
-			}
+		btnAcerca.addActionListener(evt -> {
+			if (evt.getSource() == btnAcerca) Acerca.getInstance().setVisible(true);
 		});
 
 		panel.add(btnAcerca);
@@ -383,8 +371,7 @@ public class Principal extends JFrame {
 	// FIXME Crear una clase aparte para la clase interna
 	private class Oyente implements ActionListener {
 
-		@Override
-		public void actionPerformed(ActionEvent evt) {
+		@Override public void actionPerformed(ActionEvent evt) {
 
 			if (evt.getSource() == cbNivel || evt.getSource() == cbNPC) accion0();
 			if (evt.getSource() == tbtnGrupo) accion1();
@@ -402,8 +389,7 @@ public class Principal extends JFrame {
 
 		// Habilita el boton btnCalcular si los combos PJ y NPC tienen seleccionado un item
 		private void accion0() {
-			if (cbNivel.getSelectedItem() != null && cbNPC.getSelectedItem() != null) btnCalcular.setEnabled(true);
-			else btnCalcular.setEnabled(false);
+			btnCalcular.setEnabled(cbNivel.getSelectedItem() != null && cbNPC.getSelectedItem() != null);
 		}
 
 		private void accion1() {
@@ -430,7 +416,7 @@ public class Principal extends JFrame {
 		private void getExpPJ() {
 			if (cbNivel.getSelectedIndex() != -1) {
 				for (int i = 0; i < nivel.length; i++) {
-					if (cbNivel.getSelectedItem().equals(nivel[i])) {
+					if (Objects.equals(cbNivel.getSelectedItem(), nivel[i])) {
 						txtExpPJ.setText("" + expPJ[i]);
 						break;
 					}
@@ -441,7 +427,7 @@ public class Principal extends JFrame {
 		private void getDatosNPC() {
 			if (cbNPC.getSelectedIndex() != -1) {
 				for (int i = 0; i < npc.length; i++) {
-					if (cbNPC.getSelectedItem().equals(npc[i])) {
+					if (Objects.equals(cbNPC.getSelectedItem(), npc[i])) {
 						txtVidaNPC.setText("" + vida[i]);
 						txtExpNPC.setText("" + expNPC[i]);
 						txtOroNPC.setText("" + oro[i]);
@@ -485,8 +471,7 @@ public class Principal extends JFrame {
 				}
 			}
 
-			for (int i = 0; i < npc.length; i++)
-				cbNPC.addItem("" + npc[i]);
+			for (String s : npc) cbNPC.addItem("" + s);
 
 		}
 
@@ -528,8 +513,7 @@ public class Principal extends JFrame {
 				}
 			}
 
-			for (int i = 0; i < npc.length; i++)
-				cbNPC.addItem("" + npc[i]);
+			for (String s : npc) cbNPC.addItem("" + s);
 
 		}
 
@@ -576,18 +560,16 @@ public class Principal extends JFrame {
 				}
 			}
 
-			for (int i = 0; i < npc.length; i++)
-				cbNPC.addItem("" + npc[i]);
+			for (String s : npc) cbNPC.addItem("" + s);
 
 		}
 
 		// Ordena los NPCs alfabeticamente
 		private void sortABC() {
-			ArrayList<String> nombres = new ArrayList<String>();
+			ArrayList<String> nombres = new ArrayList<>();
 
 			// Agrega los nombres del array de objetos al array de strings
-			for (int i = 0; i < npc.length; i++)
-				nombres.add("" + npc[i]);
+			for (String s : npc) nombres.add("" + s);
 
 			// Ordena los nombres alfabeticamente
 			Collections.sort(nombres);
@@ -596,8 +578,7 @@ public class Principal extends JFrame {
 			cbNPC.removeAllItems();
 
 			// Agrega los nombres ordenados al JComboBox
-			for (int i = 0; i < nombres.size(); i++)
-				cbNPC.addItem(nombres.get(i));
+			for (String nombre : nombres) cbNPC.addItem(nombre);
 
 		}
 
@@ -632,11 +613,11 @@ public class Principal extends JFrame {
 			 * npc, mas npcs van a necesitarce para llegar al 100%, menos exp mas npcs a matar. Es logico, no podemos tener una
 			 * reduccion de % sobre la exp y matar un npc con un % sin reduccion, ya que estariamos pasando el limite de 100
 			 * (calculando la cantidad de npcs * el %).
-			 * 
+			 *
 			 * Una vez reducida la exp del npc, dividimos la exp del pj por la exp del npc, y obtenemos la cantidad de npcs a matar.
 			 * En otras palabras, esa cantidad serian los "pedazitos (npcs)" de la exp del pj en la que se "dividen" por x partes, y
 			 * cada parte va a contener un % del total de la exp del npc.
-			 * 
+			 *
 			 * Para calcular el % de cada parte es necesario dividir 100 por el total, ej: el % de 4,75 es de 20%, ya que sumando
 			 * 20% a cada parte de 4.75 llegamos a 100. Para calcular el % de 4,75 se tiene que dividir 100 por 4,75 = 21,05%. */
 			cantidadR = expPJ / (expNPC * 0.9);

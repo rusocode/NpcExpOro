@@ -1,6 +1,5 @@
 /**
- * 
- * CalculadoraAO Copyright (C) 2020 SilentSoft
+ * CalculadoraAO Copyright (C) Silent
  * 
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
@@ -10,14 +9,12 @@
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License along with this program. If not, see
- * <https://www.gnu.org/licenses/>.
- * 
+ * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
 package com.silentsoft.calculadoraao.utils;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -28,30 +25,21 @@ import javax.swing.JOptionPane;
 
 /**
  * IniFile: Clase para leer archivos INI.
- * https://es.wikipedia.org/wiki/INI_(extensi%C3%B3n_de_archivo)
+ * <a href="https://es.wikipedia.org/wiki/INI_">https://es.wikipedia.org/wiki/INI_</a>(extensi%C3%B3n_de_archivo)
  * 
- * @author Ru$o
+ * @author Ruso
  * 
  */
 
 public class IniFile {
 
-	private LinkedHashMap<String, LinkedHashMap<String, String>> data = new LinkedHashMap<String, LinkedHashMap<String, String>>();
-
-	public IniFile() {
-
-	}
-
-	public IniFile(InputStream file) {
-		load(file);
-	}
+	private final LinkedHashMap<String, LinkedHashMap<String, String>> data = new LinkedHashMap<>();
 
 	/**
 	 * Carga y parsea un archivo INI.
 	 * 
 	 * @param file: Nombre del archivo ini.
 	 * @throws NullPointerException: Archivo no encontrado.
-	 * @throws IOException:          Error de I/O (entra y salida).
 	 */
 	public void load(InputStream file) {
 		BufferedReader buffer = null;
@@ -73,7 +61,7 @@ public class IniFile {
 	}
 
 	// Carga el INI a una coleccion de tipo LinkedHashMap
-	private void loadFromFile(BufferedReader buffer) throws FileNotFoundException, IOException {
+	private void loadFromFile(BufferedReader buffer) throws IOException {
 
 		int corcheteCierre, separador, comentario;
 		String srt, section = null, key, value;
@@ -89,7 +77,7 @@ public class IniFile {
 						// Almacena la seccion que va del indice 1 al corcheteCierre sin incluirlo
 						section = srt.substring(1, corcheteCierre).toUpperCase();
 						// Si la coleccion no contiene la seccion, entonces agrega la seccion a la coleccion
-						if (!data.containsKey(section)) data.put(section, new LinkedHashMap<String, String>());
+						if (!data.containsKey(section)) data.put(section, new LinkedHashMap<>());
 					}
 					break;
 				default: // PARAMETROS

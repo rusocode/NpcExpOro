@@ -1,6 +1,5 @@
 /**
- * 
- * CalculadoraAO Copyright (C) 2020 SilentSoft
+ * CalculadoraAO Copyright (C) Silent
  * 
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
@@ -10,8 +9,7 @@
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License along with this program. If not, see
- * <https://www.gnu.org/licenses/>.
- * 
+ * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
 package com.silentsoft.calculadoraao.utils;
@@ -22,6 +20,7 @@ import java.awt.Desktop;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.io.Serial;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -29,13 +28,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
- * @author Ru$o
+ * @author Ruso
  * 
  */
 
 public class JHyperlink extends JLabel {
 
-	private static final long serialVersionUID = 1L;
+	@Serial private static final long serialVersionUID = 1L;
 
 	private String url;
 
@@ -67,7 +66,7 @@ public class JHyperlink extends JLabel {
 				} catch (URISyntaxException
 						/* Si la cadena dada viola RFC 2396, como se incrementa por las desviaciones anteriores. */ | NullPointerException
 						/* Si la cadena es nula. */ | IOException e) {
-					JOptionPane.showMessageDialog(JHyperlink.this, "No se pudo abrir el hipervínculo. Error: " + e.getMessage(), "Error",
+					JOptionPane.showMessageDialog(JHyperlink.this, "No se pudo abrir el hipervÃ­nculo. Error: " + e.getMessage(), "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
 			}
