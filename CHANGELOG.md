@@ -16,22 +16,18 @@
 #### Version: 0.3.0 - 2020/08/16
 - Integracion de Maven.
 - Se agrego la libreria [miglayout](https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar) para un mejor diseño en la GUI.
-- deffmdd-all por [swingx-autocomplete](https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar).
+- Se a-all por [swingx-autocomplete](https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar).
 - Ahora hay una clase principal `Main` encargada de ejecutar la aplicacion.
-ddsffmm
+
 #### Version: 0.2.0 - 2020/07/31
-- Se agrego la libreria [singx-all](https://search.maven.org/artifact/org.swinglabs.swingx/swingx-all/1.6.5-1/jar)
-- Combo de NPCs autocompletable (libreria swingx-all-1.6.5.jar).
-- Nuevas funciones de busqueda sobre el JComboBox del NPC:
-  - `+exp` muestra los NPCs de mayor a menor exp.
-  - `-exp` muestra los NPCs de menor a mayor exp.
-  - `vida/exp` muestra los NPCs que mejor rinden en cuanto a la relacion que tienen entre vida y exp.
-  - `abc` ordena los nombres de los NPCs alfabeticamente.
-- Boton `Actualizar` agregado (falta hacerlo funcionar).
-- Boton `Acerca de...` agregado:
-  - Nueva componente JDialog que muestra informacion del software.
-  - Link al repositorio en GitHub.
-- Se agregaron los scrolls de +50%, +100% y +200% que otorgan un bonus adicional sobre la exp recibida.
+- Se agrego la libreria [swingx-all](https://search.maven.org/artifact/org.swinglabs.swingx/swingx-all/1.6.5-1/jar) para tipear el nombre NPC dentro del combo.
+- Ahora se puede calcular el bonus adicional sobre la experiencia recibida usando +50%, +100% y +200%.
+- Nuevas funciones de busqueda sobre el combo del NPC:
+  - `abc` muestra los NPCs alfabeticamente.
+  - `vida/exp` muestra los NPCs que mejor rinden en cuanto a la relacion que tienen entre vida y experiencia.
+  - `+exp` muestra los NPCs de mayor a menor experiencia.
+  - `-exp` muestra los NPCs de menor a mayor experiencia.
+- `Acerca de...` muestra los detalles del software.
 
 #### Version: 0.1.0 - 2020/07/01
 Version inicial.
