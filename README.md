@@ -19,7 +19,7 @@ Calculadora multiplataforma basada en **Argentum Online** que calcula el porcent
 	- Bonificador premium (+10% de experiencia y +5% de oro).
 - Interfaz gráfica de usuario administrada por la librería [MigLayout](https://github.com/mikaelgrev/miglayout).
 
-_Consulte [CHANGELOG.md](https://github.com/rusocode/CalculadoraAO/blob/master/CHANGELOG.md) para mas detalles_
+_Consulte [CHANGELOG.md](https://github.com/rusocode/CalculadoraAO/blob/master/CHANGELOG.md) para mas detalles..._
 
 ### Getting started
 
@@ -28,7 +28,7 @@ Para el desarrollo sugerimos:
 - JDK 15
 
 Para ejecutar:
-- **[JRE 8](https://www.java.com/es/download/)** +
+- **[JRE 8](https://www.java.com)**
 
 ### Contacto
 juandebenedetti94@gmail.com
