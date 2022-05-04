@@ -19,7 +19,7 @@ Calculadora multiplataforma basada en **Argentum Online** que calcula el porcent
 	- Bonificador premium (+10% de experiencia y +5% de oro).
 - Interfaz gráfica de usuario administrada por la librería [MigLayout](https://github.com/mikaelgrev/miglayout).
 
-_Consulte [CHANGELOG.md](https://github.com/rusocode/CalculadoraAO/blob/master/CHANGELOG.md) para mas detalles..._
+_Consulte [CHANGELOG](https://github.com/rusocode/CalculadoraAO/blob/master/CHANGELOG.md) para mas detalles..._
 
 ### Getting started
 
