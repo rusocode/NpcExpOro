@@ -26,4 +26,4 @@ Para el desarrollo sugerimos:
 - JDK 15
 
 Para ejecutar:
-- **[JRE 8](https://www.java.com)
+- [JRE 8](https://www.java.com)
