@@ -1,5 +1,4 @@
 /**
- * 
  * CalculadoraAO Copyright (C) 2020 SilentSoft
  * 
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
@@ -10,8 +9,7 @@
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License along with this program. If not, see
- * <https://www.gnu.org/licenses/>.
- * 
+ * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
 package com.silentsoft.calculadoraao;
