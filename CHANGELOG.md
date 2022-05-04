@@ -13,8 +13,8 @@
 
 #### Version: 0.3.0 - 2020/08/16
 - Integracion de Maven para la construccion del proyecto.
-- Se agrego la libreria [miglayout](https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar) para un mejor diseño en la GUI.
-- Se reemplazo swingx-all por [swingx-autocomplete](https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar) ahorrando un par de KBs!
+- Se agrego la libreria [miglayout](https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar) para que el diseño de la GUI sea mas facil.
+- Se reemplazo la libreria swingx-all por [swingx-autocomplete](https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar) ahorrando un par de KBs!
 - Ahora hay una clase principal `Main` encargada de ejecutar la aplicacion.
 
 #### Version: 0.2.0 - 2020/07/31
