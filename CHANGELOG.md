@@ -6,8 +6,8 @@
 
 #### Version: 1.0.0 - 2020/12/01
 - Migracio a Gradle.
-- Ahora los datos se pueden editar en los archivos **.dat** desde dentro del .jar.
-- 
+- Ahora los datos (nombres, niveles, etc.) se pueden editar en los archivos **.dat** desde dentro del .jar.
+
 #### Version: 0.3.1 - 2020/08/18
 - **Fix**: Hay nombres de NPCs que el combo no puede encontrar.
 
@@ -18,7 +18,7 @@
 - Ahora hay una clase principal `Main` encargada de ejecutar la aplicacion.
 
 #### Version: 0.2.0 - 2020/07/31
-- Se agrego la libreria [swingx-all](https://search.maven.org/artifact/org.swinglabs.swingx/swingx-all/1.6.5-1/jar) para tipear el nombre NPC dentro del combo.
+- Se agrego la libreria [swingx-all](https://search.maven.org/artifact/org.swinglabs.swingx/swingx-all/1.6.5-1/jar) para tipear el nombre del NPC dentro del combo.
 - Ahora se puede calcular el bonus adicional sobre la experiencia recibida usando +50%, +100% y +200%.
 - Nuevas funciones de busqueda sobre el combo de NPCs:
   - `abc` muestra los NPCs alfabeticamente.
