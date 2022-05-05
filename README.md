@@ -1,9 +1,9 @@
-## CalculadoraAO
+## NpcExpOro
 Calculadora multiplataforma basada en **Argentum Online** que calcula el porcentaje de experiencia que otorga cada NPC, la cantidad de NPCs a matar y el oro total a conseguir.
 
 ![](screenshot.png)
 
-[![Download CalculadoraAO](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/calculadoraao/files/latest/download)
+[![Download NpcExpOro](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/calculadoraao/files/latest/download)
 
 ### Características
 - Calcula el porcentaje de experiencia que otorga cada NPC dependiendo del nivel.
