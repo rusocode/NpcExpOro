@@ -32,7 +32,7 @@
         <developer>
             <id>Ruso</id>
             <name>Juan Debenedetti</name>
-            <email>juandebenedetti94@gmail.com</email>
+            <email>rusocode94@gmail.com</email>
             <roles>
                 <role>owner</role>
                 <role>developer</role>
@@ -43,15 +43,12 @@
     <!-- Dependencias -->
     <dependencies>
 
-        <!-- https://search.maven.org/artifact/com.miglayout/miglayout/3.7.4/jar -->
         <dependency>
             <groupId>com.miglayout</groupId>
-            <artifactId>miglayout</artifactId>
-            <version>3.7.4</version>
-            <scope>compile</scope>
+            <artifactId>miglayout-swing</artifactId>
+            <version>5.1</version>
         </dependency>
 
-        <!-- https://search.maven.org/artifact/org.swinglabs.swingx/swingx-autocomplete/1.6.5-1/jar -->
         <dependency>
             <groupId>org.swinglabs.swingx</groupId>
             <artifactId>swingx-autocomplete</artifactId>

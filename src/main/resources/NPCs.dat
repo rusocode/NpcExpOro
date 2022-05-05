@@ -72,7 +72,7 @@ Exp=57
 Oro=14
 
 [NPC13]
-Nombre=Señor de las Sombras
+Nombre=SeÃ±or de las Sombras
 Vida=75
 Exp=66
 Oro=16
@@ -150,7 +150,7 @@ Exp=244
 Oro=41
 
 [NPC26]
-Nombre=Araña Gigante
+Nombre=AraÃ±a Gigante
 Vida=450
 Exp=338
 Oro=57
@@ -672,7 +672,7 @@ Exp=5688
 Oro=744
 
 [NPC111]
-Nombre=Ermitaño de Neiran
+Nombre=ErmitaÃ±o de Neiran
 Vida=2000
 Exp=3125
 Oro=374
