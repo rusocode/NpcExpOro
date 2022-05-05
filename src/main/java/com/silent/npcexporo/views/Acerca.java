@@ -1,5 +1,5 @@
 /**
- * CalculadoraAO Copyright (C) Silent
+ * NpcExpOro Copyright (C) Silent
  * <p>
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
@@ -12,24 +12,19 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silent.calculadoraao.views;
+package com.silent.npcexporo.views;
 
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.io.Serial;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-
-import com.silent.calculadoraao.utils.JHyperlink;
+import com.silent.npcexporo.utils.JHyperlink;
 
 import net.miginfocom.swing.MigLayout;
 
 /**
  * @author Ruso
- *
  */
 
 public class Acerca extends JDialog {
@@ -46,7 +41,7 @@ public class Acerca extends JDialog {
 	}
 
 	private Acerca() {
-		setTitle("Acerca de CalculadoraAO");
+		setTitle("Acerca de NpcExpOro");
 		setResizable(false);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		initialize();
@@ -78,8 +73,8 @@ public class Acerca extends JDialog {
 		});
 		panel.add(btnOk);
 
-		JHyperlink link = new JHyperlink("github.com/CalculadoraAO");
-		link.setURL("https://github.com/rusocode/CalculadoraAO");
+		JHyperlink link = new JHyperlink("github.com/NpcExpOro");
+		link.setURL("https://github.com/rusocode/NpcExpOro");
 		panel.add(link);
 
 		add(panel, "spanx, growx");

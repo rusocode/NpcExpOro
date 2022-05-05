@@ -1,5 +1,5 @@
 /**
- * CalculadoraAO Copyright (C) Silent
+ * NpcExpOro Copyright (C) Silent
  * <p>
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
@@ -12,15 +12,14 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silent.calculadoraao;
+package com.silent.npcexporo;
 
 import javax.swing.UIManager;
 
-import com.silent.calculadoraao.views.Principal;
+import com.silent.npcexporo.views.Principal;
 
 /**
  * @author Ruso
- *
  */
 
 public class Main {

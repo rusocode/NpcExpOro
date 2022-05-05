@@ -1,23 +1,20 @@
 /**
- * CalculadoraAO Copyright (C) Silent
- * 
+ * NpcExpOro Copyright (C) Silent
+ * <p>
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
  * version.
- * 
+ * <p>
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
  * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
+ * <p>
  * You should have received a copy of the GNU General Public License along with this program. If not, see
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silent.calculadoraao.utils;
+package com.silent.npcexporo.utils;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -26,9 +23,8 @@ import javax.swing.JOptionPane;
 /**
  * IniFile: Clase para leer archivos INI.
  * <a href="https://es.wikipedia.org/wiki/INI_">https://es.wikipedia.org/wiki/INI_</a>(extensi%C3%B3n_de_archivo)
- * 
+ *
  * @author Ruso
- * 
  */
 
 public class IniFile {
@@ -37,7 +33,7 @@ public class IniFile {
 
 	/**
 	 * Carga y parsea un archivo INI.
-	 * 
+	 *
 	 * @param file: Nombre del archivo ini.
 	 * @throws NullPointerException: Archivo no encontrado.
 	 */
@@ -70,7 +66,7 @@ public class IniFile {
 			srt = srt.trim(); // Si hay espacios en blanco al principio o final de la cadena, los elimina
 			if (srt.length() > 0) { // Si no es un espacio en blanco, entonces...
 				switch (srt.charAt(0)) {
-				case ';': // COMENTARIOS
+				case '#': // COMENTARIOS
 					break;
 				case '[': // SECCIONES
 					if ((corcheteCierre = srt.indexOf(']')) != -1) {
@@ -110,7 +106,7 @@ public class IniFile {
 		int i = 0;
 
 		/* Itera la primera clave de la coleccion.
-		 * 
+		 *
 		 * Convierte la coleccion en Set para poder trabajarla como un conjuto de datos. */
 		for (Map.Entry<String, LinkedHashMap<String, String>> v : data.entrySet()) {
 

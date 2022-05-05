@@ -1,5 +1,5 @@
 /**
- * CalculadoraAO Copyright (C) Silent
+ * NpcExpOro Copyright (C) Silent
  * <p>
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
@@ -12,7 +12,7 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silent.calculadoraao.views;
+package com.silent.npcexporo.views;
 
 import java.awt.Font;
 import java.awt.Image;
@@ -22,24 +22,10 @@ import java.io.InputStream;
 import java.io.Serial;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Objects;
+import java.util.*;
+import javax.swing.*;
 
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-import javax.swing.JToggleButton;
-
-import com.silent.calculadoraao.utils.IniFile;
+import com.silent.npcexporo.utils.IniFile;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
@@ -77,10 +63,8 @@ public class Principal extends JFrame {
 		setIconImage(getImagen());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		formatoPorcentaje = new DecimalFormat("##.##");
-
 		loadPJs();
 		loadNPCs();
-
 		initialize();
 	}
 
@@ -140,8 +124,9 @@ public class Principal extends JFrame {
 		if (url != null) {
 			imageIcon = new ImageIcon(url);
 			image = imageIcon.getImage();
-		} else JOptionPane.showMessageDialog(null, "No se pudo encontrar la imagen [" + "logo.png" + "] en \"" + System.getProperty("user.dir") + "\"",
-				"Error", JOptionPane.ERROR_MESSAGE);
+		} else
+			JOptionPane.showMessageDialog(null, "No se pudo encontrar la imagen [" + "logo.png" + "] en \"" + System.getProperty("user.dir") + "\"",
+					"Error", JOptionPane.ERROR_MESSAGE);
 
 		return image;
 	}
@@ -241,7 +226,7 @@ public class Principal extends JFrame {
 
 		JLabel lblExpPJ = new JLabel("Experiencia:");
 
-		// Obviamente si le indico el tama�o al campo de texto, entonces la ventana no tiene que ser redimensionable
+		// Obviamente si le indico el tamaño al campo de texto, entonces la ventana no tiene que ser redimensionable
 		txtExpPJ = new JTextField(7);
 		txtExpPJ.setEditable(false);
 

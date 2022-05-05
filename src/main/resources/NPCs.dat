@@ -1,8 +1,8 @@
-; Comentario :D
+# Esto es un comentario
 [NPC1]
 Nombre=Gallina salvaje
 Vida=20
-Exp=33 ; Comentario dentro de parametro
+Exp=33
 Oro=9
 
 [NPC2]
