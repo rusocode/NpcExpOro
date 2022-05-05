@@ -72,7 +72,7 @@ public class Principal extends JFrame {
 	private static final short BONIFICADOR_ORO = 5;
 
 	public Principal() {
-		super("CalculadoraAO");
+		super("NpcExpOro");
 		setResizable(false);
 		setIconImage(getImagen());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
