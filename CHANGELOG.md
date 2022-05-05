@@ -1,8 +1,9 @@
 ## Change Log (hacemos todo lo posible para adherirnos a [semantic versioning](https://semver.org/))
 
 #### Version: 1.1.0 - 2022/05/04
+- Se cambio el nombre del proyecto a _**NpcExpOro**_ por gusto personal.
 - Se volvio a implementar Maven.
-- Se mejoro el rendimiento de la aplicacion usando JDK 15.
+- Se mejoro el rendimiento de la aplicacion usando JDK 15. 
 
 #### Version: 1.0.0 - 2020/12/01
 - Migracio a Gradle.
