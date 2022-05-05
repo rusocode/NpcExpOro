@@ -12,11 +12,11 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silentsoft.calculadoraao;
+package com.silent.calculadoraao;
 
 import javax.swing.UIManager;
 
-import com.silentsoft.calculadoraao.views.Principal;
+import com.silent.calculadoraao.views.Principal;
 
 /**
  * @author Ruso

@@ -12,7 +12,7 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silentsoft.calculadoraao.views;
+package com.silent.calculadoraao.views;
 
 import java.awt.Font;
 import java.awt.Image;
@@ -39,10 +39,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 
+import com.silent.calculadoraao.utils.IniFile;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
-
-import com.silentsoft.calculadoraao.utils.IniFile;
 
 /**
  * @author Ruso

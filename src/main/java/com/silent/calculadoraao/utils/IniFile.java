@@ -12,7 +12,7 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silentsoft.calculadoraao.utils;
+package com.silent.calculadoraao.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;

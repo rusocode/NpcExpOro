@@ -12,7 +12,7 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silentsoft.calculadoraao.views;
+package com.silent.calculadoraao.views;
 
 import java.awt.Font;
 import java.awt.SystemColor;
@@ -23,7 +23,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import com.silentsoft.calculadoraao.utils.JHyperlink;
+import com.silent.calculadoraao.utils.JHyperlink;
 
 import net.miginfocom.swing.MigLayout;
 
