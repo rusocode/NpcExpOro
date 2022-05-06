@@ -5,9 +5,9 @@
 - Se cambio el nombre del proyecto a _**NpcExpOro**_ por gusto personal.
 - Se volvio a implementar Maven.
 - Se mejoro el rendimiento de la aplicacion usando JDK 15.
-- Se reemplazo la libreria _**miglayout-3.7.4**_ por _**miglayout-swing-5.1**_ haciedola mas ligera, ya que la anterior venia con paquetes que no se
+- Se reemplazo la libreria `miglayout-3.7.4` por `miglayout-swing-5.1` haciedola mas ligera, ya que la anterior venia con paquetes que no se
   usaban.
-  - Esta libreria necesita de _**miglayout-core:5.1**_, por lo tanto se importa automaticamente.
+  - Esta libreria necesita de `miglayout-core:5.1`, por lo tanto se importa automaticamente.
 
 #### Version: 1.0.0 - 2020/12/01
 
@@ -16,18 +16,18 @@
 
 #### Version: 0.3.1 - 2020/08/18
 
-- **Fix**: Hay algunos nombres de NPCs que al tipearlos en el combo, no los encuentra.
+- **FIX**: Hay algunos nombres de NPCs que al tipearlos en el combo, no los encuentra.
 
 #### Version: 0.3.0 - 2020/08/16
 
 - Integracion de Maven para la construccion del proyecto.
-- Se agrego la libreria _**miglayout-3.7.4**_ para facilitar el diseño de la GUI.
-- Se reemplazo la libreria _**swingx-all-1.6.5-1**_ por _**swingx-autocomplete-1.6.5-1**_ ahorrando un par de KBs!
+- Se agrego la libreria `miglayout-3.7.4` para facilitar el diseño de la GUI.
+- Se reemplazo la libreria `swingx-all-1.6.5-1` por `swingx-autocomplete-1.6.5-1` ahorrando un par de KBs!
 - Ahora hay una clase principal `Main` encargada de ejecutar la aplicacion.
 
 #### Version: 0.2.0 - 2020/07/31
 
-- Se agrego la libreria _**swingx-all-1.6.5-1**_ para poder tipear el nombre del NPC dentro del combo.
+- Se agrego la libreria `swingx-all-1.6.5-1` para poder tipear el nombre del NPC dentro del combo.
 - Ahora se puede calcular el bonus adicional sobre la experiencia recibida usando +50%, +100% y +200%.
 - Nuevas funciones de busqueda sobre el combo de NPCs:
     - `abc` muestra los NPCs alfabeticamente.
