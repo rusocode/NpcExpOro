@@ -11,7 +11,7 @@
 
 #### Version: 1.0.0 - 2020/12/01
 
-- Migracio a Gradle.
+- Migracion a Gradle.
 - Ahora los datos (nombres, niveles, etc.) se pueden editar en los archivos **.dat** desde dentro del .jar.
 
 #### Version: 0.3.1 - 2020/08/18
