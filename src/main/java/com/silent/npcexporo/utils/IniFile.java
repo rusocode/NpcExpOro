@@ -66,32 +66,32 @@ public class IniFile {
 			srt = srt.trim(); // Si hay espacios en blanco al principio o final de la cadena, los elimina
 			if (srt.length() > 0) { // Si no es un espacio en blanco, entonces...
 				switch (srt.charAt(0)) {
-				case '#': // COMENTARIOS
-					break;
-				case '[': // SECCIONES
-					if ((corcheteCierre = srt.indexOf(']')) != -1) {
-						// Almacena la seccion que va del indice 1 al corcheteCierre sin incluirlo
-						section = srt.substring(1, corcheteCierre).toUpperCase();
-						// Si la coleccion no contiene la seccion, entonces agrega la seccion a la coleccion
-						if (!data.containsKey(section)) data.put(section, new LinkedHashMap<>());
-					}
-					break;
-				default: // PARAMETROS
-					// Si esta dentro de una seccion y hay un signo '=' en la linea, entonces...
-					if ((section != null) && (separador = srt.indexOf('=')) != -1) {
+					case '#': // COMENTARIOS
+						break;
+					case '[': // SECCIONES
+						if ((corcheteCierre = srt.indexOf(']')) != -1) {
+							// Almacena la seccion que va del indice 1 al corcheteCierre sin incluirlo
+							section = srt.substring(1, corcheteCierre).toUpperCase();
+							// Si la coleccion no contiene la seccion, entonces agrega la seccion a la coleccion
+							if (!data.containsKey(section)) data.put(section, new LinkedHashMap<>());
+						}
+						break;
+					default: // PARAMETROS
+						// Si esta dentro de una seccion y hay un signo '=' en la linea, entonces...
+						if ((section != null) && (separador = srt.indexOf('=')) != -1) {
 
-						key = srt.substring(0, separador).trim(); // FIXME Q funcionalidad tiene el metodo trim() en esta linea?
-						value = srt.substring(separador + 1, srt.length()).trim();
+							key = srt.substring(0, separador).trim(); // FIXME Q funcionalidad tiene el metodo trim() en esta linea?
+							value = srt.substring(separador + 1, srt.length()).trim();
 
-						// Si hay un comentario al final de la linea, lo quita
-						if ((comentario = value.indexOf(';')) != -1) value = value.substring(0, comentario).trim();
+							// Si hay un comentario al final de la linea, lo quita
+							if ((comentario = value.indexOf(';')) != -1) value = value.substring(0, comentario).trim();
 
-						// Recupera la seccion y agrega el par (clave, valor)
-						data.get(section).put(key, value);
+							// Recupera la seccion y agrega el par (clave, valor)
+							data.get(section).put(key, value);
 
-					}
+						}
 
-					break;
+						break;
 				}
 			}
 

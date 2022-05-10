@@ -35,7 +35,8 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class Principal extends JFrame {
 
-	@Serial private static final long serialVersionUID = -2225328319053890966L;
+	@Serial
+	private static final long serialVersionUID = -2225328319053890966L;
 
 	private JTextField txtExpPJ, txtExpNPC, txtVidaNPC, txtOroNPC, txtPorcentajeExp, txtTotalNPC, txtTotalOro;
 	private JComboBox<String> cbNivel, cbNPC, cbGrupo;
@@ -156,7 +157,7 @@ public class Principal extends JFrame {
 
 	private JPanel getAjustesPanel() {
 		JPanel panel = getPanel("Ajustes");
-		panel.setLayout(new MigLayout("fill")); // Reclama todo el espacio libre en el panel
+		panel.setLayout(new MigLayout("fill"));
 
 		tbtnGrupo = new JToggleButton("¿Estás en grupo?");
 		tbtnGrupo.addActionListener(new Oyente());
@@ -169,7 +170,7 @@ public class Principal extends JFrame {
 
 		JLabel lblGrupo = new JLabel("¿Cuántos son?");
 
-		cbGrupo = new JComboBox<>(new String[] { "2", "3", "4", "5" });
+		cbGrupo = new JComboBox<>(new String[]{"2", "3", "4", "5"});
 		cbGrupo.setSelectedIndex(-1);
 		cbGrupo.setFocusable(false);
 		cbGrupo.setEnabled(false);
@@ -355,7 +356,8 @@ public class Principal extends JFrame {
 	// FIXME Crear una clase aparte para la clase interna
 	private class Oyente implements ActionListener {
 
-		@Override public void actionPerformed(ActionEvent evt) {
+		@Override
+		public void actionPerformed(ActionEvent evt) {
 
 			if (evt.getSource() == cbNivel || evt.getSource() == cbNPC) accion0();
 			if (evt.getSource() == tbtnGrupo) accion1();

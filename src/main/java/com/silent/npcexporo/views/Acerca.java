@@ -29,7 +29,8 @@ import net.miginfocom.swing.MigLayout;
 
 public class Acerca extends JDialog {
 
-	@Serial private static final long serialVersionUID = 1L;
+	@Serial
+	private static final long serialVersionUID = 1L;
 
 	private JButton btnOk;
 
@@ -69,7 +70,8 @@ public class Acerca extends JDialog {
 		btnOk = new JButton("OK");
 		btnOk.setFocusable(false);
 		btnOk.addActionListener(evt -> {
-			if (evt.getSource() == btnOk) dispose(); // Cierra la ventana actual y libera los recursos que esa ventana haya estado ocupando
+			if (evt.getSource() == btnOk)
+				dispose(); // Cierra la ventana actual y libera los recursos que esa ventana haya estado ocupando
 		});
 		panel.add(btnOk);
 

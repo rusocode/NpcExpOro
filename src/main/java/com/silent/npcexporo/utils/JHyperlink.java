@@ -33,7 +33,8 @@ import javax.swing.JOptionPane;
 
 public class JHyperlink extends JLabel {
 
-	@Serial private static final long serialVersionUID = 1L;
+	@Serial
+	private static final long serialVersionUID = 1L;
 
 	private String url;
 
@@ -63,7 +64,8 @@ public class JHyperlink extends JLabel {
 				try {
 					desktop.browse(new URI(url));
 				} catch (URISyntaxException
-						/* Si la cadena dada viola RFC 2396, como se incrementa por las desviaciones anteriores. */ | NullPointerException
+						/* Si la cadena dada viola RFC 2396, como se incrementa por las desviaciones anteriores. */ |
+						 NullPointerException
 						/* Si la cadena es nula. */ | IOException e) {
 					JOptionPane.showMessageDialog(JHyperlink.this, "No se pudo abrir el hipervínculo. Error: " + e.getMessage(), "Error",
 							JOptionPane.ERROR_MESSAGE);
