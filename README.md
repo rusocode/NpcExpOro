@@ -24,6 +24,3 @@ Calculadora multiplataforma basada en **Argentum Online** que calcula el porcent
 Para el desarrollo sugerimos:
 - [IntelliJ IDEA](https://www.jetbrains.com/es-es/idea/)
 - JDK 15
-
-Para ejecutar:
-- [JRE 8](https://www.java.com)
