@@ -1,5 +1,9 @@
 ## Change Log (hacemos todo lo posible para adherirnos a [semantic versioning](https://semver.org/))
 
+#### Version: 1.1.7 - 2022/05/12
+
+- **FIXED**: La codificacion de los archivos .dat se pierde al construir el jar.
+
 #### Version: 1.1.0 - 2022/05/05
 
 - Se cambio el nombre del proyecto a _**NpcExpOro**_ por gusto personal.
@@ -16,7 +20,7 @@
 
 #### Version: 0.3.1 - 2020/08/18
 
-- **FIX**: Hay algunos nombres de NPCs que al tipearlos en el combo, no los encuentra.
+- **FIXED**: Hay algunos nombres de NPCs que al tipearlos en el combo, no los encuentra.
 
 #### Version: 0.3.0 - 2020/08/16
 
