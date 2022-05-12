@@ -57,9 +57,8 @@ public class Acerca extends JDialog {
 		txtArea.setBackground(SystemColor.menu);
 		txtArea.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		String str = "Calculadora multiplataforma basada en Argentum Online que calcula el porcentaje\n" +
-				"de experiencia que otorga el NPC, la cantidad de NPCs a matar y el oro total.\n" +
-
-				"v1.1\n" +
+				"de experiencia que otorga el NPC, la cantidad de NPCs a matar y el oro total.\n\n" +
+				"v1.1.1\n" +
 				"Copyright © Silent";
 		txtArea.append(str);
 		add(txtArea, "wrap");

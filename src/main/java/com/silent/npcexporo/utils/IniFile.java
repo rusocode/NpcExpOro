@@ -15,6 +15,7 @@
 package com.silent.npcexporo.utils;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -40,7 +41,7 @@ public class IniFile {
 	public void load(InputStream file) {
 		BufferedReader buffer = null;
 		try {
-			buffer = new BufferedReader(new InputStreamReader(file)); // FIXME le agrego el charset (UTF-8)?
+			buffer = new BufferedReader(new InputStreamReader(file, StandardCharsets.UTF_8)); // FIXME le agrego el charset (UTF-8)?
 			loadFromFile(buffer);
 		} catch (NullPointerException e) { // FileNotFoundException no cumplia ninguna funcionalidad
 			JOptionPane.showMessageDialog(null, "No se encontro el archivo especificado", "Error", JOptionPane.ERROR_MESSAGE);
