@@ -19,7 +19,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.InputStream;
-import java.io.Serial;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.*;
@@ -35,7 +34,6 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class Principal extends JFrame {
 
-	@Serial
 	private static final long serialVersionUID = -2225328319053890966L;
 
 	private JTextField txtExpPJ, txtExpNPC, txtVidaNPC, txtOroNPC, txtPorcentajeExp, txtTotalNPC, txtTotalOro;

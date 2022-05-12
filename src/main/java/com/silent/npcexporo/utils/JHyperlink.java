@@ -20,7 +20,6 @@ import java.awt.Desktop;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.io.Serial;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -33,7 +32,6 @@ import javax.swing.JOptionPane;
 
 public class JHyperlink extends JLabel {
 
-	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private String url;

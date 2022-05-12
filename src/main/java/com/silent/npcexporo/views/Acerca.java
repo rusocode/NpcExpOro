@@ -16,7 +16,6 @@ package com.silent.npcexporo.views;
 
 import java.awt.Font;
 import java.awt.SystemColor;
-import java.io.Serial;
 import javax.swing.*;
 
 import com.silent.npcexporo.utils.JHyperlink;
@@ -29,7 +28,6 @@ import net.miginfocom.swing.MigLayout;
 
 public class Acerca extends JDialog {
 
-	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private JButton btnOk;
@@ -58,12 +56,11 @@ public class Acerca extends JDialog {
 		txtArea.setEditable(false);
 		txtArea.setBackground(SystemColor.menu);
 		txtArea.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		String str = """
-				Calculadora multiplataforma basada en Argentum Online que calcula el porcentaje
-				de experiencia que otorga el NPC, la cantidad de NPCs a matar y el oro total.\s
+		String str = "Calculadora multiplataforma basada en Argentum Online que calcula el porcentaje\n" +
+				"de experiencia que otorga el NPC, la cantidad de NPCs a matar y el oro total.\n" +
 
-				v1.1
-				Copyright © Silent""";
+				"v1.1\n" +
+				"Copyright © Silent";
 		txtArea.append(str);
 		add(txtArea, "wrap");
 

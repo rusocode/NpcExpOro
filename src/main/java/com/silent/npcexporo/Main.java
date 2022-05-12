@@ -22,7 +22,6 @@ import com.silent.npcexporo.views.Principal;
  * @author Ruso
  */
 
-// https://stackoverflow.com/questions/65987425/what-version-of-jre-should-i-use-to-run-a-java-15-compiled-program
 public class Main {
 
 	public static void main(String[] args) throws Exception {
