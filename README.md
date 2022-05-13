@@ -3,7 +3,7 @@ Calculadora multiplataforma basada en **Argentum Online** que calcula el porcent
 
 ![](screenshot.png)
 
-[![Download NpcExpOro](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/calculadoraao/files/latest/download)
+[![Download NpcExpOro](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/npcexporo/files/latest/download)
 
 ### Características
 - Calcula el porcentaje de experiencia que otorga cada NPC dependiendo del nivel.
