@@ -12,7 +12,7 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silent.npcexporo.views;
+package com.silent.views;
 
 import java.awt.Font;
 import java.awt.Image;
@@ -24,7 +24,7 @@ import java.text.DecimalFormat;
 import java.util.*;
 import javax.swing.*;
 
-import com.silent.npcexporo.utils.IniFile;
+import com.silent.utils.IniFile;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 

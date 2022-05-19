@@ -12,11 +12,11 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silent.npcexporo;
+package com.silent;
 
 import javax.swing.UIManager;
 
-import com.silent.npcexporo.views.Principal;
+import com.silent.views.Principal;
 
 /**
  * @author Ruso

@@ -12,13 +12,13 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silent.npcexporo.views;
+package com.silent.views;
 
 import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.*;
 
-import com.silent.npcexporo.utils.JHyperlink;
+import com.silent.utils.JHyperlink;
 
 import net.miginfocom.swing.MigLayout;
 

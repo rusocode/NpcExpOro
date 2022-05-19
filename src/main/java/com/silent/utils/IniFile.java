@@ -12,7 +12,7 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silent.npcexporo.utils;
+package com.silent.utils;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
