@@ -1,5 +1,5 @@
 /**
- * NpcExpOro Copyright (C) Silent
+ * NpcExpOro Copyright (C) Craivet
  * <p>
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
@@ -12,7 +12,7 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silent.npcexporo.views;
+package com.craivet.views;
 
 import java.awt.Font;
 import java.awt.Image;
@@ -24,7 +24,7 @@ import java.text.DecimalFormat;
 import java.util.*;
 import javax.swing.*;
 
-import com.silent.npcexporo.utils.IniFile;
+import com.craivet.utils.IniFile;
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 

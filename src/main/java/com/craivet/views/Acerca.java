@@ -1,5 +1,5 @@
 /**
- * NpcExpOro Copyright (C) Silent
+ * NpcExpOro Copyright (C) Craivet
  * <p>
  * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public
  * License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later
@@ -12,13 +12,13 @@
  * <<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>>.
  */
 
-package com.silent.npcexporo.views;
+package com.craivet.views;
 
 import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.*;
 
-import com.silent.npcexporo.utils.JHyperlink;
+import com.craivet.utils.JHyperlink;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -59,7 +59,7 @@ public class Acerca extends JDialog {
 		String str = "Calculadora multiplataforma basada en Argentum Online que calcula el porcentaje\n" +
 				"de experiencia que otorga el NPC, la cantidad de NPCs a matar y el oro total.\n\n" +
 				"v1.1.7\n" +
-				"Copyright © Silent";
+				"Copyright © Craivet";
 		txtArea.append(str);
 		add(txtArea, "wrap");
 

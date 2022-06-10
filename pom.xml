@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Definicion del artefacto -->
-    <groupId>com.silent</groupId>
+    <groupId>com.craivet</groupId>
     <artifactId>npcexporo</artifactId>
     <version>1.1.7</version>
     <name>NpcExpOro</name>
