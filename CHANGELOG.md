@@ -9,7 +9,7 @@
 - Se cambio el nombre del proyecto a _**NpcExpOro**_ por gusto personal.
 - Se volvio a implementar Maven.
 - Se mejoro el rendimiento de la aplicacion usando JDK 15.
-- Se reemplazo la libreria `miglayout-3.7.4` por `miglayout-swing-5.1` haciedola mas ligera, ya que la anterior venia con paquetes que no se
+- Se reemplazo la libreria `miglayout-3.7.4` por `miglayout-swing-5.1` (mas ligera), ya que la anterior venia con paquetes que no se
   usaban.
   - Esta libreria necesita de `miglayout-core:5.1`, por lo tanto se importa automaticamente.
 

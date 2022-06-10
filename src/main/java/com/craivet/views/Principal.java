@@ -25,6 +25,7 @@ import java.util.*;
 import javax.swing.*;
 
 import com.craivet.utils.IniFile;
+
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
